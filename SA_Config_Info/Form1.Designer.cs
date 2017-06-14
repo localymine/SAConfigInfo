@@ -40,12 +40,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.radioButton9 = new System.Windows.Forms.RadioButton();
-            this.radioButton8 = new System.Windows.Forms.RadioButton();
-            this.radioButton7 = new System.Windows.Forms.RadioButton();
-            this.radioButton6 = new System.Windows.Forms.RadioButton();
-            this.radioButton5 = new System.Windows.Forms.RadioButton();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
+            this.rd4K = new System.Windows.Forms.RadioButton();
+            this.rdHD1080p = new System.Windows.Forms.RadioButton();
+            this.rdHD720p = new System.Windows.Forms.RadioButton();
+            this.rdSD480pwide = new System.Windows.Forms.RadioButton();
+            this.rdSD480p = new System.Windows.Forms.RadioButton();
+            this.rdPreview = new System.Windows.Forms.RadioButton();
             this.label12 = new System.Windows.Forms.Label();
             this.txtSAPassword = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -113,6 +113,7 @@
             this.txtUserID.Name = "txtUserID";
             this.txtUserID.Size = new System.Drawing.Size(253, 20);
             this.txtUserID.TabIndex = 6;
+            this.txtUserID.Text = "sa";
             // 
             // label3
             // 
@@ -129,15 +130,16 @@
             this.txtCatalog.Name = "txtCatalog";
             this.txtCatalog.Size = new System.Drawing.Size(253, 20);
             this.txtCatalog.TabIndex = 5;
+            this.txtCatalog.Text = "GMA_DB_PROD";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(7, 57);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(43, 13);
+            this.label2.Size = new System.Drawing.Size(70, 13);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Catalog";
+            this.label2.Text = "Initial Catalog";
             // 
             // txtDataSource
             // 
@@ -145,6 +147,7 @@
             this.txtDataSource.Name = "txtDataSource";
             this.txtDataSource.Size = new System.Drawing.Size(253, 20);
             this.txtDataSource.TabIndex = 4;
+            this.txtDataSource.Text = "WEBSERVER001\\SQLEXPRESS";
             // 
             // label1
             // 
@@ -177,82 +180,82 @@
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.radioButton9);
-            this.panel2.Controls.Add(this.radioButton8);
-            this.panel2.Controls.Add(this.radioButton7);
-            this.panel2.Controls.Add(this.radioButton6);
-            this.panel2.Controls.Add(this.radioButton5);
-            this.panel2.Controls.Add(this.radioButton4);
+            this.panel2.Controls.Add(this.rd4K);
+            this.panel2.Controls.Add(this.rdHD1080p);
+            this.panel2.Controls.Add(this.rdHD720p);
+            this.panel2.Controls.Add(this.rdSD480pwide);
+            this.panel2.Controls.Add(this.rdSD480p);
+            this.panel2.Controls.Add(this.rdPreview);
             this.panel2.Location = new System.Drawing.Point(80, 137);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(253, 51);
             this.panel2.TabIndex = 12;
             // 
-            // radioButton9
+            // rd4K
             // 
-            this.radioButton9.AutoSize = true;
-            this.radioButton9.Location = new System.Drawing.Point(176, 27);
-            this.radioButton9.Name = "radioButton9";
-            this.radioButton9.Size = new System.Drawing.Size(38, 17);
-            this.radioButton9.TabIndex = 5;
-            this.radioButton9.TabStop = true;
-            this.radioButton9.Text = "4K";
-            this.radioButton9.UseVisualStyleBackColor = true;
+            this.rd4K.AutoSize = true;
+            this.rd4K.Location = new System.Drawing.Point(176, 27);
+            this.rd4K.Name = "rd4K";
+            this.rd4K.Size = new System.Drawing.Size(38, 17);
+            this.rd4K.TabIndex = 5;
+            this.rd4K.TabStop = true;
+            this.rd4K.Text = "4K";
+            this.rd4K.UseVisualStyleBackColor = true;
             // 
-            // radioButton8
+            // rdHD1080p
             // 
-            this.radioButton8.AutoSize = true;
-            this.radioButton8.Location = new System.Drawing.Point(76, 27);
-            this.radioButton8.Name = "radioButton8";
-            this.radioButton8.Size = new System.Drawing.Size(93, 17);
-            this.radioButton8.TabIndex = 4;
-            this.radioButton8.TabStop = true;
-            this.radioButton8.Text = "Full HD 1080p";
-            this.radioButton8.UseVisualStyleBackColor = true;
+            this.rdHD1080p.AutoSize = true;
+            this.rdHD1080p.Location = new System.Drawing.Point(76, 27);
+            this.rdHD1080p.Name = "rdHD1080p";
+            this.rdHD1080p.Size = new System.Drawing.Size(93, 17);
+            this.rdHD1080p.TabIndex = 4;
+            this.rdHD1080p.TabStop = true;
+            this.rdHD1080p.Text = "Full HD 1080p";
+            this.rdHD1080p.UseVisualStyleBackColor = true;
             // 
-            // radioButton7
+            // rdHD720p
             // 
-            this.radioButton7.AutoSize = true;
-            this.radioButton7.Location = new System.Drawing.Point(4, 27);
-            this.radioButton7.Name = "radioButton7";
-            this.radioButton7.Size = new System.Drawing.Size(65, 17);
-            this.radioButton7.TabIndex = 3;
-            this.radioButton7.TabStop = true;
-            this.radioButton7.Text = "HD720p";
-            this.radioButton7.UseVisualStyleBackColor = true;
+            this.rdHD720p.AutoSize = true;
+            this.rdHD720p.Location = new System.Drawing.Point(4, 27);
+            this.rdHD720p.Name = "rdHD720p";
+            this.rdHD720p.Size = new System.Drawing.Size(65, 17);
+            this.rdHD720p.TabIndex = 3;
+            this.rdHD720p.TabStop = true;
+            this.rdHD720p.Text = "HD720p";
+            this.rdHD720p.UseVisualStyleBackColor = true;
             // 
-            // radioButton6
+            // rdSD480pwide
             // 
-            this.radioButton6.AutoSize = true;
-            this.radioButton6.Location = new System.Drawing.Point(145, 3);
-            this.radioButton6.Name = "radioButton6";
-            this.radioButton6.Size = new System.Drawing.Size(86, 17);
-            this.radioButton6.TabIndex = 2;
-            this.radioButton6.TabStop = true;
-            this.radioButton6.Text = "SD480pwide";
-            this.radioButton6.UseVisualStyleBackColor = true;
+            this.rdSD480pwide.AutoSize = true;
+            this.rdSD480pwide.Location = new System.Drawing.Point(145, 3);
+            this.rdSD480pwide.Name = "rdSD480pwide";
+            this.rdSD480pwide.Size = new System.Drawing.Size(86, 17);
+            this.rdSD480pwide.TabIndex = 2;
+            this.rdSD480pwide.TabStop = true;
+            this.rdSD480pwide.Text = "SD480pwide";
+            this.rdSD480pwide.UseVisualStyleBackColor = true;
             // 
-            // radioButton5
+            // rdSD480p
             // 
-            this.radioButton5.AutoSize = true;
-            this.radioButton5.Location = new System.Drawing.Point(74, 3);
-            this.radioButton5.Name = "radioButton5";
-            this.radioButton5.Size = new System.Drawing.Size(64, 17);
-            this.radioButton5.TabIndex = 1;
-            this.radioButton5.TabStop = true;
-            this.radioButton5.Text = "SD480p";
-            this.radioButton5.UseVisualStyleBackColor = true;
+            this.rdSD480p.AutoSize = true;
+            this.rdSD480p.Location = new System.Drawing.Point(74, 3);
+            this.rdSD480p.Name = "rdSD480p";
+            this.rdSD480p.Size = new System.Drawing.Size(64, 17);
+            this.rdSD480p.TabIndex = 1;
+            this.rdSD480p.TabStop = true;
+            this.rdSD480p.Text = "SD480p";
+            this.rdSD480p.UseVisualStyleBackColor = true;
             // 
-            // radioButton4
+            // rdPreview
             // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(4, 3);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(63, 17);
-            this.radioButton4.TabIndex = 0;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.Text = "Preview";
-            this.radioButton4.UseVisualStyleBackColor = true;
+            this.rdPreview.AutoSize = true;
+            this.rdPreview.Location = new System.Drawing.Point(4, 3);
+            this.rdPreview.Name = "rdPreview";
+            this.rdPreview.Size = new System.Drawing.Size(63, 17);
+            this.rdPreview.TabIndex = 0;
+            this.rdPreview.TabStop = true;
+            this.rdPreview.Text = "Preview";
+            this.rdPreview.UseVisualStyleBackColor = true;
             // 
             // label12
             // 
@@ -504,12 +507,12 @@
         private System.Windows.Forms.Button btnImport;
         private System.Windows.Forms.Button btnExport;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.RadioButton radioButton9;
-        private System.Windows.Forms.RadioButton radioButton8;
-        private System.Windows.Forms.RadioButton radioButton7;
-        private System.Windows.Forms.RadioButton radioButton6;
-        private System.Windows.Forms.RadioButton radioButton5;
-        private System.Windows.Forms.RadioButton radioButton4;
+        private System.Windows.Forms.RadioButton rd4K;
+        private System.Windows.Forms.RadioButton rdHD1080p;
+        private System.Windows.Forms.RadioButton rdHD720p;
+        private System.Windows.Forms.RadioButton rdSD480pwide;
+        private System.Windows.Forms.RadioButton rdSD480p;
+        private System.Windows.Forms.RadioButton rdPreview;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox txtSAPassword;
         private System.Windows.Forms.Label label11;

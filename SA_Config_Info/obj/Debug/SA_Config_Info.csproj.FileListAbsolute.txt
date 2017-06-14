@@ -1,0 +1,9 @@
+c:\users\khang.ld\documents\visual studio 2017\Projects\SA_Config_Info\SA_Config_Info\bin\Debug\SACI.exe.config
+c:\users\khang.ld\documents\visual studio 2017\Projects\SA_Config_Info\SA_Config_Info\bin\Debug\SACI.exe
+c:\users\khang.ld\documents\visual studio 2017\Projects\SA_Config_Info\SA_Config_Info\bin\Debug\SACI.pdb
+c:\users\khang.ld\documents\visual studio 2017\Projects\SA_Config_Info\SA_Config_Info\obj\Debug\SA_Config_Info.csprojResolveAssemblyReference.cache
+c:\users\khang.ld\documents\visual studio 2017\Projects\SA_Config_Info\SA_Config_Info\obj\Debug\SA_Config_Info.Form1.resources
+c:\users\khang.ld\documents\visual studio 2017\Projects\SA_Config_Info\SA_Config_Info\obj\Debug\SA_Config_Info.Properties.Resources.resources
+c:\users\khang.ld\documents\visual studio 2017\Projects\SA_Config_Info\SA_Config_Info\obj\Debug\SA_Config_Info.csproj.GenerateResource.Cache
+c:\users\khang.ld\documents\visual studio 2017\Projects\SA_Config_Info\SA_Config_Info\obj\Debug\SACI.exe
+c:\users\khang.ld\documents\visual studio 2017\Projects\SA_Config_Info\SA_Config_Info\obj\Debug\SACI.pdb

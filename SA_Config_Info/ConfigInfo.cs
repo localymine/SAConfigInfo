@@ -33,6 +33,25 @@ namespace SA_Config_Info
         public string Catalog;
         public string UserID;
         public string Password;
+
+        private string _connectionString;
+        public string ConnectionString
+        {
+            get
+            {
+                return _connectionString;
+            }
+            set
+            {
+                string connection = "metadata=res://*/User.csdl|res://*/User.ssdl|res://*/User.msl;provider=System.Data.SqlClient;provider connection string=&quot;"
+                    + "data source =" + DataSource
+                    + ";initial catalog=" + Catalog
+                    + ";persist security info=True;user id=" + UserID
+                    + ";password=" + Password
+                    + ";MultipleActiveResultSets=True;App=EntityFramework&quot;";
+                _connectionString = connection;
+            }
+        }
     }
 
     public class StandAloneInfo
@@ -42,8 +61,19 @@ namespace SA_Config_Info
         public string IPAddress;
         public string UserName;
         public string Password;
+        public string ServicePath;
+
+        public string WatchFolderRoot;
+        [XmlArrayAttribute("Paths")]
+        public WatchFolder[] WatchFolderPaths;
 
         public SAMachine SAMachine;
+    }
+
+    public class WatchFolder
+    {
+        public string Path;
+        public string NetworkPath;
     }
 
     public class SAMachine
@@ -52,12 +82,57 @@ namespace SA_Config_Info
         public string Mission;
         [XmlAttribute]
         public string Resolution;
+
+        public string MachineName;
+        public string Author;
         public string Type;
         public string Encoder;
+        public string AdobeVersion;
+
+        public string AEPath;
+        public string AEScriptPath;
+        public string MEPath;
     }
 
     public class SADefination
     {
+        private static List<KeyValuePair<string, string>> KvpAdobeVersion = new List<KeyValuePair<string, string>>()
+        {
+            new KeyValuePair<string, string>("rdCC2015", "CC2015"),
+            new KeyValuePair<string, string>("rdCC2017", "CC2017"),
+        };
+
+        public static List<string> GetAdobeVersionByKey(string filterByKey)
+        {
+            return KvpAdobeVersion.Where(i => i.Key == filterByKey).Select(i => i.Value).ToList();
+        }
+
+        public static string GetAdobeVersionByValue(string filterByValue)
+        {
+            foreach (KeyValuePair<string, string> pair in KvpAdobeVersion)
+            {
+                if (pair.Value == filterByValue)
+                {
+                    return pair.Key;
+                }
+            }
+            return "";
+        }
+
+        private string _AdobeVersion;
+        public string AdobeVersion
+        {
+            get
+            {
+                return _AdobeVersion;
+            }
+            set
+            {
+                List<string> version = GetAdobeVersionByKey(value);
+                _AdobeVersion = version[0];
+            }
+        }
+
         private static List<KeyValuePair<string, string[]>> KvpMission = new List<KeyValuePair<string, string[]>>()
         {
             new KeyValuePair<string, string[]>("rdAE", new string[] { "AE", "0" }),
@@ -164,6 +239,52 @@ namespace SA_Config_Info
                 List<string[]> list = GetResolutionByKey(value);
                 _encoder = list[0][1];
             }
+        }
+    }
+
+    public class Configuration
+    {
+        public static ConfigInfo Info;
+        public static void GetConfigInfo(string fileName)
+        {
+            try
+            {
+                XmlSerializer serializer = new XmlSerializer(typeof(ConfigInfo));
+                serializer.UnknownNode += new XmlNodeEventHandler(serializer_UnknownNode);
+                serializer.UnknownAttribute += new XmlAttributeEventHandler(serializer_UnknownAttribute);
+
+                if (File.Exists(Path.Combine(Environment.CurrentDirectory, fileName)))
+                {
+                    FileStream fs = new FileStream(fileName, FileMode.Open);
+
+                    if (fs.Length > 0)
+                    {
+                        
+                        Info = (ConfigInfo)serializer.Deserialize(fs);
+                    }
+                    //
+                    fs.Close();
+                }
+                else
+                {
+                    Info = null;
+                }
+            }
+            catch (IOException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
+        private static void serializer_UnknownNode(object sender, XmlNodeEventArgs e)
+        {
+            Console.WriteLine("Unknown Node:" + e.Name + "\t" + e.Text);
+        }
+
+        private static void serializer_UnknownAttribute(object sender, XmlAttributeEventArgs e)
+        {
+            System.Xml.XmlAttribute attr = e.Attr;
+            Console.WriteLine("Unknown attribute " + attr.Name + "='" + attr.Value + "'");
         }
     }
 }

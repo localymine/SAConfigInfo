@@ -39,6 +39,10 @@
             this.txtDataSource = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.rdCC2017 = new System.Windows.Forms.RadioButton();
+            this.rdCC2015 = new System.Windows.Forms.RadioButton();
+            this.label13 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.rd4K = new System.Windows.Forms.RadioButton();
             this.rdHD1080p = new System.Windows.Forms.RadioButton();
@@ -67,8 +71,13 @@
             this.label7 = new System.Windows.Forms.Label();
             this.btnImport = new System.Windows.Forms.Button();
             this.btnExport = new System.Windows.Forms.Button();
+            this.btnSVPathBrowser = new System.Windows.Forms.Label();
+            this.txtServicePath = new System.Windows.Forms.TextBox();
+            this.btnWatchBrowser = new System.Windows.Forms.Label();
+            this.txtWatchFolderRoot = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -147,7 +156,7 @@
             this.txtDataSource.Name = "txtDataSource";
             this.txtDataSource.Size = new System.Drawing.Size(253, 20);
             this.txtDataSource.TabIndex = 4;
-            this.txtDataSource.Text = "WEBSERVER001\\SQLEXPRESS";
+            this.txtDataSource.Text = ".\\SQLEXPRESS";
             // 
             // label1
             // 
@@ -160,6 +169,12 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.txtWatchFolderRoot);
+            this.groupBox2.Controls.Add(this.btnWatchBrowser);
+            this.groupBox2.Controls.Add(this.txtServicePath);
+            this.groupBox2.Controls.Add(this.btnSVPathBrowser);
+            this.groupBox2.Controls.Add(this.panel3);
+            this.groupBox2.Controls.Add(this.label13);
             this.groupBox2.Controls.Add(this.panel2);
             this.groupBox2.Controls.Add(this.label12);
             this.groupBox2.Controls.Add(this.txtSAPassword);
@@ -172,10 +187,51 @@
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Location = new System.Drawing.Point(12, 277);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(339, 200);
+            this.groupBox2.Size = new System.Drawing.Size(339, 288);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "SA Information";
+            // 
+            // panel3
+            // 
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.rdCC2017);
+            this.panel3.Controls.Add(this.rdCC2015);
+            this.panel3.Location = new System.Drawing.Point(80, 158);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(253, 26);
+            this.panel3.TabIndex = 13;
+            // 
+            // rdCC2017
+            // 
+            this.rdCC2017.AutoSize = true;
+            this.rdCC2017.Location = new System.Drawing.Point(92, 4);
+            this.rdCC2017.Name = "rdCC2017";
+            this.rdCC2017.Size = new System.Drawing.Size(66, 17);
+            this.rdCC2017.TabIndex = 1;
+            this.rdCC2017.TabStop = true;
+            this.rdCC2017.Text = "CC 2017";
+            this.rdCC2017.UseVisualStyleBackColor = true;
+            // 
+            // rdCC2015
+            // 
+            this.rdCC2015.AutoSize = true;
+            this.rdCC2015.Location = new System.Drawing.Point(4, 4);
+            this.rdCC2015.Name = "rdCC2015";
+            this.rdCC2015.Size = new System.Drawing.Size(66, 17);
+            this.rdCC2015.TabIndex = 0;
+            this.rdCC2015.TabStop = true;
+            this.rdCC2015.Text = "CC 2015";
+            this.rdCC2015.UseVisualStyleBackColor = true;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(7, 163);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(60, 13);
+            this.label13.TabIndex = 13;
+            this.label13.Text = "Adobe Ver.";
             // 
             // panel2
             // 
@@ -186,10 +242,10 @@
             this.panel2.Controls.Add(this.rdSD480pwide);
             this.panel2.Controls.Add(this.rdSD480p);
             this.panel2.Controls.Add(this.rdPreview);
-            this.panel2.Location = new System.Drawing.Point(80, 137);
+            this.panel2.Location = new System.Drawing.Point(80, 225);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(253, 51);
-            this.panel2.TabIndex = 12;
+            this.panel2.TabIndex = 15;
             // 
             // rd4K
             // 
@@ -260,7 +316,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(7, 141);
+            this.label12.Location = new System.Drawing.Point(7, 229);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(47, 13);
             this.label12.TabIndex = 8;
@@ -304,10 +360,10 @@
             this.panel1.Controls.Add(this.rdBoth);
             this.panel1.Controls.Add(this.rdME);
             this.panel1.Controls.Add(this.rdAE);
-            this.panel1.Location = new System.Drawing.Point(80, 104);
+            this.panel1.Location = new System.Drawing.Point(80, 192);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(253, 26);
-            this.panel1.TabIndex = 11;
+            this.panel1.TabIndex = 14;
             // 
             // rdBoth
             // 
@@ -345,7 +401,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 110);
+            this.label6.Location = new System.Drawing.Point(6, 198);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(48, 13);
             this.label6.TabIndex = 2;
@@ -432,29 +488,62 @@
             // 
             // btnImport
             // 
-            this.btnImport.Location = new System.Drawing.Point(12, 485);
+            this.btnImport.Location = new System.Drawing.Point(12, 571);
             this.btnImport.Name = "btnImport";
             this.btnImport.Size = new System.Drawing.Size(168, 23);
-            this.btnImport.TabIndex = 13;
+            this.btnImport.TabIndex = 16;
             this.btnImport.Text = "Import SA Info";
             this.btnImport.UseVisualStyleBackColor = true;
             this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
             // 
             // btnExport
             // 
-            this.btnExport.Location = new System.Drawing.Point(183, 485);
+            this.btnExport.Location = new System.Drawing.Point(183, 571);
             this.btnExport.Name = "btnExport";
             this.btnExport.Size = new System.Drawing.Size(168, 23);
-            this.btnExport.TabIndex = 14;
+            this.btnExport.TabIndex = 17;
             this.btnExport.Text = "Export SA Info";
             this.btnExport.UseVisualStyleBackColor = true;
             this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
+            // 
+            // btnSVPathBrowser
+            // 
+            this.btnSVPathBrowser.AutoSize = true;
+            this.btnSVPathBrowser.Location = new System.Drawing.Point(6, 108);
+            this.btnSVPathBrowser.Name = "btnSVPathBrowser";
+            this.btnSVPathBrowser.Size = new System.Drawing.Size(68, 13);
+            this.btnSVPathBrowser.TabIndex = 15;
+            this.btnSVPathBrowser.Text = "Service Path";
+            this.btnSVPathBrowser.Click += new System.EventHandler(this.btnSVPathBrowser_Click);
+            // 
+            // txtServicePath
+            // 
+            this.txtServicePath.Location = new System.Drawing.Point(80, 105);
+            this.txtServicePath.Name = "txtServicePath";
+            this.txtServicePath.Size = new System.Drawing.Size(253, 20);
+            this.txtServicePath.TabIndex = 11;
+            // 
+            // btnWatchBrowser
+            // 
+            this.btnWatchBrowser.Location = new System.Drawing.Point(7, 132);
+            this.btnWatchBrowser.Name = "btnWatchBrowser";
+            this.btnWatchBrowser.Size = new System.Drawing.Size(67, 30);
+            this.btnWatchBrowser.TabIndex = 17;
+            this.btnWatchBrowser.Text = "Watch Folder Path";
+            this.btnWatchBrowser.Click += new System.EventHandler(this.btnWatchBrowser_Click);
+            // 
+            // txtWatchFolderRoot
+            // 
+            this.txtWatchFolderRoot.Location = new System.Drawing.Point(80, 132);
+            this.txtWatchFolderRoot.Name = "txtWatchFolderRoot";
+            this.txtWatchFolderRoot.Size = new System.Drawing.Size(253, 20);
+            this.txtWatchFolderRoot.TabIndex = 12;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(365, 518);
+            this.ClientSize = new System.Drawing.Size(365, 603);
             this.Controls.Add(this.btnExport);
             this.Controls.Add(this.btnImport);
             this.Controls.Add(this.groupBox3);
@@ -466,10 +555,13 @@
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SA Configuration Information";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -520,6 +612,14 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtSCPassword;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.RadioButton rdCC2017;
+        private System.Windows.Forms.RadioButton rdCC2015;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox txtServicePath;
+        private System.Windows.Forms.Label btnSVPathBrowser;
+        private System.Windows.Forms.TextBox txtWatchFolderRoot;
+        private System.Windows.Forms.Label btnWatchBrowser;
     }
 }
 

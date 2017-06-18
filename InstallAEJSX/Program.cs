@@ -38,6 +38,7 @@ namespace InstallAEJSX
                 }
                 Console.WriteLine("Succesfully Configurate ME Watch Folder!");
                 Console.WriteLine("In order to intergrate with ME, Please Set up manually.");
+                Console.WriteLine("Reference: https://helpx.adobe.com/media-encoder/how-to/create-watch-folder.html");
             }
             Console.ReadKey();
         }

@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SA_Config_Info", "SA_Config
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InstallAEJSX", "InstallAEJSX\InstallAEJSX.csproj", "{C250B1E4-5AD3-4FF5-B4FF-4C889C08E65F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InstallationWizard", "InstallationWizard\InstallationWizard.csproj", "{529B5082-F478-464C-9585-AB5553C82D06}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -22,6 +24,10 @@ Global
 		{C250B1E4-5AD3-4FF5-B4FF-4C889C08E65F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C250B1E4-5AD3-4FF5-B4FF-4C889C08E65F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C250B1E4-5AD3-4FF5-B4FF-4C889C08E65F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{529B5082-F478-464C-9585-AB5553C82D06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{529B5082-F478-464C-9585-AB5553C82D06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{529B5082-F478-464C-9585-AB5553C82D06}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{529B5082-F478-464C-9585-AB5553C82D06}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

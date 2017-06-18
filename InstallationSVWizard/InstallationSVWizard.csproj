@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{529B5082-F478-464C-9585-AB5553C82D06}</ProjectGuid>
+    <ProjectGuid>{8CB7C4B5-7CE9-42E7-94BC-C1223AA3C484}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>InstallationWizard</RootNamespace>
-    <AssemblyName>InstallationWizard</AssemblyName>
+    <RootNamespace>InstallationSVWizard</RootNamespace>
+    <AssemblyName>InstallationSVWizard</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -35,8 +35,7 @@
     <ApplicationIcon>growmovie.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ConfigInfo, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="ConfigInfo">
       <HintPath>..\SA_Config_Info\ConfigInfo.DLL</HintPath>
     </Reference>
     <Reference Include="System" />
@@ -64,12 +63,6 @@
     <Compile Include="Form2.Designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form3.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form3.Designer.cs">
-      <DependentUpon>Form3.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -77,9 +70,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Form3.resx">
-      <DependentUpon>Form3.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -104,21 +94,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadata Include="Connected Services\" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\InstallAEJSX\InstallAEJSX.csproj">
-      <Project>{c250b1e4-5ad3-4ff5-b4ff-4c889c08e65f}</Project>
-      <Name>InstallAEJSX</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\InstallationSVWizard\InstallationSVWizard.csproj">
-      <Project>{8cb7c4b5-7ce9-42e7-94bc-c1223aa3c484}</Project>
-      <Name>InstallationSVWizard</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\InstallCronJob\InstallCronJob.csproj">
-      <Project>{872fbd92-c825-4ad2-86fe-441cc4a9b868}</Project>
-      <Name>InstallCronJob</Name>
-    </ProjectReference>
     <ProjectReference Include="..\InstallSVCronJob\InstallSVCronJob.csproj">
       <Project>{72a5391a-d8ec-44cd-bee2-4cc873c294a2}</Project>
       <Name>InstallSVCronJob</Name>

@@ -4,6 +4,7 @@ using System.Xml.Serialization;
 using System.IO;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace SA_Config_Info
 {
@@ -23,6 +24,7 @@ namespace SA_Config_Info
         public string IPAddress;
         public string UserName;
         public string Password;
+        public string ServicePath;
 
         public SQLServer SQLServer;
     }
@@ -50,6 +52,24 @@ namespace SA_Config_Info
                     + ";password=" + Password
                     + ";MultipleActiveResultSets=True;App=EntityFramework&quot;";
                 _connectionString = connection;
+            }
+        }
+
+        private string _appSettingValue;
+        public string AppSettingValue
+        {
+            get
+            {
+                return _appSettingValue;
+            }
+            set
+            {
+                string settingValue = ""
+                    + "data source=" + DataSource
+                    + ";initial catalog=" + Catalog
+                    + ";persist security info=True;User ID=" + UserID
+                    + ";Password=" + Password + ";";
+                _appSettingValue = settingValue;
             }
         }
     }
@@ -285,6 +305,30 @@ namespace SA_Config_Info
         {
             System.Xml.XmlAttribute attr = e.Attr;
             Console.WriteLine("Unknown attribute " + attr.Name + "='" + attr.Value + "'");
+        }
+    }
+
+    public class Common
+    {
+        public static void CopyAll(string SourcePath, string DestinationPath)
+        {
+
+            string[] directories = System.IO.Directory.GetDirectories(SourcePath, "*.*", SearchOption.AllDirectories);
+
+            if (!Directory.Exists(DestinationPath))
+                Directory.CreateDirectory(DestinationPath);
+
+            Parallel.ForEach(directories, dirPath =>
+            {
+                Directory.CreateDirectory(dirPath.Replace(SourcePath, DestinationPath));
+            });
+
+            string[] files = System.IO.Directory.GetFiles(SourcePath, "*.*", SearchOption.AllDirectories);
+
+            Parallel.ForEach(files, newPath =>
+            {
+                File.Copy(newPath, newPath.Replace(SourcePath, DestinationPath), true);
+            });
         }
     }
 }

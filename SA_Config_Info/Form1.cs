@@ -1,12 +1,15 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.Data;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net.NetworkInformation;
 using System.Net.Sockets;
+using System.Threading;
 using System.Windows.Forms;
 using System.Xml.Serialization;
+using static System.Windows.Forms.AxHost;
 
 namespace SA_Config_Info
 {
@@ -28,6 +31,8 @@ namespace SA_Config_Info
             InitializeComponent();
             //
 
+            lbRegion.Text = RegionInfo.CurrentRegion.Name;
+
             if (GetLocalIPv4(NetworkInterfaceType.Ethernet) != "")
             {
                 txtSAIPAddress.Text = GetLocalIPv4(NetworkInterfaceType.Ethernet);
@@ -47,6 +52,7 @@ namespace SA_Config_Info
                 txtSCIPAddress.Text = ci.ServerInfo.IPAddress;
                 txtSCUserName.Text = ci.ServerInfo.UserName;
                 txtSCPassword.Text = ci.ServerInfo.Password;
+                txtSVServicePath.Text = ci.ServerInfo.ServicePath;
                 txtDataSource.Text = ci.ServerInfo.SQLServer.DataSource;
                 txtCatalog.Text = ci.ServerInfo.SQLServer.Catalog;
                 txtUserID.Text = ci.ServerInfo.SQLServer.UserID;
@@ -54,7 +60,7 @@ namespace SA_Config_Info
                 txtSAIPAddress.Text = ci.StandAloneInfo.IPAddress;
                 txtSAUserName.Text = ci.StandAloneInfo.UserName;
                 txtSAPassword.Text = ci.StandAloneInfo.Password;
-                txtServicePath.Text = ci.StandAloneInfo.ServicePath;
+                txtSAServicePath.Text = ci.StandAloneInfo.ServicePath;
                 txtWatchFolderRoot.Text = ci.StandAloneInfo.WatchFolderRoot;
 
                 SARadioTypeReflect(ci.StandAloneInfo.SAMachine);
@@ -77,6 +83,7 @@ namespace SA_Config_Info
                 si.IPAddress = txtSCIPAddress.Text;
                 si.UserName = txtSCUserName.Text;
                 si.Password = txtSCPassword.Text;
+                si.ServicePath = txtSVServicePath.Text;
 
                 // set ServerInfo and si to the same values
                 ci.ServerInfo = si;
@@ -88,6 +95,7 @@ namespace SA_Config_Info
                 ss.UserID = txtUserID.Text;
                 ss.Password = txtPassword.Text;
                 ss.ConnectionString = "";
+                ss.AppSettingValue = "";
 
                 // set SQLServer and ss to the same values
                 si.SQLServer = ss;
@@ -98,7 +106,7 @@ namespace SA_Config_Info
                 sa.IPAddress = txtSAIPAddress.Text;
                 sa.UserName = txtSAUserName.Text;
                 sa.Password = txtSAPassword.Text;
-                sa.ServicePath = txtServicePath.Text;
+                sa.ServicePath = txtSAServicePath.Text;
                 sa.WatchFolderRoot = txtWatchFolderRoot.Text;
 
                 WatchFolder[] watchFolderPaths = new WatchFolder[7];
@@ -271,13 +279,13 @@ namespace SA_Config_Info
             Application.ExitThread();
         }
 
-        private void btnSVPathBrowser_Click(object sender, EventArgs e)
+        private void btnSAServicePathBrowser_Click(object sender, EventArgs e)
         {
             using (FolderBrowserDialog fbd = new FolderBrowserDialog())
             {
                 if(fbd.ShowDialog() == DialogResult.OK)
                 {
-                    txtServicePath.Text = fbd.SelectedPath;
+                    txtSAServicePath.Text = fbd.SelectedPath;
                 }
             }
         }
@@ -289,6 +297,17 @@ namespace SA_Config_Info
                 if (fbd.ShowDialog() == DialogResult.OK)
                 {
                     txtWatchFolderRoot.Text = fbd.SelectedPath;
+                }
+            }
+        }
+
+        private void btnSVServicePathBrowser_Click(object sender, EventArgs e)
+        {
+            using (FolderBrowserDialog fbd = new FolderBrowserDialog())
+            {
+                if (fbd.ShowDialog() == DialogResult.OK)
+                {
+                    txtSVServicePath.Text = fbd.SelectedPath;
                 }
             }
         }

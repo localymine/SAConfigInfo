@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using SA_Config_Info;
 using System.IO;
 
@@ -12,29 +8,52 @@ namespace InstallCronJob
     {
         static void Main(string[] args)
         {
-            Configuration.GetConfigInfo("ConfigInfo.xml");
-            if (Configuration.Info != null)
+            try
             {
-                string sourcePath = Path.Combine(Environment.CurrentDirectory, "WindowsService");
-                string targetPath = Path.Combine(Configuration.Info.StandAloneInfo.ServicePath, "WindowsService");
-
-                if (Directory.Exists(sourcePath))
+                Configuration.GetConfigInfo("ConfigInfo.xml");
+                if (Configuration.Info != null)
                 {
-                    if (!Directory.Exists(targetPath))
-                    {
-                        Directory.CreateDirectory(targetPath);
-                    }
-                    //foreach (string srcPath in Directory.GetFiles(sourcePath))
-                    //{
-                    //    File.Copy(srcPath, srcPath.Replace(sourcePath, targetPath), true);
-                    //}
-                    //Console.WriteLine("Succesfully Install Cron Job!");
-                }
+                    string sourcePath = Path.Combine(Environment.CurrentDirectory, "WindowsService");
+                    string targetPath = Path.Combine(Configuration.Info.StandAloneInfo.ServicePath, "WindowsService");
 
-                Console.WriteLine(sourcePath);
-                Console.WriteLine(targetPath);
+                    if (Directory.Exists(sourcePath))
+                    {
+                        if (!Directory.Exists(targetPath))
+                        {
+                            Directory.CreateDirectory(targetPath);
+                        }
+
+                        switch (Configuration.Info.StandAloneInfo.SAMachine.Type)
+                        {
+                            case "0":
+                                Console.WriteLine("AE");
+                                Common.CopyAll(Path.Combine(sourcePath, "GMA_SA_AfterEffectService"), Path.Combine(targetPath, "GMA_SA_AfterEffectService"));
+                                // todo: share TEMP_FOLDER_EXPORT
+                                break;
+                            case "1":
+                                Console.WriteLine("ME");
+                                Common.CopyAll(Path.Combine(sourcePath, "GMA_SA_ME_CheckRenderedVideoService"), Path.Combine(targetPath, "GMA_SA_ME_CheckRenderedVideoService"));
+                                Common.CopyAll(Path.Combine(sourcePath, "GMA_SA_ME_MediaEncoderService"), Path.Combine(targetPath, "GMA_SA_ME_MediaEncoderService"));
+                                // todo: share TEMP_FOLDER_EXPORT
+                                break;
+                            case "2":
+                                Console.WriteLine("AE & ME");
+                                Common.CopyAll(Path.Combine(sourcePath, "GMA_SA_AfterEffectService"), Path.Combine(targetPath, "GMA_SA_AfterEffectService"));
+                                Common.CopyAll(Path.Combine(sourcePath, "GMA_SA_ME_CheckRenderedVideoService"), Path.Combine(targetPath, "GMA_SA_ME_CheckRenderedVideoService"));
+                                Common.CopyAll(Path.Combine(sourcePath, "GMA_SA_ME_MediaEncoderService"), Path.Combine(targetPath, "GMA_SA_ME_MediaEncoderService"));
+                                // todo: share TEMP_FOLDER_EXPORT
+                                break;
+                        }
+                        //
+                        Console.WriteLine("Succesfully Install Cron Job!");
+                    }
+                }
+                Console.ReadKey();
             }
-            Console.ReadKey();
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
     }
 }

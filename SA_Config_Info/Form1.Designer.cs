@@ -39,6 +39,10 @@
             this.txtDataSource = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtWatchFolderRoot = new System.Windows.Forms.TextBox();
+            this.btnWatchBrowser = new System.Windows.Forms.Label();
+            this.txtSAServicePath = new System.Windows.Forms.TextBox();
+            this.btnSAServicePathBrowser = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.rdCC2017 = new System.Windows.Forms.RadioButton();
             this.rdCC2015 = new System.Windows.Forms.RadioButton();
@@ -63,6 +67,8 @@
             this.txtSAIPAddress = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.txtSVServicePath = new System.Windows.Forms.TextBox();
+            this.btnSVServicePathBrowser = new System.Windows.Forms.Label();
             this.txtSCPassword = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.txtSCUserName = new System.Windows.Forms.TextBox();
@@ -71,10 +77,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.btnImport = new System.Windows.Forms.Button();
             this.btnExport = new System.Windows.Forms.Button();
-            this.btnSVPathBrowser = new System.Windows.Forms.Label();
-            this.txtServicePath = new System.Windows.Forms.TextBox();
-            this.btnWatchBrowser = new System.Windows.Forms.Label();
-            this.txtWatchFolderRoot = new System.Windows.Forms.TextBox();
+            this.lbRegion = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -93,16 +96,16 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txtDataSource);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 130);
+            this.groupBox1.Location = new System.Drawing.Point(12, 165);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(339, 141);
+            this.groupBox1.Size = new System.Drawing.Size(339, 136);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "SQL Connection";
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(80, 108);
+            this.txtPassword.Location = new System.Drawing.Point(80, 104);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(253, 20);
             this.txtPassword.TabIndex = 7;
@@ -110,7 +113,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(7, 111);
+            this.label4.Location = new System.Drawing.Point(6, 107);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(53, 13);
             this.label4.TabIndex = 6;
@@ -118,7 +121,7 @@
             // 
             // txtUserID
             // 
-            this.txtUserID.Location = new System.Drawing.Point(80, 81);
+            this.txtUserID.Location = new System.Drawing.Point(80, 77);
             this.txtUserID.Name = "txtUserID";
             this.txtUserID.Size = new System.Drawing.Size(253, 20);
             this.txtUserID.TabIndex = 6;
@@ -127,7 +130,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(7, 84);
+            this.label3.Location = new System.Drawing.Point(7, 80);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(43, 13);
             this.label3.TabIndex = 4;
@@ -135,7 +138,7 @@
             // 
             // txtCatalog
             // 
-            this.txtCatalog.Location = new System.Drawing.Point(80, 54);
+            this.txtCatalog.Location = new System.Drawing.Point(80, 50);
             this.txtCatalog.Name = "txtCatalog";
             this.txtCatalog.Size = new System.Drawing.Size(253, 20);
             this.txtCatalog.TabIndex = 5;
@@ -144,7 +147,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(7, 57);
+            this.label2.Location = new System.Drawing.Point(6, 53);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(70, 13);
             this.label2.TabIndex = 2;
@@ -152,7 +155,7 @@
             // 
             // txtDataSource
             // 
-            this.txtDataSource.Location = new System.Drawing.Point(80, 27);
+            this.txtDataSource.Location = new System.Drawing.Point(80, 23);
             this.txtDataSource.Name = "txtDataSource";
             this.txtDataSource.Size = new System.Drawing.Size(253, 20);
             this.txtDataSource.TabIndex = 4;
@@ -161,7 +164,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 30);
+            this.label1.Location = new System.Drawing.Point(7, 26);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(67, 13);
             this.label1.TabIndex = 0;
@@ -171,8 +174,8 @@
             // 
             this.groupBox2.Controls.Add(this.txtWatchFolderRoot);
             this.groupBox2.Controls.Add(this.btnWatchBrowser);
-            this.groupBox2.Controls.Add(this.txtServicePath);
-            this.groupBox2.Controls.Add(this.btnSVPathBrowser);
+            this.groupBox2.Controls.Add(this.txtSAServicePath);
+            this.groupBox2.Controls.Add(this.btnSAServicePathBrowser);
             this.groupBox2.Controls.Add(this.panel3);
             this.groupBox2.Controls.Add(this.label13);
             this.groupBox2.Controls.Add(this.panel2);
@@ -185,12 +188,45 @@
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.txtSAIPAddress);
             this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Location = new System.Drawing.Point(12, 277);
+            this.groupBox2.Location = new System.Drawing.Point(357, 13);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(339, 288);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "SA Information";
+            // 
+            // txtWatchFolderRoot
+            // 
+            this.txtWatchFolderRoot.Location = new System.Drawing.Point(80, 131);
+            this.txtWatchFolderRoot.Name = "txtWatchFolderRoot";
+            this.txtWatchFolderRoot.Size = new System.Drawing.Size(253, 20);
+            this.txtWatchFolderRoot.TabIndex = 12;
+            // 
+            // btnWatchBrowser
+            // 
+            this.btnWatchBrowser.Location = new System.Drawing.Point(7, 131);
+            this.btnWatchBrowser.Name = "btnWatchBrowser";
+            this.btnWatchBrowser.Size = new System.Drawing.Size(67, 30);
+            this.btnWatchBrowser.TabIndex = 17;
+            this.btnWatchBrowser.Text = "Watch Folder Path";
+            this.btnWatchBrowser.Click += new System.EventHandler(this.btnWatchBrowser_Click);
+            // 
+            // txtSAServicePath
+            // 
+            this.txtSAServicePath.Location = new System.Drawing.Point(80, 104);
+            this.txtSAServicePath.Name = "txtSAServicePath";
+            this.txtSAServicePath.Size = new System.Drawing.Size(253, 20);
+            this.txtSAServicePath.TabIndex = 11;
+            // 
+            // btnSAServicePathBrowser
+            // 
+            this.btnSAServicePathBrowser.AutoSize = true;
+            this.btnSAServicePathBrowser.Location = new System.Drawing.Point(6, 107);
+            this.btnSAServicePathBrowser.Name = "btnSAServicePathBrowser";
+            this.btnSAServicePathBrowser.Size = new System.Drawing.Size(68, 13);
+            this.btnSAServicePathBrowser.TabIndex = 15;
+            this.btnSAServicePathBrowser.Text = "Service Path";
+            this.btnSAServicePathBrowser.Click += new System.EventHandler(this.btnSAServicePathBrowser_Click);
             // 
             // panel3
             // 
@@ -324,7 +360,7 @@
             // 
             // txtSAPassword
             // 
-            this.txtSAPassword.Location = new System.Drawing.Point(80, 78);
+            this.txtSAPassword.Location = new System.Drawing.Point(80, 77);
             this.txtSAPassword.Name = "txtSAPassword";
             this.txtSAPassword.Size = new System.Drawing.Size(253, 20);
             this.txtSAPassword.TabIndex = 10;
@@ -332,7 +368,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(6, 81);
+            this.label11.Location = new System.Drawing.Point(7, 80);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(53, 13);
             this.label11.TabIndex = 6;
@@ -340,7 +376,7 @@
             // 
             // txtSAUserName
             // 
-            this.txtSAUserName.Location = new System.Drawing.Point(80, 51);
+            this.txtSAUserName.Location = new System.Drawing.Point(80, 50);
             this.txtSAUserName.Name = "txtSAUserName";
             this.txtSAUserName.Size = new System.Drawing.Size(253, 20);
             this.txtSAUserName.TabIndex = 9;
@@ -348,7 +384,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(6, 54);
+            this.label10.Location = new System.Drawing.Point(6, 53);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(60, 13);
             this.label10.TabIndex = 4;
@@ -409,7 +445,7 @@
             // 
             // txtSAIPAddress
             // 
-            this.txtSAIPAddress.Location = new System.Drawing.Point(80, 24);
+            this.txtSAIPAddress.Location = new System.Drawing.Point(80, 23);
             this.txtSAIPAddress.Name = "txtSAIPAddress";
             this.txtSAIPAddress.Size = new System.Drawing.Size(253, 20);
             this.txtSAIPAddress.TabIndex = 8;
@@ -417,7 +453,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 27);
+            this.label5.Location = new System.Drawing.Point(7, 26);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(58, 13);
             this.label5.TabIndex = 0;
@@ -425,6 +461,8 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.txtSVServicePath);
+            this.groupBox3.Controls.Add(this.btnSVServicePathBrowser);
             this.groupBox3.Controls.Add(this.txtSCPassword);
             this.groupBox3.Controls.Add(this.label9);
             this.groupBox3.Controls.Add(this.txtSCUserName);
@@ -433,10 +471,27 @@
             this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Location = new System.Drawing.Point(12, 13);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(339, 111);
+            this.groupBox3.Size = new System.Drawing.Size(339, 136);
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Window Server Credential";
+            this.groupBox3.Text = "Window Server Info And Credential";
+            // 
+            // txtSVServicePath
+            // 
+            this.txtSVServicePath.Location = new System.Drawing.Point(80, 104);
+            this.txtSVServicePath.Name = "txtSVServicePath";
+            this.txtSVServicePath.Size = new System.Drawing.Size(253, 20);
+            this.txtSVServicePath.TabIndex = 6;
+            // 
+            // btnSVServicePathBrowser
+            // 
+            this.btnSVServicePathBrowser.AutoSize = true;
+            this.btnSVServicePathBrowser.Location = new System.Drawing.Point(6, 107);
+            this.btnSVServicePathBrowser.Name = "btnSVServicePathBrowser";
+            this.btnSVServicePathBrowser.Size = new System.Drawing.Size(68, 13);
+            this.btnSVServicePathBrowser.TabIndex = 5;
+            this.btnSVServicePathBrowser.Text = "Service Path";
+            this.btnSVServicePathBrowser.Click += new System.EventHandler(this.btnSVServicePathBrowser_Click);
             // 
             // txtSCPassword
             // 
@@ -488,7 +543,7 @@
             // 
             // btnImport
             // 
-            this.btnImport.Location = new System.Drawing.Point(12, 571);
+            this.btnImport.Location = new System.Drawing.Point(357, 307);
             this.btnImport.Name = "btnImport";
             this.btnImport.Size = new System.Drawing.Size(168, 23);
             this.btnImport.TabIndex = 16;
@@ -498,7 +553,7 @@
             // 
             // btnExport
             // 
-            this.btnExport.Location = new System.Drawing.Point(183, 571);
+            this.btnExport.Location = new System.Drawing.Point(528, 307);
             this.btnExport.Name = "btnExport";
             this.btnExport.Size = new System.Drawing.Size(168, 23);
             this.btnExport.TabIndex = 17;
@@ -506,44 +561,21 @@
             this.btnExport.UseVisualStyleBackColor = true;
             this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
             // 
-            // btnSVPathBrowser
+            // lbRegion
             // 
-            this.btnSVPathBrowser.AutoSize = true;
-            this.btnSVPathBrowser.Location = new System.Drawing.Point(6, 108);
-            this.btnSVPathBrowser.Name = "btnSVPathBrowser";
-            this.btnSVPathBrowser.Size = new System.Drawing.Size(68, 13);
-            this.btnSVPathBrowser.TabIndex = 15;
-            this.btnSVPathBrowser.Text = "Service Path";
-            this.btnSVPathBrowser.Click += new System.EventHandler(this.btnSVPathBrowser_Click);
-            // 
-            // txtServicePath
-            // 
-            this.txtServicePath.Location = new System.Drawing.Point(80, 105);
-            this.txtServicePath.Name = "txtServicePath";
-            this.txtServicePath.Size = new System.Drawing.Size(253, 20);
-            this.txtServicePath.TabIndex = 11;
-            // 
-            // btnWatchBrowser
-            // 
-            this.btnWatchBrowser.Location = new System.Drawing.Point(7, 132);
-            this.btnWatchBrowser.Name = "btnWatchBrowser";
-            this.btnWatchBrowser.Size = new System.Drawing.Size(67, 30);
-            this.btnWatchBrowser.TabIndex = 17;
-            this.btnWatchBrowser.Text = "Watch Folder Path";
-            this.btnWatchBrowser.Click += new System.EventHandler(this.btnWatchBrowser_Click);
-            // 
-            // txtWatchFolderRoot
-            // 
-            this.txtWatchFolderRoot.Location = new System.Drawing.Point(80, 132);
-            this.txtWatchFolderRoot.Name = "txtWatchFolderRoot";
-            this.txtWatchFolderRoot.Size = new System.Drawing.Size(253, 20);
-            this.txtWatchFolderRoot.TabIndex = 12;
+            this.lbRegion.AutoSize = true;
+            this.lbRegion.Location = new System.Drawing.Point(9, 312);
+            this.lbRegion.Name = "lbRegion";
+            this.lbRegion.Size = new System.Drawing.Size(41, 13);
+            this.lbRegion.TabIndex = 18;
+            this.lbRegion.Text = "Region";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(365, 603);
+            this.ClientSize = new System.Drawing.Size(709, 340);
+            this.Controls.Add(this.lbRegion);
             this.Controls.Add(this.btnExport);
             this.Controls.Add(this.btnImport);
             this.Controls.Add(this.groupBox3);
@@ -569,6 +601,7 @@
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -616,10 +649,13 @@
         private System.Windows.Forms.RadioButton rdCC2017;
         private System.Windows.Forms.RadioButton rdCC2015;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox txtServicePath;
-        private System.Windows.Forms.Label btnSVPathBrowser;
+        private System.Windows.Forms.TextBox txtSAServicePath;
+        private System.Windows.Forms.Label btnSAServicePathBrowser;
         private System.Windows.Forms.TextBox txtWatchFolderRoot;
         private System.Windows.Forms.Label btnWatchBrowser;
+        private System.Windows.Forms.TextBox txtSVServicePath;
+        private System.Windows.Forms.Label btnSVServicePathBrowser;
+        private System.Windows.Forms.Label lbRegion;
     }
 }
 

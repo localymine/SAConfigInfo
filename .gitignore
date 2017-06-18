@@ -6,3 +6,7 @@
 /InstallationWizard/obj
 /InstallCronJob/bin
 /InstallCronJob/obj
+/InstallationSVWizard/bin
+/InstallationSVWizard/obj
+/InstallSVCronJob/bin
+/InstallSVCronJob/obj

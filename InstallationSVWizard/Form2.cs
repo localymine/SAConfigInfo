@@ -3,11 +3,11 @@ using System.Diagnostics;
 using System.IO;
 using System.Windows.Forms;
 
-namespace InstallationWizard
+namespace InstallationSVWizard
 {
-    public partial class frm2 : Form
+    public partial class frm1 : Form
     {
-        public frm2()
+        public frm1()
         {
             InitializeComponent();
         }
@@ -25,7 +25,8 @@ namespace InstallationWizard
         private void btnInstallCronJob_Click(object sender, EventArgs e)
         {
             ProcessStartInfo startInfo = new ProcessStartInfo();
-            startInfo.FileName = Path.Combine(Environment.CurrentDirectory, "InstallCronJob.exe");
+            startInfo.FileName = Path.Combine(Environment.CurrentDirectory, "InstallSVCronJob.exe");
+            startInfo.WorkingDirectory = Path.GetDirectoryName(startInfo.FileName);
 
             try
             {
@@ -44,5 +45,6 @@ namespace InstallationWizard
         {
 
         }
+
     }
 }

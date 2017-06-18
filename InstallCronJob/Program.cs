@@ -47,6 +47,10 @@ namespace InstallCronJob
                         //
                         Console.WriteLine("Succesfully Install Cron Job!");
                     }
+                    else
+                    {
+                        Console.WriteLine("Resource Loss!");
+                    }
                 }
                 Console.ReadKey();
             }

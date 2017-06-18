@@ -31,6 +31,10 @@ namespace InstallSVCronJob
                         //
                         Console.WriteLine("Succesfully Install Server Cron Job!");
                     }
+                    else
+                    {
+                        Console.WriteLine("Resource Loss!");
+                    }
                 }
                 Console.ReadKey();
             }

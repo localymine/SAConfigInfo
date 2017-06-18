@@ -109,6 +109,7 @@
             this.btnConfigureCredentials.TabIndex = 6;
             this.btnConfigureCredentials.Text = "Configure Credentials";
             this.btnConfigureCredentials.UseVisualStyleBackColor = true;
+            this.btnConfigureCredentials.Click += new System.EventHandler(this.btnConfigureCredentials_Click);
             // 
             // btnConfigureCronJob
             // 
@@ -118,6 +119,7 @@
             this.btnConfigureCronJob.TabIndex = 7;
             this.btnConfigureCronJob.Text = "Configure Cron Job";
             this.btnConfigureCronJob.UseVisualStyleBackColor = true;
+            this.btnConfigureCronJob.Click += new System.EventHandler(this.btnConfigureCronJob_Click);
             // 
             // btnInstallCronJob
             // 
@@ -127,6 +129,7 @@
             this.btnInstallCronJob.TabIndex = 8;
             this.btnInstallCronJob.Text = "Install Cron Job";
             this.btnInstallCronJob.UseVisualStyleBackColor = true;
+            this.btnInstallCronJob.Click += new System.EventHandler(this.btnInstallCronJob_Click);
             // 
             // btnCreateScheduleTasks
             // 
@@ -136,6 +139,7 @@
             this.btnCreateScheduleTasks.TabIndex = 9;
             this.btnCreateScheduleTasks.Text = "Create Schedule Tasks";
             this.btnCreateScheduleTasks.UseVisualStyleBackColor = true;
+            this.btnCreateScheduleTasks.Click += new System.EventHandler(this.btnCreateScheduleTasks_Click);
             // 
             // frm2
             // 

@@ -16,5 +16,25 @@ namespace InstallationWizard
         {
             InitializeComponent();
         }
+
+        private void btnConfigureCredentials_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnConfigureCronJob_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnInstallCronJob_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCreateScheduleTasks_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

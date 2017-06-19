@@ -15,6 +15,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InstallationSVWizard", "Ins
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InstallSVCronJob", "InstallSVCronJob\InstallSVCronJob.csproj", "{72A5391A-D8EC-44CD-BEE2-4CC873C294A2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConfigSACronJob", "ConfigSACronJob\ConfigSACronJob.csproj", "{97E61A7C-C0B8-49AF-88D7-BAACA9DCB746}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreateSAScheduleTask", "CreateSAScheduleTask\CreateSAScheduleTask.csproj", "{F8D38286-99E2-4614-8788-02ABF9E699BF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConfigSACredential", "ConfigSACredential\ConfigSACredential.csproj", "{BAC3F23D-4A49-4906-9C72-39419CB9BB07}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -46,6 +52,18 @@ Global
 		{72A5391A-D8EC-44CD-BEE2-4CC873C294A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{72A5391A-D8EC-44CD-BEE2-4CC873C294A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{72A5391A-D8EC-44CD-BEE2-4CC873C294A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97E61A7C-C0B8-49AF-88D7-BAACA9DCB746}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97E61A7C-C0B8-49AF-88D7-BAACA9DCB746}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97E61A7C-C0B8-49AF-88D7-BAACA9DCB746}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97E61A7C-C0B8-49AF-88D7-BAACA9DCB746}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8D38286-99E2-4614-8788-02ABF9E699BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8D38286-99E2-4614-8788-02ABF9E699BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8D38286-99E2-4614-8788-02ABF9E699BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8D38286-99E2-4614-8788-02ABF9E699BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BAC3F23D-4A49-4906-9C72-39419CB9BB07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BAC3F23D-4A49-4906-9C72-39419CB9BB07}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BAC3F23D-4A49-4906-9C72-39419CB9BB07}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BAC3F23D-4A49-4906-9C72-39419CB9BB07}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

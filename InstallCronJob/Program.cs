@@ -6,6 +6,9 @@ namespace InstallCronJob
 {
     class Program
     {
+        private static readonly string[] AEServiceNames = { "GMA_SA_AE_ExportTemplateService", "GMA_SA_AfterEffectService" };
+        private static readonly string[] MEServiceNames = { "GMA_SA_ME_CheckRenderedVideoService", "GMA_SA_ME_MediaEncoderService" };
+
         static void Main(string[] args)
         {
             try
@@ -14,37 +17,26 @@ namespace InstallCronJob
                 if (Configuration.Info != null)
                 {
                     string sourcePath = Path.Combine(Environment.CurrentDirectory, "WindowsService");
-                    string targetPath = Path.Combine(Configuration.Info.StandAloneInfo.ServicePath, "WindowsService");
+                    string targetPath;
 
                     if (Directory.Exists(sourcePath))
                     {
-                        if (!Directory.Exists(targetPath))
-                        {
-                            Directory.CreateDirectory(targetPath);
-                        }
-
                         switch (Configuration.Info.StandAloneInfo.SAMachine.Type)
                         {
                             case "0":
                                 Console.WriteLine("AE");
-                                Common.CopyAll(Path.Combine(sourcePath, "GMA_SA_AE_ExportTemplateService"), Path.Combine(targetPath, "GMA_SA_AE_ExportTemplateService"));
-                                Common.CopyAll(Path.Combine(sourcePath, "GMA_SA_AfterEffectService"), Path.Combine(targetPath, "GMA_SA_AfterEffectService"));
-                                // share TEMP_FOLDER_EXPORT
-                                ShareFolder();
+                                //
+                                CopyServices(sourcePath, AEServiceNames, false);
                                 break;
                             case "1":
                                 Console.WriteLine("ME");
-                                Common.CopyAll(Path.Combine(sourcePath, "GMA_SA_ME_CheckRenderedVideoService"), Path.Combine(targetPath, "GMA_SA_ME_CheckRenderedVideoService"));
-                                Common.CopyAll(Path.Combine(sourcePath, "GMA_SA_ME_MediaEncoderService"), Path.Combine(targetPath, "GMA_SA_ME_MediaEncoderService"));
+                                //
+                                CopyServices(sourcePath, MEServiceNames, false);
                                 break;
                             case "2":
                                 Console.WriteLine("AE & ME");
-                                Common.CopyAll(Path.Combine(sourcePath, "GMA_SA_AfterEffectService"), Path.Combine(targetPath, "GMA_SA_AfterEffectService"));
-                                Common.CopyAll(Path.Combine(sourcePath, "GMA_SA_AE_ExportTemplateService"), Path.Combine(targetPath, "GMA_SA_AE_ExportTemplateService"));
-                                Common.CopyAll(Path.Combine(sourcePath, "GMA_SA_ME_CheckRenderedVideoService"), Path.Combine(targetPath, "GMA_SA_ME_CheckRenderedVideoService"));
-                                Common.CopyAll(Path.Combine(sourcePath, "GMA_SA_ME_MediaEncoderService"), Path.Combine(targetPath, "GMA_SA_ME_MediaEncoderService"));
-                                // share TEMP_FOLDER_EXPORT
-                                ShareFolder();
+                                //
+                                CopyServices(sourcePath, null, true);
                                 break;
                         }
                         //
@@ -63,17 +55,64 @@ namespace InstallCronJob
             }
         }
 
-        private static void ShareFolder()
+        private static void ShareFolder(string path, string serviceFolderName)
         {
             // share TEMP_FOLDER_EXPORT
-            SAServiceFolder[] items = Configuration.Info.StandAloneInfo.SAServicePaths;
-            foreach (SAServiceFolder sasf in items)
+            if (AEServiceNames[0] == serviceFolderName)
             {
-                if (sasf.Path.Contains("TEMP_FOLDER_EXPORT"))
+                Common.ShareFolder(Path.Combine(path, "TEMP_FOLDER_EXPORT"));
+            }
+            else if (AEServiceNames[1] == serviceFolderName)
+            {
+                Common.ShareFolder(Path.Combine(path, "TEMP_FOLDER_IMPORT"));
+            }
+        }
+
+        private static void CopyServices(string sourcePath, string[] ServiceNames = null, bool flag = false)
+        {
+            SAServiceFolder[] items = Configuration.Info.StandAloneInfo.SAServicePaths;
+            //
+            string ServiceFolderName;
+            //
+            if (flag == true)
+            {
+                foreach (SAServiceFolder sasf in items)
                 {
-                    Common.ShareFolder(Path.Combine(sasf.Path, "TEMP_FOLDER_EXPORT"));
+                    ServiceFolderName = Common.GetLastFolderName(sasf.Path);
+                    //
+                    if (!Directory.Exists(sasf.Path))
+                    {
+                        Directory.CreateDirectory(sasf.Path);
+                    }
+                    //
+                    Common.CopyAll(Path.Combine(sourcePath, ServiceFolderName), sasf.Path);
+                    //
+                    ShareFolder(sasf.Path, ServiceFolderName);
                 }
             }
+            else
+            {
+                foreach (SAServiceFolder sasf in items)
+                {
+                    ServiceFolderName = Common.GetLastFolderName(sasf.Path);
+                    //
+                    if (Array.Exists(ServiceNames, e => e.Contains(ServiceFolderName)))
+                    {
+                        if (!Directory.Exists(sasf.Path))
+                        {
+                            Directory.CreateDirectory(sasf.Path);
+                        }
+                        //
+                        Common.CopyAll(Path.Combine(sourcePath, ServiceFolderName), sasf.Path);
+                        //
+                        ShareFolder(sasf.Path, ServiceFolderName);
+                    }
+
+                }
+            }
+                
+
+            
         }
     }
 }

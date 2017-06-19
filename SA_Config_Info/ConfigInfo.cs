@@ -27,6 +27,7 @@ namespace SA_Config_Info
         public string UserName;
         public string Password;
         public string ServicePath;
+        [XmlArrayAttribute("Paths")]
         public SVServiceFolder[] SVServicePaths;
 
         public SQLServer SQLServer;
@@ -91,6 +92,7 @@ namespace SA_Config_Info
         public string Password;
 
         public string ServicePath;
+        [XmlArrayAttribute("SAPaths")]
         public SAServiceFolder[] SAServicePaths;
 
         public string WatchFolderRoot;
@@ -353,6 +355,11 @@ namespace SA_Config_Info
             SecurityIdentifier everyone = new SecurityIdentifier(WellKnownSidType.WorldSid, null);
             direcSec.AddAccessRule(new FileSystemAccessRule(everyone, FileSystemRights.FullControl, InheritanceFlags.ContainerInherit | InheritanceFlags.ObjectInherit, PropagationFlags.None, AccessControlType.Allow));
             Directory.SetAccessControl(path, direcSec);
+        }
+
+        public static string GetLastFolderName(string path)
+        {
+            return Path.GetFileName(path).TrimEnd(Path.DirectorySeparatorChar).TrimEnd(Path.AltDirectorySeparatorChar);
         }
     }
 }

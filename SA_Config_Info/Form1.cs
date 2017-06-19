@@ -194,7 +194,7 @@ namespace SA_Config_Info
                 sam.Encoder = saDefine.Encoder;
                 sam.AdobeVersion = saDefine.AdobeVersion;
                 sam.AEPath = GetPathNoneExe("AfterFX.exe");
-                sam.AEScriptPath = Path.Combine(sam.AEPath, "Support Files", "Scripts");
+                sam.AEScriptPath = Path.Combine(sam.AEPath, "Scripts");
                 sam.MEPath = GetPathNoneExe("Adobe Media Encoder.exe");
 
                 sa.SAMachine = sam;
@@ -302,8 +302,7 @@ namespace SA_Config_Info
         
         private string GetPathNoneExe(string fileName)
         {
-            fileName = Path.GetDirectoryName(GetPathForExe(fileName));
-            return fileName.Replace("\\Support Files", "");
+            return  Path.GetDirectoryName(GetPathForExe(fileName));
         }
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)

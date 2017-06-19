@@ -73,8 +73,9 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(378, 86);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Configure Watch Folder\r\nOther settings Please Configure manually\r\n　　●Import Prese" +
-    "ts to ME\r\n　　●Interate Presets with Watch Folder";
+            this.label2.Text = "Configure Watch Folder\r\nOther settings Please Configure manually\r\n　　●Share folder" +
+    " TEMP_IMPORT\r\n　　●Import Presets to ME\r\n　　●Interate Presets in ME with Watch Fold" +
+    "er";
             // 
             // btnConfigure
             // 

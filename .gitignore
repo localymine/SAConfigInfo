@@ -10,3 +10,9 @@
 /InstallationSVWizard/obj
 /InstallSVCronJob/bin
 /InstallSVCronJob/obj
+/ConfigSACredential/bin
+/ConfigSACredential/obj
+/ConfigSACronJob/bin
+/ConfigSACronJob/obj
+/CreateSAScheduleTask/bin
+/CreateSAScheduleTask/obj

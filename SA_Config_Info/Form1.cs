@@ -25,6 +25,19 @@ namespace SA_Config_Info
             "AE_PROCESSING\\AE_RENDER\\WATCH_FOLDER_SD480p",
             "AE_PROCESSING\\TEMP_IMPORT",
         };
+        private static readonly string[] SVServiceFolderPaths = new string[]
+        {
+            "WindowsService\\GMA_SV_AssignAfterEffectService",
+            "WindowsService\\GMA_SV_CheckTimeOutService",
+            "WindowsService\\GMA_SV_NotificationService",
+        };
+        private static readonly string[] SAServiceFolderPaths = new string[]
+        {
+            "WindowsService\\GMA_SA_AE_ExportTemplateService",
+            "WindowsService\\GMA_SA_AfterEffectService",
+            "WindowsService\\GMA_SA_ME_CheckRenderedVideoService",
+            "WindowsService\\GMA_SA_ME_MediaEncoderService",
+        };
 
         public Form1()
         {
@@ -85,6 +98,16 @@ namespace SA_Config_Info
                 si.Password = txtSCPassword.Text;
                 si.ServicePath = txtSVServicePath.Text;
 
+                SVServiceFolder[] svServiceFolderPaths = new SVServiceFolder[3];
+                int i = 0;
+                foreach (string path in SVServiceFolderPaths)
+                {
+                    SVServiceFolder svsf = new SVServiceFolder();
+                    svsf.Path = Path.Combine(txtSVServicePath.Text, path);
+                    svServiceFolderPaths[i++] = svsf;
+                }
+                si.SVServicePaths = svServiceFolderPaths;
+
                 // set ServerInfo and si to the same values
                 ci.ServerInfo = si;
 
@@ -110,7 +133,7 @@ namespace SA_Config_Info
                 sa.WatchFolderRoot = txtWatchFolderRoot.Text;
 
                 WatchFolder[] watchFolderPaths = new WatchFolder[7];
-                int i = 0;
+                i = 0;
                 foreach (string path in WatchFolderPaths)
                 {
                     WatchFolder wf = new WatchFolder();
@@ -119,6 +142,16 @@ namespace SA_Config_Info
                     watchFolderPaths[i++] = wf;
                 }
                 sa.WatchFolderPaths = watchFolderPaths;
+
+                SAServiceFolder[] saServiceFolderPaths = new SAServiceFolder[4];
+                i = 0;
+                foreach (string path in SAServiceFolderPaths)
+                {
+                    SAServiceFolder sasf = new SAServiceFolder();
+                    sasf.Path = Path.Combine(txtSAServicePath.Text, path);
+                    saServiceFolderPaths[i++] = sasf;
+                }
+                sa.SAServicePaths = saServiceFolderPaths;
 
                 // create mission for Stand Alone Machine
                 SAMachine sam = new SAMachine();

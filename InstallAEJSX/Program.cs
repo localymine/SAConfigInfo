@@ -35,6 +35,10 @@ namespace InstallAEJSX
                         Directory.CreateDirectory(wf.Path);
                     }
                     // share TEMP_IMPORT folder
+                    if ((wf.Path).Contains("TEMP_IMPORT"))
+                    {
+                        Common.ShareFolder(wf.Path);
+                    }
                 }
                 Console.WriteLine("Succesfully Configurate ME Watch Folder!");
                 Console.WriteLine("In order to intergrate with ME, Please Set up manually.");

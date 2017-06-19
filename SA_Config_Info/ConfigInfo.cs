@@ -5,6 +5,8 @@ using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Security.AccessControl;
+using System.Security.Principal;
 
 namespace SA_Config_Info
 {
@@ -25,8 +27,14 @@ namespace SA_Config_Info
         public string UserName;
         public string Password;
         public string ServicePath;
+        public SVServiceFolder[] SVServicePaths;
 
         public SQLServer SQLServer;
+    }
+
+    public class SVServiceFolder
+    {
+        public string Path;
     }
 
     public class SQLServer
@@ -81,7 +89,9 @@ namespace SA_Config_Info
         public string IPAddress;
         public string UserName;
         public string Password;
+
         public string ServicePath;
+        public SAServiceFolder[] SAServicePaths;
 
         public string WatchFolderRoot;
         [XmlArrayAttribute("Paths")]
@@ -94,6 +104,11 @@ namespace SA_Config_Info
     {
         public string Path;
         public string NetworkPath;
+    }
+
+    public class SAServiceFolder
+    {
+        public string Path;
     }
 
     public class SAMachine
@@ -329,6 +344,15 @@ namespace SA_Config_Info
             {
                 File.Copy(newPath, newPath.Replace(SourcePath, DestinationPath), true);
             });
+        }
+
+        public static void ShareFolder(string path)
+        {
+            DirectorySecurity direcSec = Directory.GetAccessControl(path);
+            // Using this instead of the "Everyone" string means we work on non-English systems.
+            SecurityIdentifier everyone = new SecurityIdentifier(WellKnownSidType.WorldSid, null);
+            direcSec.AddAccessRule(new FileSystemAccessRule(everyone, FileSystemRights.FullControl, InheritanceFlags.ContainerInherit | InheritanceFlags.ObjectInherit, PropagationFlags.None, AccessControlType.Allow));
+            Directory.SetAccessControl(path, direcSec);
         }
     }
 }

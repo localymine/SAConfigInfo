@@ -37,6 +37,10 @@
   <ItemGroup>
     <Reference Include="ConfigInfo">
       <HintPath>..\SA_Config_Info\ConfigInfo.DLL</HintPath>
+	</Reference>
+    <Reference Include="Microsoft.Win32.TaskScheduler, Version=2.5.27.0, Culture=neutral, PublicKeyToken=0d013ddd5178a2ae, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dll\Microsoft.Win32.TaskScheduler.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -54,6 +58,18 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="app.manifest" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\ConfigInfo.xml" />
+    <Content Include="dll\Microsoft.Win32.TaskScheduler.dll" />
+    <Content Include="dll\Microsoft.Win32.TaskScheduler.pdb" />
+    <Content Include="dll\Microsoft.Win32.TaskScheduler.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SA_Config_Info\SA_Config_Info.csproj">
+      <Project>{5a6a29ee-3ef4-4c67-a5b0-6ce8555b5132}</Project>
+      <Name>SA_Config_Info</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

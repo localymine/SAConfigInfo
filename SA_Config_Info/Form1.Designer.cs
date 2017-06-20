@@ -48,6 +48,12 @@
             this.rdCC2015 = new System.Windows.Forms.RadioButton();
             this.label13 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.ckHD1080p = new System.Windows.Forms.CheckBox();
+            this.ck4K = new System.Windows.Forms.CheckBox();
+            this.ckHD720p = new System.Windows.Forms.CheckBox();
+            this.ckSD480pwide = new System.Windows.Forms.CheckBox();
+            this.ckSD480p = new System.Windows.Forms.CheckBox();
+            this.ckPreview = new System.Windows.Forms.CheckBox();
             this.label12 = new System.Windows.Forms.Label();
             this.txtSAPassword = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -72,12 +78,6 @@
             this.btnImport = new System.Windows.Forms.Button();
             this.btnExport = new System.Windows.Forms.Button();
             this.lbRegion = new System.Windows.Forms.Label();
-            this.ckPreview = new System.Windows.Forms.CheckBox();
-            this.ckSD480p = new System.Windows.Forms.CheckBox();
-            this.ckSD480pwide = new System.Windows.Forms.CheckBox();
-            this.ckHD720p = new System.Windows.Forms.CheckBox();
-            this.ckHD1080p = new System.Windows.Forms.CheckBox();
-            this.ck4K = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -282,6 +282,66 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(253, 47);
             this.panel2.TabIndex = 15;
+            // 
+            // ckHD1080p
+            // 
+            this.ckHD1080p.AutoSize = true;
+            this.ckHD1080p.Location = new System.Drawing.Point(147, 25);
+            this.ckHD1080p.Name = "ckHD1080p";
+            this.ckHD1080p.Size = new System.Drawing.Size(94, 17);
+            this.ckHD1080p.TabIndex = 20;
+            this.ckHD1080p.Text = "Full HD 1080p";
+            this.ckHD1080p.UseVisualStyleBackColor = true;
+            // 
+            // ck4K
+            // 
+            this.ck4K.AutoSize = true;
+            this.ck4K.Location = new System.Drawing.Point(3, 25);
+            this.ck4K.Name = "ck4K";
+            this.ck4K.Size = new System.Drawing.Size(39, 17);
+            this.ck4K.TabIndex = 21;
+            this.ck4K.Text = "4K";
+            this.ck4K.UseVisualStyleBackColor = true;
+            // 
+            // ckHD720p
+            // 
+            this.ckHD720p.AutoSize = true;
+            this.ckHD720p.Location = new System.Drawing.Point(76, 25);
+            this.ckHD720p.Name = "ckHD720p";
+            this.ckHD720p.Size = new System.Drawing.Size(66, 17);
+            this.ckHD720p.TabIndex = 19;
+            this.ckHD720p.Text = "HD720p";
+            this.ckHD720p.UseVisualStyleBackColor = true;
+            // 
+            // ckSD480pwide
+            // 
+            this.ckSD480pwide.AutoSize = true;
+            this.ckSD480pwide.Location = new System.Drawing.Point(147, 2);
+            this.ckSD480pwide.Name = "ckSD480pwide";
+            this.ckSD480pwide.Size = new System.Drawing.Size(87, 17);
+            this.ckSD480pwide.TabIndex = 19;
+            this.ckSD480pwide.Text = "SD480pwide";
+            this.ckSD480pwide.UseVisualStyleBackColor = true;
+            // 
+            // ckSD480p
+            // 
+            this.ckSD480p.AutoSize = true;
+            this.ckSD480p.Location = new System.Drawing.Point(76, 2);
+            this.ckSD480p.Name = "ckSD480p";
+            this.ckSD480p.Size = new System.Drawing.Size(65, 17);
+            this.ckSD480p.TabIndex = 19;
+            this.ckSD480p.Text = "SD480p";
+            this.ckSD480p.UseVisualStyleBackColor = true;
+            // 
+            // ckPreview
+            // 
+            this.ckPreview.AutoSize = true;
+            this.ckPreview.Location = new System.Drawing.Point(3, 3);
+            this.ckPreview.Name = "ckPreview";
+            this.ckPreview.Size = new System.Drawing.Size(64, 17);
+            this.ckPreview.TabIndex = 18;
+            this.ckPreview.Text = "Preview";
+            this.ckPreview.UseVisualStyleBackColor = true;
             // 
             // label12
             // 
@@ -504,66 +564,6 @@
             this.lbRegion.TabIndex = 18;
             this.lbRegion.Text = "Region";
             // 
-            // ckPreview
-            // 
-            this.ckPreview.AutoSize = true;
-            this.ckPreview.Location = new System.Drawing.Point(3, 3);
-            this.ckPreview.Name = "ckPreview";
-            this.ckPreview.Size = new System.Drawing.Size(64, 17);
-            this.ckPreview.TabIndex = 18;
-            this.ckPreview.Text = "Preview";
-            this.ckPreview.UseVisualStyleBackColor = true;
-            // 
-            // ckSD480p
-            // 
-            this.ckSD480p.AutoSize = true;
-            this.ckSD480p.Location = new System.Drawing.Point(76, 2);
-            this.ckSD480p.Name = "ckSD480p";
-            this.ckSD480p.Size = new System.Drawing.Size(65, 17);
-            this.ckSD480p.TabIndex = 19;
-            this.ckSD480p.Text = "SD480p";
-            this.ckSD480p.UseVisualStyleBackColor = true;
-            // 
-            // ckSD480pwide
-            // 
-            this.ckSD480pwide.AutoSize = true;
-            this.ckSD480pwide.Location = new System.Drawing.Point(147, 2);
-            this.ckSD480pwide.Name = "ckSD480pwide";
-            this.ckSD480pwide.Size = new System.Drawing.Size(87, 17);
-            this.ckSD480pwide.TabIndex = 19;
-            this.ckSD480pwide.Text = "SD480pwide";
-            this.ckSD480pwide.UseVisualStyleBackColor = true;
-            // 
-            // ckHD720p
-            // 
-            this.ckHD720p.AutoSize = true;
-            this.ckHD720p.Location = new System.Drawing.Point(76, 25);
-            this.ckHD720p.Name = "ckHD720p";
-            this.ckHD720p.Size = new System.Drawing.Size(66, 17);
-            this.ckHD720p.TabIndex = 19;
-            this.ckHD720p.Text = "HD720p";
-            this.ckHD720p.UseVisualStyleBackColor = true;
-            // 
-            // ckHD1080p
-            // 
-            this.ckHD1080p.AutoSize = true;
-            this.ckHD1080p.Location = new System.Drawing.Point(147, 25);
-            this.ckHD1080p.Name = "ckHD1080p";
-            this.ckHD1080p.Size = new System.Drawing.Size(94, 17);
-            this.ckHD1080p.TabIndex = 20;
-            this.ckHD1080p.Text = "Full HD 1080p";
-            this.ckHD1080p.UseVisualStyleBackColor = true;
-            // 
-            // ck4K
-            // 
-            this.ck4K.AutoSize = true;
-            this.ck4K.Location = new System.Drawing.Point(3, 25);
-            this.ck4K.Name = "ck4K";
-            this.ck4K.Size = new System.Drawing.Size(39, 17);
-            this.ck4K.TabIndex = 21;
-            this.ck4K.Text = "4K";
-            this.ck4K.UseVisualStyleBackColor = true;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -578,6 +578,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SA Configuration Information";

@@ -45,6 +45,9 @@
             this.btnCdn = new System.Windows.Forms.Button();
             this.btnInstallCdn = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -62,7 +65,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(14, 165);
+            this.pictureBox2.Location = new System.Drawing.Point(14, 155);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(64, 64);
             this.pictureBox2.TabIndex = 1;
@@ -84,6 +87,7 @@
             this.txtGMAWeb.Name = "txtGMAWeb";
             this.txtGMAWeb.Size = new System.Drawing.Size(284, 20);
             this.txtGMAWeb.TabIndex = 7;
+            this.txtGMAWeb.Text = "C:\\inetpub\\wwwroot";
             // 
             // btnWeb
             // 
@@ -117,7 +121,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(85, 165);
+            this.label3.Location = new System.Drawing.Point(85, 155);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(86, 13);
             this.label3.TabIndex = 10;
@@ -125,14 +129,15 @@
             // 
             // txtGMARest
             // 
-            this.txtGMARest.Location = new System.Drawing.Point(85, 181);
+            this.txtGMARest.Location = new System.Drawing.Point(85, 171);
             this.txtGMARest.Name = "txtGMARest";
             this.txtGMARest.Size = new System.Drawing.Size(284, 20);
             this.txtGMARest.TabIndex = 7;
+            this.txtGMARest.Text = "C:\\inetpub\\wwwroot";
             // 
             // btnRest
             // 
-            this.btnRest.Location = new System.Drawing.Point(369, 180);
+            this.btnRest.Location = new System.Drawing.Point(369, 170);
             this.btnRest.Name = "btnRest";
             this.btnRest.Size = new System.Drawing.Size(75, 23);
             this.btnRest.TabIndex = 8;
@@ -142,7 +147,7 @@
             // 
             // btnInstallRest
             // 
-            this.btnInstallRest.Location = new System.Drawing.Point(85, 206);
+            this.btnInstallRest.Location = new System.Drawing.Point(85, 196);
             this.btnInstallRest.Name = "btnInstallRest";
             this.btnInstallRest.Size = new System.Drawing.Size(75, 23);
             this.btnInstallRest.TabIndex = 9;
@@ -153,7 +158,7 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(13, 281);
+            this.pictureBox3.Location = new System.Drawing.Point(14, 263);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(64, 64);
             this.pictureBox3.TabIndex = 11;
@@ -161,14 +166,15 @@
             // 
             // txtGMACdn
             // 
-            this.txtGMACdn.Location = new System.Drawing.Point(85, 297);
+            this.txtGMACdn.Location = new System.Drawing.Point(85, 279);
             this.txtGMACdn.Name = "txtGMACdn";
             this.txtGMACdn.Size = new System.Drawing.Size(284, 20);
             this.txtGMACdn.TabIndex = 7;
+            this.txtGMACdn.Text = "C:\\inetpub\\wwwroot";
             // 
             // btnCdn
             // 
-            this.btnCdn.Location = new System.Drawing.Point(369, 296);
+            this.btnCdn.Location = new System.Drawing.Point(369, 278);
             this.btnCdn.Name = "btnCdn";
             this.btnCdn.Size = new System.Drawing.Size(75, 23);
             this.btnCdn.TabIndex = 8;
@@ -178,7 +184,7 @@
             // 
             // btnInstallCdn
             // 
-            this.btnInstallCdn.Location = new System.Drawing.Point(85, 322);
+            this.btnInstallCdn.Location = new System.Drawing.Point(85, 304);
             this.btnInstallCdn.Name = "btnInstallCdn";
             this.btnInstallCdn.Size = new System.Drawing.Size(75, 23);
             this.btnInstallCdn.TabIndex = 9;
@@ -189,11 +195,38 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(85, 281);
+            this.label4.Location = new System.Drawing.Point(85, 263);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(60, 13);
             this.label4.TabIndex = 10;
             this.label4.Text = "Install CDN";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(85, 123);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(189, 13);
+            this.label5.TabIndex = 12;
+            this.label5.Text = "Please add more configuration from IIS";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(85, 226);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(189, 13);
+            this.label6.TabIndex = 12;
+            this.label6.Text = "Please add more configuration from IIS";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(85, 334);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(189, 13);
+            this.label7.TabIndex = 12;
+            this.label7.Text = "Please add more configuration from IIS";
             // 
             // frmSVSource
             // 
@@ -201,6 +234,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(462, 372);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -247,5 +283,8 @@
         private System.Windows.Forms.Button btnCdn;
         private System.Windows.Forms.Button btnInstallCdn;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
     }
 }

@@ -120,6 +120,7 @@ namespace SA_Config_Info
                 ss.Password = txtPassword.Text;
                 ss.ConnectionString = "";
                 ss.AppSettingValue = "";
+                ss.SessionState = "";
 
                 // set SQLServer and ss to the same values
                 si.SQLServer = ss;
@@ -133,7 +134,7 @@ namespace SA_Config_Info
                 sa.ServicePath = txtSAServicePath.Text;
                 sa.WatchFolderRoot = txtWatchFolderRoot.Text;
 
-                WatchFolder[] watchFolderPaths = new WatchFolder[7];
+                WatchFolder[] watchFolderPaths = new WatchFolder[8];
                 i = 0;
                 foreach (string path in WatchFolderPaths)
                 {
@@ -259,13 +260,21 @@ namespace SA_Config_Info
         {
             try
             {
+                var checkedCheckbox = new[] { panel2 }
+                       .SelectMany(g => g.Controls.OfType<CheckBox>()
+                                                .Where(r => r.Checked));
+                foreach (var c in checkedCheckbox)
+                {
+                    c.Checked = false;
+                }
+                //
                 Encoder[] grEncodes = sam.Encoders;
                 foreach (Encoder item in grEncodes)
                 {
-                    CheckBox rdButton = Controls.Find(item.Name, true).FirstOrDefault() as CheckBox;
-                    if (rdButton != null)
+                    CheckBox ckButton = Controls.Find(item.Name, true).FirstOrDefault() as CheckBox;
+                    if (ckButton != null)
                     {
-                        rdButton.Checked = Enabled;
+                        ckButton.Checked = Enabled;
                     }
                 }
             }

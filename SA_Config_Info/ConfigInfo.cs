@@ -50,7 +50,7 @@ namespace SA_Config_Info
         {
             get
             {
-                return _connectionString;
+                return (_connectionString != null ? _connectionString : "");
             }
             set
             {
@@ -69,7 +69,7 @@ namespace SA_Config_Info
         {
             get
             {
-                return _appSettingValue;
+                return (_appSettingValue != null ? _appSettingValue : "");
             }
             set
             {
@@ -79,6 +79,24 @@ namespace SA_Config_Info
                     + ";persist security info=True;User ID=" + UserID
                     + ";Password=" + Password + ";";
                 _appSettingValue = settingValue;
+            }
+        }
+
+        private string _sessionState;
+        public string SessionState
+        {
+            get
+            {
+                return (_sessionState != null ? _sessionState : "");
+            }
+            set
+            {
+                string settingValue = ""
+                    + "data source=" + DataSource
+                    + ";initial catalog=ASPState"
+                    + "; user id=" + UserID
+                    + "; password=" + Password + ";";
+                _sessionState = settingValue;
             }
         }
     }

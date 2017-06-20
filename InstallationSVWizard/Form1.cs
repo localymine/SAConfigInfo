@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -6,7 +8,7 @@ namespace InstallationSVWizard
 {
     public partial class frmParent : Form
     {
-        Form[] frm = { new frmSVSource(), new frm1() };
+        Form[] frm = { new frmCredential(), new frmSVSource(), new frm1() };
         int top = -1;
         int count;
 
@@ -75,6 +77,21 @@ namespace InstallationSVWizard
 
         private void frmParent_Load(object sender, EventArgs e)
         {
+            ProcessStartInfo startInfo = new ProcessStartInfo();
+            startInfo.FileName = Path.Combine(Environment.CurrentDirectory, "SACI.exe");
+
+            try
+            {
+                using (Process exeProcess = Process.Start(startInfo))
+                {
+                    exeProcess.WaitForExit();
+                }
+            }
+            catch
+            {
+
+            }
+
             Next();
         }
 

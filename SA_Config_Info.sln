@@ -21,6 +21,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreateSAScheduleTask", "Cre
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConfigSACredential", "ConfigSACredential\ConfigSACredential.csproj", "{BAC3F23D-4A49-4906-9C72-39419CB9BB07}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConfigSVCronJob", "ConfigSVCronJob\ConfigSVCronJob.csproj", "{FCD2A880-0864-4144-8BF8-29D50DC9BAB6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreateSVScheduleTask", "CreateSVScheduleTask\CreateSVScheduleTask.csproj", "{58E5DAB4-59C4-4102-8B79-B5A2B51F3109}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -64,6 +68,14 @@ Global
 		{BAC3F23D-4A49-4906-9C72-39419CB9BB07}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BAC3F23D-4A49-4906-9C72-39419CB9BB07}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BAC3F23D-4A49-4906-9C72-39419CB9BB07}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FCD2A880-0864-4144-8BF8-29D50DC9BAB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCD2A880-0864-4144-8BF8-29D50DC9BAB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCD2A880-0864-4144-8BF8-29D50DC9BAB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCD2A880-0864-4144-8BF8-29D50DC9BAB6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58E5DAB4-59C4-4102-8B79-B5A2B51F3109}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58E5DAB4-59C4-4102-8B79-B5A2B51F3109}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58E5DAB4-59C4-4102-8B79-B5A2B51F3109}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58E5DAB4-59C4-4102-8B79-B5A2B51F3109}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

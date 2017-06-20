@@ -113,6 +113,14 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ConfigSVCronJob\ConfigSVCronJob.csproj">
+      <Project>{fcd2a880-0864-4144-8bf8-29d50dc9bab6}</Project>
+      <Name>ConfigSVCronJob</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CreateSVScheduleTask\CreateSVScheduleTask.csproj">
+      <Project>{58e5dab4-59c4-4102-8b79-b5a2b51f3109}</Project>
+      <Name>CreateSVScheduleTask</Name>
+    </ProjectReference>
     <ProjectReference Include="..\InstallSVCronJob\InstallSVCronJob.csproj">
       <Project>{72a5391a-d8ec-44cd-bee2-4cc873c294a2}</Project>
       <Name>InstallSVCronJob</Name>

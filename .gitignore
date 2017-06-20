@@ -16,3 +16,7 @@
 /ConfigSACronJob/obj
 /CreateSAScheduleTask/bin
 /CreateSAScheduleTask/obj
+/ConfigSVCronJob/bin
+/ConfigSVCronJob/obj
+/CreateSVScheduleTask/bin
+/CreateSVScheduleTask/obj

@@ -24,6 +24,7 @@ namespace SA_Config_Info
             "AE_PROCESSING\\AE_RENDER\\WATCH_FOLDER_SD480pwide",
             "AE_PROCESSING\\AE_RENDER\\WATCH_FOLDER_SD480p",
             "AE_PROCESSING\\TEMP_IMPORT",
+            "AE_PROCESSING",
         };
         private static readonly string[] SVServiceFolderPaths = new string[]
         {

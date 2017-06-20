@@ -34,8 +34,8 @@ namespace InstallAEJSX
                     {
                         Directory.CreateDirectory(wf.Path);
                     }
-                    // share TEMP_IMPORT folder
-                    if ((wf.Path).Contains("TEMP_IMPORT"))
+                    // share AE_PROCESSING folder
+                    if ((wf.Path).Contains("AE_PROCESSING"))
                     {
                         Common.ShareFolder(wf.Path);
                     }

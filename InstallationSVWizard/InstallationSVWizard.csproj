@@ -35,9 +35,6 @@
     <ApplicationIcon>growmovie.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ConfigInfo">
-      <HintPath>..\SA_Config_Info\ConfigInfo.DLL</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -63,6 +60,12 @@
     <Compile Include="Form2.Designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form3.Designer.cs">
+      <DependentUpon>Form3.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -70,6 +73,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form3.resx">
+      <DependentUpon>Form3.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -97,6 +103,10 @@
     <ProjectReference Include="..\InstallSVCronJob\InstallSVCronJob.csproj">
       <Project>{72a5391a-d8ec-44cd-bee2-4cc873c294a2}</Project>
       <Name>InstallSVCronJob</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SA_Config_Info\SA_Config_Info.csproj">
+      <Project>{5a6a29ee-3ef4-4c67-a5b0-6ce8555b5132}</Project>
+      <Name>SA_Config_Info</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

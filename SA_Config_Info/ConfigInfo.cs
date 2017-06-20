@@ -11,7 +11,7 @@ using System.Security.Principal;
 namespace SA_Config_Info
 {
 
-    [XmlRootAttribute("Configuration", Namespace="", IsNullable=false)]
+    [XmlRootAttribute("Configuration", IsNullable=false)]
 
     public class ConfigInfo
     {
@@ -117,18 +117,25 @@ namespace SA_Config_Info
     {
         [XmlAttribute]
         public string Mission;
-        [XmlAttribute]
-        public string Resolution;
+
+        [XmlArrayAttribute("Resolutions", IsNullable = false)]
+        public Encoder[] Encoders;
 
         public string MachineName;
         public string Author;
         public string Type;
-        public string Encoder;
         public string AdobeVersion;
 
         public string AEPath;
         public string AEScriptPath;
         public string MEPath;
+    }
+
+    public class Encoder
+    {
+        public string ID;
+        public string Name;
+        public string WatchFolderName;
     }
 
     public class SADefination
@@ -222,20 +229,25 @@ namespace SA_Config_Info
             }
         }
 
-
         private static List<KeyValuePair<string, string[]>> KvpResolution = new List<KeyValuePair<string, string[]>>()
         {
-            new KeyValuePair<string, string[]>("rdPreview", new string[] { "Preview", "-1" }),
-            new KeyValuePair<string, string[]>("rdSD480p", new string[] { "SD 480p", "2" }),
-            new KeyValuePair<string, string[]>("rdSD480pwide", new string[] { "SD 480p wide", "3" }),
-            new KeyValuePair<string, string[]>("rdHD720p", new string[] { "HD 720p", "0" }),
-            new KeyValuePair<string, string[]>("rdHD1080p", new string[] { "Full HD 1080p", "4" }),
-            new KeyValuePair<string, string[]>("rd4K", new string[] { "4K", "1" }),
+            new KeyValuePair<string, string[]>("ckPreview", new string[] { "Preview", "0", "WATCH_FOLDER_PREVIEW" }),
+            new KeyValuePair<string, string[]>("ckSD480p", new string[] { "SD 480p", "1", "WATCH_FOLDER_SD480p" }),
+            new KeyValuePair<string, string[]>("ckSD480pwide", new string[] { "SD 480p wide", "2", "WATCH_FOLDER_SD480pwide" }),
+            new KeyValuePair<string, string[]>("ckHD720p", new string[] { "HD 720p", "3", "WATCH_FOLDER_HD720p" }),
+            new KeyValuePair<string, string[]>("ckHD1080p", new string[] { "Full HD 1080p", "4", "WATCH_FOLDER_Full HD 1080p" }),
+            new KeyValuePair<string, string[]>("ck4K", new string[] { "4K", "5", "WATCH_FOLDER_4K" }),
         };
 
         public static List<string[]> GetResolutionByKey(string filterByKey)
         {
             return KvpResolution.Where(i => i.Key == filterByKey).Select(i => i.Value).ToList();
+        }
+
+        public static string GetResolutionByKey(string filterByKey, int index)
+        {
+            List<string[]> list = KvpResolution.Where(i => i.Key == filterByKey).Select(i => i.Value).ToList();
+            return list[0][index];
         }
 
         public static string GetResolutionByValue(string filterByValue)

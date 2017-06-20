@@ -77,7 +77,7 @@ namespace SA_Config_Info
                 txtWatchFolderRoot.Text = ci.StandAloneInfo.WatchFolderRoot;
 
                 SARadioTypeReflect(ci.StandAloneInfo.SAMachine);
-                SARadioEncoderReflect(ci.StandAloneInfo.SAMachine);
+                SACheckEncoderReflect(ci.StandAloneInfo.SAMachine);
                 SARadioAdobeVersionReflect(ci.StandAloneInfo.SAMachine);
             }
         }
@@ -167,15 +167,20 @@ namespace SA_Config_Info
                     saDefine.Type = c.Name;
                 }
 
-                checkedRadio = new[] { panel2 }
-                       .SelectMany(g => g.Controls.OfType<RadioButton>()
+                var checkedCheckbox = new[] { panel2 }
+                       .SelectMany(g => g.Controls.OfType<CheckBox>()
                                                 .Where(r => r.Checked));
-
-                foreach (var c in checkedRadio)
+                Encoder[] grEncoders = new Encoder[6];
+                i = 0;
+                foreach (var c in checkedCheckbox)
                 {
-                    saDefine.Resolution = c.Name;
-                    saDefine.Encoder = c.Name;
+                    Encoder en = new Encoder();
+                    en.ID = SADefination.GetResolutionByKey(c.Name, 1);
+                    en.Name = c.Name;
+                    en.WatchFolderName = SADefination.GetResolutionByKey(c.Name, 2);
+                    grEncoders[i++] = en;
                 }
+                sam.Encoders = grEncoders;
 
                 checkedRadio = new[] { panel3 }
                        .SelectMany(g => g.Controls.OfType<RadioButton>()
@@ -189,9 +194,7 @@ namespace SA_Config_Info
                 sam.MachineName = Environment.MachineName;
                 sam.Author = Environment.UserName;
                 sam.Mission = saDefine.Mission;
-                sam.Resolution = saDefine.Resolution;
                 sam.Type = saDefine.Type;
-                sam.Encoder = saDefine.Encoder;
                 sam.AdobeVersion = saDefine.AdobeVersion;
                 sam.AEPath = GetPathNoneExe("AfterFX.exe");
                 sam.AEScriptPath = Path.Combine(sam.AEPath, "Scripts");
@@ -251,15 +254,18 @@ namespace SA_Config_Info
             
         }
 
-        protected void SARadioEncoderReflect(SAMachine sam)
+        protected void SACheckEncoderReflect(SAMachine sam)
         {
             try
             {
-                string radioName = SADefination.GetResolutionByValue(sam.Encoder);
-                RadioButton rdButton = Controls.Find(radioName, true).FirstOrDefault() as RadioButton;
-                if (rdButton != null)
+                Encoder[] grEncodes = sam.Encoders;
+                foreach (Encoder item in grEncodes)
                 {
-                    rdButton.Checked = Enabled;
+                    CheckBox rdButton = Controls.Find(item.Name, true).FirstOrDefault() as CheckBox;
+                    if (rdButton != null)
+                    {
+                        rdButton.Checked = Enabled;
+                    }
                 }
             }
             catch (Exception ex)

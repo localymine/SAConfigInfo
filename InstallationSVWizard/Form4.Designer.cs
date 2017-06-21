@@ -39,12 +39,21 @@
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.btnAddAccount = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtSAIP = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtSAUserName = new System.Windows.Forms.TextBox();
+            this.txtSAPassword = new System.Windows.Forms.TextBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // btnConfigureCredential
             // 
-            this.btnConfigureCredential.Location = new System.Drawing.Point(84, 191);
+            this.btnConfigureCredential.Enabled = false;
+            this.btnConfigureCredential.Location = new System.Drawing.Point(214, 270);
             this.btnConfigureCredential.Name = "btnConfigureCredential";
             this.btnConfigureCredential.Size = new System.Drawing.Size(150, 23);
             this.btnConfigureCredential.TabIndex = 14;
@@ -55,11 +64,11 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(85, 175);
+            this.label3.Location = new System.Drawing.Point(88, 168);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(149, 13);
+            this.label3.Size = new System.Drawing.Size(188, 13);
             this.label3.TabIndex = 13;
-            this.label3.Text = "Configure Window Credentials";
+            this.label3.Text = "Configure Window Credentials with SA";
             // 
             // label1
             // 
@@ -85,7 +94,7 @@
             this.txtAccountName.Enabled = false;
             this.txtAccountName.Location = new System.Drawing.Point(169, 75);
             this.txtAccountName.Name = "txtAccountName";
-            this.txtAccountName.Size = new System.Drawing.Size(141, 20);
+            this.txtAccountName.Size = new System.Drawing.Size(195, 20);
             this.txtAccountName.TabIndex = 17;
             this.txtAccountName.Text = "gmauser";
             // 
@@ -112,15 +121,15 @@
             this.txtPassword.Enabled = false;
             this.txtPassword.Location = new System.Drawing.Point(169, 101);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(141, 20);
+            this.txtPassword.Size = new System.Drawing.Size(195, 20);
             this.txtPassword.TabIndex = 20;
             // 
             // btnAddAccount
             // 
             this.btnAddAccount.Enabled = false;
-            this.btnAddAccount.Location = new System.Drawing.Point(235, 127);
+            this.btnAddAccount.Location = new System.Drawing.Point(214, 127);
             this.btnAddAccount.Name = "btnAddAccount";
-            this.btnAddAccount.Size = new System.Drawing.Size(75, 23);
+            this.btnAddAccount.Size = new System.Drawing.Size(150, 23);
             this.btnAddAccount.TabIndex = 21;
             this.btnAddAccount.Text = "Add";
             this.btnAddAccount.UseVisualStyleBackColor = true;
@@ -129,11 +138,71 @@
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
-            this.pictureBox1.Location = new System.Drawing.Point(13, 52);
+            this.pictureBox1.Location = new System.Drawing.Point(13, 168);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(64, 64);
             this.pictureBox1.TabIndex = 22;
             this.pictureBox1.TabStop = false;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(88, 194);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(75, 13);
+            this.label6.TabIndex = 23;
+            this.label6.Text = "SA IP Address";
+            // 
+            // txtSAIP
+            // 
+            this.txtSAIP.Enabled = false;
+            this.txtSAIP.Location = new System.Drawing.Point(169, 190);
+            this.txtSAIP.Name = "txtSAIP";
+            this.txtSAIP.Size = new System.Drawing.Size(195, 20);
+            this.txtSAIP.TabIndex = 24;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(88, 211);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(77, 13);
+            this.label7.TabIndex = 25;
+            this.label7.Text = "SA User Name";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(88, 228);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(70, 13);
+            this.label8.TabIndex = 26;
+            this.label8.Text = "SA Password";
+            // 
+            // txtSAUserName
+            // 
+            this.txtSAUserName.Enabled = false;
+            this.txtSAUserName.Location = new System.Drawing.Point(169, 217);
+            this.txtSAUserName.Name = "txtSAUserName";
+            this.txtSAUserName.Size = new System.Drawing.Size(195, 20);
+            this.txtSAUserName.TabIndex = 27;
+            // 
+            // txtSAPassword
+            // 
+            this.txtSAPassword.Enabled = false;
+            this.txtSAPassword.Location = new System.Drawing.Point(169, 244);
+            this.txtSAPassword.Name = "txtSAPassword";
+            this.txtSAPassword.Size = new System.Drawing.Size(195, 20);
+            this.txtSAPassword.TabIndex = 28;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.DodgerBlue;
+            this.pictureBox2.Location = new System.Drawing.Point(13, 52);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(64, 64);
+            this.pictureBox2.TabIndex = 29;
+            this.pictureBox2.TabStop = false;
             // 
             // frmCredential
             // 
@@ -142,6 +211,13 @@
             this.AutoScroll = true;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(462, 372);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.txtSAPassword);
+            this.Controls.Add(this.txtSAUserName);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.txtSAIP);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnAddAccount);
             this.Controls.Add(this.txtPassword);
@@ -156,7 +232,9 @@
             this.Name = "frmCredential";
             this.Padding = new System.Windows.Forms.Padding(10);
             this.Text = "Create User And Window Credential";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmCredential_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -174,5 +252,12 @@
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Button btnAddAccount;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtSAIP;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txtSAUserName;
+        private System.Windows.Forms.TextBox txtSAPassword;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

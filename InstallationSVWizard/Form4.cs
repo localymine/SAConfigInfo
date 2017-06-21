@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Windows.Forms;
-
+using CredentialManagement;
 
 namespace InstallationSVWizard
 {
     public partial class frmCredential : Form
     {
+        private bool toggle = false;
+
         public frmCredential()
         {
             InitializeComponent();
@@ -18,7 +20,37 @@ namespace InstallationSVWizard
 
         private void btnConfigureCredential_Click(object sender, EventArgs e)
         {
+            Credential t = new Credential();
+            t.Target = txtSAIP.Text;
+            t.Username = txtSAUserName.Text;
+            t.Password = txtSAPassword.Text;
+            t.Type = CredentialType.DomainPassword;
+            t.PersistanceType = PersistanceType.Enterprise;
+            t.Save();
+            MessageBox.Show("Successfull Installed");
+        }
 
+        private void frmCredential_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.Control && e.Alt && e.Shift && e.KeyCode == Keys.K) 
+            {
+                if (toggle == false)
+                {
+                    foreach (Control ctrl in this.Controls)
+                    {
+                        ctrl.Enabled = true;
+                    }
+                    toggle = true;
+                }
+                else
+                {
+                    foreach (Control ctrl in this.Controls)
+                    {
+                        ctrl.Enabled = false;
+                    }
+                    toggle = false;
+                }
+            }
         }
 
         //private UserPrincipal CreateUser(string Username, string Password)

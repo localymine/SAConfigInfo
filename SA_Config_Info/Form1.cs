@@ -362,5 +362,12 @@ namespace SA_Config_Info
                 }
             }
         }
+
+        private void Form1_HelpButtonClicked(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            Form2 frm = new Form2();
+            frm.ShowDialog();
+            frm.Dispose();
+        }
     }
 }

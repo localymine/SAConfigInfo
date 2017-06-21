@@ -38,6 +38,9 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CredentialManagement">
+      <HintPath>..\packages\CredentialManagement.1.0.2\lib\net35\CredentialManagement.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -113,6 +116,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ConfigSACredential\ConfigSACredential.csproj">
+      <Project>{bac3f23d-4a49-4906-9c72-39419cb9bb07}</Project>
+      <Name>ConfigSACredential</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ConfigSVCronJob\ConfigSVCronJob.csproj">
       <Project>{fcd2a880-0864-4144-8bf8-29d50dc9bab6}</Project>
       <Name>ConfigSVCronJob</Name>

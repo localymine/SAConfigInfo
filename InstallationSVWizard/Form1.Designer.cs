@@ -30,19 +30,19 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmParent));
             this.pnlLeft = new System.Windows.Forms.Panel();
-            this.pnlContent = new System.Windows.Forms.Panel();
-            this.pnlNavigation = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pnlContent = new System.Windows.Forms.Panel();
+            this.pnlNavigation = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btnNext = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.pnlLeft.SuspendLayout();
-            this.pnlNavigation.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pnlNavigation.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,32 +59,15 @@
             this.pnlLeft.Size = new System.Drawing.Size(156, 411);
             this.pnlLeft.TabIndex = 0;
             // 
-            // pnlContent
-            // 
-            this.pnlContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlContent.Location = new System.Drawing.Point(156, 0);
-            this.pnlContent.Name = "pnlContent";
-            this.pnlContent.Size = new System.Drawing.Size(478, 411);
-            this.pnlContent.TabIndex = 1;
-            // 
-            // pnlNavigation
-            // 
-            this.pnlNavigation.Controls.Add(this.tableLayoutPanel1);
-            this.pnlNavigation.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlNavigation.Location = new System.Drawing.Point(156, 355);
-            this.pnlNavigation.Name = "pnlNavigation";
-            this.pnlNavigation.Size = new System.Drawing.Size(478, 56);
-            this.pnlNavigation.TabIndex = 2;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label3.Location = new System.Drawing.Point(40, 209);
+            this.label3.Location = new System.Drawing.Point(29, 209);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(75, 17);
+            this.label3.Size = new System.Drawing.Size(97, 17);
             this.label3.TabIndex = 7;
-            this.label3.Text = "Installation";
+            this.label3.Text = "SV Installation";
             // 
             // label2
             // 
@@ -115,6 +98,23 @@
             this.pictureBox1.Size = new System.Drawing.Size(100, 100);
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
+            // 
+            // pnlContent
+            // 
+            this.pnlContent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlContent.Location = new System.Drawing.Point(156, 0);
+            this.pnlContent.Name = "pnlContent";
+            this.pnlContent.Size = new System.Drawing.Size(478, 411);
+            this.pnlContent.TabIndex = 1;
+            // 
+            // pnlNavigation
+            // 
+            this.pnlNavigation.Controls.Add(this.tableLayoutPanel1);
+            this.pnlNavigation.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnlNavigation.Location = new System.Drawing.Point(156, 355);
+            this.pnlNavigation.Name = "pnlNavigation";
+            this.pnlNavigation.Size = new System.Drawing.Size(478, 56);
+            this.pnlNavigation.TabIndex = 2;
             // 
             // tableLayoutPanel1
             // 
@@ -181,8 +181,8 @@
             this.Load += new System.EventHandler(this.frmParent_Load);
             this.pnlLeft.ResumeLayout(false);
             this.pnlLeft.PerformLayout();
-            this.pnlNavigation.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.pnlNavigation.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 

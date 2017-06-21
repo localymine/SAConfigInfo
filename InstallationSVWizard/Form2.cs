@@ -52,7 +52,22 @@ namespace InstallationSVWizard
 
         private void btnCreateScheduleTasks_Click(object sender, EventArgs e)
         {
+            
+            ProcessStartInfo startInfo = new ProcessStartInfo();
+            startInfo.FileName = Path.Combine(Environment.CurrentDirectory, "CreateSVScheduleTask.exe");
+            startInfo.WorkingDirectory = Path.GetDirectoryName(startInfo.FileName);
 
+            try
+            {
+                using (Process exeProcess = Process.Start(startInfo))
+                {
+                    exeProcess.WaitForExit();
+                }
+            }
+            catch
+            {
+
+            }
         }
 
     }

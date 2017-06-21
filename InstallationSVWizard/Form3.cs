@@ -61,6 +61,8 @@ namespace InstallationSVWizard
 
             // share content folder
             Common.ShareFolder(Path.Combine(targetPath, "Content"));
+
+            MessageBox.Show("Successfully Intalled GMAWEB!");
         }
 
         private void btnInstallRest_Click(object sender, EventArgs e)
@@ -73,6 +75,8 @@ namespace InstallationSVWizard
 
             // copy source code
             Common.CopyAll(sourcePath, targetPath);
+
+            MessageBox.Show("Successfully Intalled GMA REST API!");
         }
 
         private void btnInstallCdn_Click(object sender, EventArgs e)
@@ -85,6 +89,8 @@ namespace InstallationSVWizard
 
             // share content folder
             Common.ShareFolder(Path.Combine(targetPath));
+
+            MessageBox.Show("Successfully Intalled Basic GMA CDN!");
         }
 
         private void UpdateWebConfig(string sourcePath, string targetPath)

@@ -14,12 +14,38 @@ namespace InstallationWizard
 
         private void btnConfigureCredentials_Click(object sender, EventArgs e)
         {
+            ProcessStartInfo startInfo = new ProcessStartInfo();
+            startInfo.FileName = Path.Combine(Environment.CurrentDirectory, "ConfigSACredential.exe");
 
+            try
+            {
+                using (Process exeProcess = Process.Start(startInfo))
+                {
+                    exeProcess.WaitForExit();
+                }
+            }
+            catch
+            {
+
+            }
         }
 
         private void btnConfigureCronJob_Click(object sender, EventArgs e)
         {
+            ProcessStartInfo startInfo = new ProcessStartInfo();
+            startInfo.FileName = Path.Combine(Environment.CurrentDirectory, "ConfigSACronJob.exe");
 
+            try
+            {
+                using (Process exeProcess = Process.Start(startInfo))
+                {
+                    exeProcess.WaitForExit();
+                }
+            }
+            catch
+            {
+
+            }
         }
 
         private void btnInstallCronJob_Click(object sender, EventArgs e)
@@ -42,7 +68,20 @@ namespace InstallationWizard
 
         private void btnCreateScheduleTasks_Click(object sender, EventArgs e)
         {
+            ProcessStartInfo startInfo = new ProcessStartInfo();
+            startInfo.FileName = Path.Combine(Environment.CurrentDirectory, "CreateSAScheduleTask.exe");
 
+            try
+            {
+                using (Process exeProcess = Process.Start(startInfo))
+                {
+                    exeProcess.WaitForExit();
+                }
+            }
+            catch
+            {
+
+            }
         }
     }
 }

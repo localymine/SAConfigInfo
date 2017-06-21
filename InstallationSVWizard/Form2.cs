@@ -12,14 +12,23 @@ namespace InstallationSVWizard
             InitializeComponent();
         }
 
-        private void btnConfigureCredentials_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnConfigureCronJob_Click(object sender, EventArgs e)
         {
+            ProcessStartInfo startInfo = new ProcessStartInfo();
+            startInfo.FileName = Path.Combine(Environment.CurrentDirectory, "ConfigSVCronJob.exe");
+            startInfo.WorkingDirectory = Path.GetDirectoryName(startInfo.FileName);
 
+            try
+            {
+                using (Process exeProcess = Process.Start(startInfo))
+                {
+                    exeProcess.WaitForExit();
+                }
+            }
+            catch
+            {
+
+            }
         }
 
         private void btnInstallCronJob_Click(object sender, EventArgs e)

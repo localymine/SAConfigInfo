@@ -74,8 +74,8 @@
             this.label2.Size = new System.Drawing.Size(378, 86);
             this.label2.TabIndex = 3;
             this.label2.Text = "Configure Watch Folder\r\nOther settings Please Configure manually\r\n　　●Share folder" +
-    " TEMP_IMPORT\r\n　　●Import Presets to ME\r\n　　●Interate Presets in ME with Watch Fold" +
-    "er";
+    " AE_PROCESSING && TEMP_IMPORT\r\n　　●Import Presets to ME\r\n　　●Interate Presets in M" +
+    "E with Watch Folder";
             // 
             // btnConfigure
             // 
@@ -93,9 +93,9 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label3.Location = new System.Drawing.Point(14, 14);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(410, 15);
+            this.label3.Size = new System.Drawing.Size(395, 15);
             this.label3.TabIndex = 5;
-            this.label3.Text = "Install / Configure Adobe After Effect And Adobe Media Encoder";
+            this.label3.Text = "Install / Configure Adobe After Effect && Adobe Media Encoder";
             // 
             // frm1
             // 

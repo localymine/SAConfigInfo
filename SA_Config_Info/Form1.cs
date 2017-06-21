@@ -133,6 +133,9 @@ namespace SA_Config_Info
                 sa.Password = txtSAPassword.Text;
                 sa.ServicePath = txtSAServicePath.Text;
                 sa.WatchFolderRoot = txtWatchFolderRoot.Text;
+                sa.SAWatchFolderPath = Path.Combine("\\\\", txtSAIPAddress.Text, "AE_PROCESSING\\AE_RENDER");
+                sa.SATempFolderPath = Path.Combine("\\\\", txtSAIPAddress.Text, "AE_PROCESSING\\TEMP_IMPORT");
+                sa.SATempFolderLocalPath = Path.Combine("\\\\", txtSAIPAddress.Text, "AE_PROCESSING\\TEMP_IMPORT"); ;
 
                 WatchFolder[] watchFolderPaths = new WatchFolder[8];
                 i = 0;

@@ -114,6 +114,10 @@ namespace SA_Config_Info
         public SAServiceFolder[] SAServicePaths;
 
         public string WatchFolderRoot;
+        public string SAWatchFolderPath;
+        public string SATempFolderPath;
+        public string SATempFolderLocalPath;
+
         [XmlArrayAttribute("Paths")]
         public WatchFolder[] WatchFolderPaths;
 

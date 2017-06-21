@@ -39,6 +39,11 @@ namespace CreateSAScheduleTask
             {
                 using (TaskService ts = new TaskService())
                 {
+                    string appName = "";
+                    string servicePath = "";
+                    SAServiceFolder[] folders;
+                    SAServiceFolder location = new SAServiceFolder();
+
                     #region " Export services "
 
                     TaskDefinition tdExport = ts.NewTask();
@@ -57,14 +62,24 @@ namespace CreateSAScheduleTask
                     tr3.StartBoundary = DateTime.Now;
                     tr3.Repetition = new RepetitionPattern(new TimeSpan(0, 1, 0), TimeSpan.Zero, false);
                     tdExport.Triggers.Add(tr3);
-
-
-                    // Create an action that will launch Notepad whenever the trigger fires
-                    tdExport.Actions.Add(new ExecAction(@"D:\\WindowsService\\GMA_SA_AE_ExportTemplateService\\Deploy\\GMA_SA_AE_ExportTemplateService.exe",
-                        @"D:\\WindowsService\\GMA_SA_AE_ExportTemplateService\\logs\\GMA_SA_AE_ExportTemplateService.txt", null));
-
-                    // Register the task in the root folder
-                    ts.RootFolder.RegisterTaskDefinition("GMA_SA_AE_ExportTemplateService", tdExport);
+                    //
+                    appName = "GMA_SA_AE_ExportTemplateService";
+                    servicePath = Configuration.Info.StandAloneInfo.ServicePath;
+                    folders = Configuration.Info.StandAloneInfo.SAServicePaths;
+                    location = folders.FirstOrDefault(m => m.Path.Contains(appName));
+                    if (location != null)
+                    {
+                        // Create an action that will launch Notepad whenever the trigger fires
+                        tdExport.Actions.Add(new ExecAction(string.Format(@"{0}{1}\Deploy\{2}.exe", servicePath, location.Path, appName),
+                        string.Format(@"{0}{1}\Deploy\{2}.txt", servicePath, location.Path, appName), null));
+                        // Register the task in the root folder
+                        ts.RootFolder.RegisterTaskDefinition(appName, tdExport);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Service: " + appName);
+                        Console.WriteLine("URL setup file not found");
+                    }
 
                     #endregion
 
@@ -86,15 +101,25 @@ namespace CreateSAScheduleTask
                     tr6.StartBoundary = DateTime.Now;
                     tr6.Repetition = new RepetitionPattern(new TimeSpan(0, 1, 0), TimeSpan.Zero, false);
                     tdAEService.Triggers.Add(tr6);
-
-
-                    // Create an action that will launch Notepad whenever the trigger fires
-                    tdAEService.Actions.Add(new ExecAction(@"D:\\WindowsService\\GMA_SA_AfterEffectService\\Deploy\\GMA_SA_AfterEffectService.exe",
-                        @"D:\\WindowsService\\GMA_SA_AfterEffectService\\logs\\GMA_SA_AfterEffectService.txt", null));
-
-                    // Register the task in the root folder
-                    ts.RootFolder.RegisterTaskDefinition("GMA_SA_AfterEffectService", tdAEService);
-
+                    //
+                    appName = "GMA_SA_AfterEffectService";
+                    servicePath = Configuration.Info.StandAloneInfo.ServicePath;
+                    folders = Configuration.Info.StandAloneInfo.SAServicePaths;
+                    location = folders.FirstOrDefault(m => m.Path.Contains(appName));
+                    if (location != null)
+                    {
+                        // Create an action that will launch Notepad whenever the trigger fires
+                        tdAEService.Actions.Add(new ExecAction(string.Format(@"{0}{1}\Deploy\{2}.exe", servicePath, location.Path, appName),
+                        string.Format(@"{0}{1}\Deploy\{2}.txt", servicePath, location.Path, appName), null));
+                        // Register the task in the root folder
+                        ts.RootFolder.RegisterTaskDefinition(appName, tdAEService);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Service: " + appName);
+                        Console.WriteLine("URL setup file not found");
+                    }
+                    
                     #endregion
 
                 }
@@ -111,6 +136,11 @@ namespace CreateSAScheduleTask
             try {
                 using (TaskService ts = new TaskService())
                 {
+                    string appName = "";
+                    string servicePath = "";
+                    SAServiceFolder[] folders;
+                    SAServiceFolder location = new SAServiceFolder();
+
                     #region " Import services "
 
                     TaskDefinition tdMediaEndcoder = ts.NewTask();
@@ -129,15 +159,25 @@ namespace CreateSAScheduleTask
                     tr3.StartBoundary = DateTime.Now;
                     tr3.Repetition = new RepetitionPattern(new TimeSpan(0, 1, 0), TimeSpan.Zero, false);
                     tdMediaEndcoder.Triggers.Add(tr3);
-
-
-                    // Create an action that will launch Notepad whenever the trigger fires
-                    tdMediaEndcoder.Actions.Add(new ExecAction(@"D:\\WindowsService\\GMA_SA_ME_MediaEncoderService\\Deploy\\GMA_SA_ME_MediaEncoderService.exe",
-                        @"D:\\WindowsService\\GMA_SA_ME_MediaEncoderService\\logs\\GMA_SA_ME_MediaEncoderService.txt", null));
-
-                    // Register the task in the root folder
-                    ts.RootFolder.RegisterTaskDefinition("GMA_SA_ME_MediaEncoderService", tdMediaEndcoder);
-
+                    //
+                    appName = "GMA_SA_ME_MediaEncoderService";
+                    servicePath = Configuration.Info.StandAloneInfo.ServicePath;
+                    folders = Configuration.Info.StandAloneInfo.SAServicePaths;
+                    location = folders.FirstOrDefault(m => m.Path.Contains(appName));
+                    if(location != null)
+                    {
+                        // Create an action that will launch Notepad whenever the trigger fires
+                        tdMediaEndcoder.Actions.Add(new ExecAction(string.Format(@"{0}{1}\Deploy\{2}.exe", servicePath, location.Path, appName),
+                        string.Format(@"{0}{1}\Logs\{2}.txt", servicePath, location.Path, appName), null));
+                        // Register the task in the root folder
+                        ts.RootFolder.RegisterTaskDefinition(appName, tdMediaEndcoder);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Service: " + appName);
+                        Console.WriteLine("URL setup file not found");
+                    }
+                    
                     #endregion
 
                     #region " Check render video services "
@@ -158,14 +198,24 @@ namespace CreateSAScheduleTask
                     tr6.StartBoundary = DateTime.Now;
                     tr6.Repetition = new RepetitionPattern(new TimeSpan(0, 1, 0), TimeSpan.Zero, false);
                     tdCheckRenderVideo.Triggers.Add(tr6);
-
-
-                    // Create an action that will launch Notepad whenever the trigger fires
-                    tdCheckRenderVideo.Actions.Add(new ExecAction(@"D:\\WindowsService\\GMA_SA_ME_CheckRenderedVideoService\\Deploy\\GMA_SA_ME_CheckRenderedVideoService.exe",
-                        @"D:\\WindowsService\\GMA_SA_ME_CheckRenderedVideoService\\logs\\GMA_SA_ME_CheckRenderedVideoService.txt", null));
-
-                    // Register the task in the root folder
-                    ts.RootFolder.RegisterTaskDefinition("GMA_SA_ME_CheckRenderedVideoService", tdCheckRenderVideo);
+                    //
+                    appName = "GMA_SA_ME_CheckRenderedVideoService";
+                    servicePath = Configuration.Info.StandAloneInfo.ServicePath;
+                    folders = Configuration.Info.StandAloneInfo.SAServicePaths;
+                    location = folders.FirstOrDefault(m => m.Path.Contains(appName));
+                    if (location != null)
+                    {
+                        // Create an action that will launch Notepad whenever the trigger fires
+                        tdCheckRenderVideo.Actions.Add(new ExecAction(string.Format(@"{0}{1}\Deploy\{2}.exe", servicePath, location.Path, appName),
+                        string.Format(@"{0}{1}\Logs\{2}.txt", servicePath, location.Path, appName), null));
+                        // Register the task in the root folder
+                        ts.RootFolder.RegisterTaskDefinition(appName, tdCheckRenderVideo);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Service: " + appName);
+                        Console.WriteLine("URL setup file not found");
+                    }
 
                     #endregion
                 }

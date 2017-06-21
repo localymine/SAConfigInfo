@@ -40,7 +40,6 @@ namespace CreateSAScheduleTask
                 using (TaskService ts = new TaskService())
                 {
                     string appName = "";
-                    string servicePath = "";
                     SAServiceFolder[] folders;
                     SAServiceFolder location = new SAServiceFolder();
 
@@ -64,14 +63,13 @@ namespace CreateSAScheduleTask
                     tdExport.Triggers.Add(tr3);
                     //
                     appName = "GMA_SA_AE_ExportTemplateService";
-                    servicePath = Configuration.Info.StandAloneInfo.ServicePath;
                     folders = Configuration.Info.StandAloneInfo.SAServicePaths;
                     location = folders.FirstOrDefault(m => m.Path.Contains(appName));
                     if (location != null)
                     {
                         // Create an action that will launch Notepad whenever the trigger fires
-                        tdExport.Actions.Add(new ExecAction(string.Format(@"{0}{1}\Deploy\{2}.exe", servicePath, location.Path, appName),
-                        string.Format(@"{0}{1}\Deploy\{2}.txt", servicePath, location.Path, appName), null));
+                        tdExport.Actions.Add(new ExecAction(string.Format(@"{0}\Deploy\{1}.exe", location.Path, appName),
+                        string.Format(@"{0}\Deploy\{1}.txt", location.Path, appName), null));
                         // Register the task in the root folder
                         ts.RootFolder.RegisterTaskDefinition(appName, tdExport);
                     }
@@ -103,14 +101,13 @@ namespace CreateSAScheduleTask
                     tdAEService.Triggers.Add(tr6);
                     //
                     appName = "GMA_SA_AfterEffectService";
-                    servicePath = Configuration.Info.StandAloneInfo.ServicePath;
                     folders = Configuration.Info.StandAloneInfo.SAServicePaths;
                     location = folders.FirstOrDefault(m => m.Path.Contains(appName));
                     if (location != null)
                     {
                         // Create an action that will launch Notepad whenever the trigger fires
-                        tdAEService.Actions.Add(new ExecAction(string.Format(@"{0}{1}\Deploy\{2}.exe", servicePath, location.Path, appName),
-                        string.Format(@"{0}{1}\Deploy\{2}.txt", servicePath, location.Path, appName), null));
+                        tdAEService.Actions.Add(new ExecAction(string.Format(@"{0}\Deploy\{1}.exe", location.Path, appName),
+                        string.Format(@"{0}\Deploy\{1}.txt", location.Path, appName), null));
                         // Register the task in the root folder
                         ts.RootFolder.RegisterTaskDefinition(appName, tdAEService);
                     }
@@ -137,7 +134,6 @@ namespace CreateSAScheduleTask
                 using (TaskService ts = new TaskService())
                 {
                     string appName = "";
-                    string servicePath = "";
                     SAServiceFolder[] folders;
                     SAServiceFolder location = new SAServiceFolder();
 
@@ -161,14 +157,13 @@ namespace CreateSAScheduleTask
                     tdMediaEndcoder.Triggers.Add(tr3);
                     //
                     appName = "GMA_SA_ME_MediaEncoderService";
-                    servicePath = Configuration.Info.StandAloneInfo.ServicePath;
                     folders = Configuration.Info.StandAloneInfo.SAServicePaths;
                     location = folders.FirstOrDefault(m => m.Path.Contains(appName));
                     if(location != null)
                     {
                         // Create an action that will launch Notepad whenever the trigger fires
-                        tdMediaEndcoder.Actions.Add(new ExecAction(string.Format(@"{0}{1}\Deploy\{2}.exe", servicePath, location.Path, appName),
-                        string.Format(@"{0}{1}\Logs\{2}.txt", servicePath, location.Path, appName), null));
+                        tdMediaEndcoder.Actions.Add(new ExecAction(string.Format(@"{0}\Deploy\{1}.exe", location.Path, appName),
+                        string.Format(@"{0}\Logs\{1}.txt", location.Path, appName), null));
                         // Register the task in the root folder
                         ts.RootFolder.RegisterTaskDefinition(appName, tdMediaEndcoder);
                     }
@@ -200,14 +195,13 @@ namespace CreateSAScheduleTask
                     tdCheckRenderVideo.Triggers.Add(tr6);
                     //
                     appName = "GMA_SA_ME_CheckRenderedVideoService";
-                    servicePath = Configuration.Info.StandAloneInfo.ServicePath;
                     folders = Configuration.Info.StandAloneInfo.SAServicePaths;
                     location = folders.FirstOrDefault(m => m.Path.Contains(appName));
                     if (location != null)
                     {
                         // Create an action that will launch Notepad whenever the trigger fires
-                        tdCheckRenderVideo.Actions.Add(new ExecAction(string.Format(@"{0}{1}\Deploy\{2}.exe", servicePath, location.Path, appName),
-                        string.Format(@"{0}{1}\Logs\{2}.txt", servicePath, location.Path, appName), null));
+                        tdCheckRenderVideo.Actions.Add(new ExecAction(string.Format(@"{0}\Deploy\{1}.exe", location.Path, appName),
+                        string.Format(@"{0}\Logs\{1}.txt", location.Path, appName), null));
                         // Register the task in the root folder
                         ts.RootFolder.RegisterTaskDefinition(appName, tdCheckRenderVideo);
                     }

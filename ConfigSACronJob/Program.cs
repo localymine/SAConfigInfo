@@ -190,7 +190,7 @@ namespace ConfigSACronJob
         {
             string appName = "GMA_SA_AE_ExportTemplateService";
             Console.WriteLine("Update xml file in {0} service", appName);
-            string path = Path.Combine(Environment.CurrentDirectory, string.Format(@"{0}\Deploy\{1}.exe.config", appName, appName));
+            string path = Path.Combine(Environment.CurrentDirectory, string.Format(@"WindowsService\{0}\Deploy\{1}.exe.config", appName, appName));
             try
             {
                 if (!File.Exists(path))
@@ -249,7 +249,7 @@ namespace ConfigSACronJob
         {
             string appName = "GMA_SA_AfterEffectService";
             Console.WriteLine("Update xml file in {0} service", appName);
-            string path = Path.Combine(Environment.CurrentDirectory, string.Format(@"{0}\Deploy\{1}.exe.config", appName, appName));
+            string path = Path.Combine(Environment.CurrentDirectory, string.Format(@"WindowsService\{0}\Deploy\{1}.exe.config", appName, appName));
             try
             {
                 if (!File.Exists(path))
@@ -309,7 +309,7 @@ namespace ConfigSACronJob
         {
             string appName = "GMA_SA_ME_MediaEncoderService";
             Console.WriteLine("Update xml file in {0} service", appName);
-            string path = Path.Combine(Environment.CurrentDirectory, string.Format(@"{0}\Deploy\{1}.exe.config", appName, appName));
+            string path = Path.Combine(Environment.CurrentDirectory, string.Format(@"WindowsService\{0}\Deploy\{1}.exe.config", appName, appName));
             try
             {
                 if (!File.Exists(path))
@@ -369,7 +369,7 @@ namespace ConfigSACronJob
         {
             string appName = "GMA_SA_ME_CheckRenderedVideoService";
             Console.WriteLine("Update xml file in {0} service", appName);
-            string path = Path.Combine(Environment.CurrentDirectory, string.Format(@"{0}\Deploy\{1}.exe.config", appName, appName));
+            string path = Path.Combine(Environment.CurrentDirectory, string.Format(@"WindowsService\{0}\Deploy\{1}.exe.config", appName, appName));
             try
             {
                 if (!File.Exists(path))

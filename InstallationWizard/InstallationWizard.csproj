@@ -115,9 +115,17 @@
       <Project>{97e61a7c-c0b8-49af-88d7-baaca9dcb746}</Project>
       <Name>ConfigSACronJob</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ConfigSVCronJob\ConfigSVCronJob.csproj">
+      <Project>{fcd2a880-0864-4144-8bf8-29d50dc9bab6}</Project>
+      <Name>ConfigSVCronJob</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CreateSAScheduleTask\CreateSAScheduleTask.csproj">
       <Project>{f8d38286-99e2-4614-8788-02abf9e699bf}</Project>
       <Name>CreateSAScheduleTask</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CreateSVScheduleTask\CreateSVScheduleTask.csproj">
+      <Project>{58e5dab4-59c4-4102-8b79-b5a2b51f3109}</Project>
+      <Name>CreateSVScheduleTask</Name>
     </ProjectReference>
     <ProjectReference Include="..\InstallAEJSX\InstallAEJSX.csproj">
       <Project>{c250b1e4-5ad3-4ff5-b4ff-4c889c08e65f}</Project>
@@ -130,6 +138,10 @@
     <ProjectReference Include="..\InstallCronJob\InstallCronJob.csproj">
       <Project>{872fbd92-c825-4ad2-86fe-441cc4a9b868}</Project>
       <Name>InstallCronJob</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InstallSVCronJob\InstallSVCronJob.csproj">
+      <Project>{72a5391a-d8ec-44cd-bee2-4cc873c294a2}</Project>
+      <Name>InstallSVCronJob</Name>
     </ProjectReference>
     <ProjectReference Include="..\SA_Config_Info\SA_Config_Info.csproj">
       <Project>{5a6a29ee-3ef4-4c67-a5b0-6ce8555b5132}</Project>

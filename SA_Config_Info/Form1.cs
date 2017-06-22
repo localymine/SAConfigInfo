@@ -200,10 +200,19 @@ namespace SA_Config_Info
                 sam.Author = Environment.UserName;
                 sam.Mission = saDefine.Mission;
                 sam.Type = saDefine.Type;
+
                 sam.AdobeVersion = saDefine.AdobeVersion;
-                sam.AEPath = GetPathNoneExe("AfterFX.exe");
-                sam.AEScriptPath = Path.Combine(sam.AEPath, "Scripts");
-                sam.MEPath = GetPathNoneExe("Adobe Media Encoder.exe");
+                string tmpAEPath = GetPathNoneExe("AfterFX.exe");
+                if (!String.IsNullOrEmpty(tmpAEPath) && tmpAEPath.Contains(sam.AdobeVersion))
+                {
+                    sam.AEPath = tmpAEPath;
+                    sam.AEScriptPath = Path.Combine(sam.AEPath, "Scripts");
+                }
+                string tmpMEPath = GetPathNoneExe("Adobe Media Encoder.exe");
+                if (!String.IsNullOrEmpty(tmpMEPath) && tmpMEPath.Contains(sam.AdobeVersion))
+                {
+                    sam.MEPath = tmpMEPath;
+                }
 
                 sa.SAMachine = sam;
 

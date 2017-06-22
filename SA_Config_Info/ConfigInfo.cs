@@ -164,8 +164,8 @@ namespace SA_Config_Info
     {
         private static List<KeyValuePair<string, string>> KvpAdobeVersion = new List<KeyValuePair<string, string>>()
         {
-            new KeyValuePair<string, string>("rdCC2015", "CC2015"),
-            new KeyValuePair<string, string>("rdCC2017", "CC2017"),
+            new KeyValuePair<string, string>("rdCC2015", "CC 2015"),
+            new KeyValuePair<string, string>("rdCC2017", "CC 2017"),
         };
 
         public static List<string> GetAdobeVersionByKey(string filterByKey)

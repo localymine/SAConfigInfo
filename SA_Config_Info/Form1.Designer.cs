@@ -201,6 +201,7 @@
             this.txtWatchFolderRoot.Name = "txtWatchFolderRoot";
             this.txtWatchFolderRoot.Size = new System.Drawing.Size(253, 20);
             this.txtWatchFolderRoot.TabIndex = 12;
+            this.txtWatchFolderRoot.Text = "D:\\";
             // 
             // btnWatchBrowser
             // 
@@ -217,6 +218,7 @@
             this.txtSAServicePath.Name = "txtSAServicePath";
             this.txtSAServicePath.Size = new System.Drawing.Size(253, 20);
             this.txtSAServicePath.TabIndex = 11;
+            this.txtSAServicePath.Text = "C:\\";
             // 
             // btnSAServicePathBrowser
             // 
@@ -241,6 +243,7 @@
             // rdCC2017
             // 
             this.rdCC2017.AutoSize = true;
+            this.rdCC2017.Checked = true;
             this.rdCC2017.Location = new System.Drawing.Point(92, 4);
             this.rdCC2017.Name = "rdCC2017";
             this.rdCC2017.Size = new System.Drawing.Size(66, 17);
@@ -256,7 +259,6 @@
             this.rdCC2015.Name = "rdCC2015";
             this.rdCC2015.Size = new System.Drawing.Size(66, 17);
             this.rdCC2015.TabIndex = 0;
-            this.rdCC2015.TabStop = true;
             this.rdCC2015.Text = "CC 2015";
             this.rdCC2015.UseVisualStyleBackColor = true;
             // 
@@ -286,6 +288,8 @@
             // ckHD1080p
             // 
             this.ckHD1080p.AutoSize = true;
+            this.ckHD1080p.Checked = true;
+            this.ckHD1080p.CheckState = System.Windows.Forms.CheckState.Checked;
             this.ckHD1080p.Location = new System.Drawing.Point(147, 25);
             this.ckHD1080p.Name = "ckHD1080p";
             this.ckHD1080p.Size = new System.Drawing.Size(94, 17);
@@ -296,6 +300,8 @@
             // ck4K
             // 
             this.ck4K.AutoSize = true;
+            this.ck4K.Checked = true;
+            this.ck4K.CheckState = System.Windows.Forms.CheckState.Checked;
             this.ck4K.Location = new System.Drawing.Point(3, 25);
             this.ck4K.Name = "ck4K";
             this.ck4K.Size = new System.Drawing.Size(39, 17);
@@ -306,6 +312,8 @@
             // ckHD720p
             // 
             this.ckHD720p.AutoSize = true;
+            this.ckHD720p.Checked = true;
+            this.ckHD720p.CheckState = System.Windows.Forms.CheckState.Checked;
             this.ckHD720p.Location = new System.Drawing.Point(76, 25);
             this.ckHD720p.Name = "ckHD720p";
             this.ckHD720p.Size = new System.Drawing.Size(66, 17);
@@ -316,6 +324,8 @@
             // ckSD480pwide
             // 
             this.ckSD480pwide.AutoSize = true;
+            this.ckSD480pwide.Checked = true;
+            this.ckSD480pwide.CheckState = System.Windows.Forms.CheckState.Checked;
             this.ckSD480pwide.Location = new System.Drawing.Point(147, 2);
             this.ckSD480pwide.Name = "ckSD480pwide";
             this.ckSD480pwide.Size = new System.Drawing.Size(87, 17);
@@ -326,6 +336,8 @@
             // ckSD480p
             // 
             this.ckSD480p.AutoSize = true;
+            this.ckSD480p.Checked = true;
+            this.ckSD480p.CheckState = System.Windows.Forms.CheckState.Checked;
             this.ckSD480p.Location = new System.Drawing.Point(76, 2);
             this.ckSD480p.Name = "ckSD480p";
             this.ckSD480p.Size = new System.Drawing.Size(65, 17);
@@ -336,6 +348,8 @@
             // ckPreview
             // 
             this.ckPreview.AutoSize = true;
+            this.ckPreview.Checked = true;
+            this.ckPreview.CheckState = System.Windows.Forms.CheckState.Checked;
             this.ckPreview.Location = new System.Drawing.Point(3, 3);
             this.ckPreview.Name = "ckPreview";
             this.ckPreview.Size = new System.Drawing.Size(64, 17);
@@ -374,6 +388,7 @@
             this.txtSAUserName.Name = "txtSAUserName";
             this.txtSAUserName.Size = new System.Drawing.Size(253, 20);
             this.txtSAUserName.TabIndex = 9;
+            this.txtSAUserName.Text = "gmauser";
             // 
             // label10
             // 
@@ -398,6 +413,7 @@
             // rdBoth
             // 
             this.rdBoth.AutoSize = true;
+            this.rdBoth.Checked = true;
             this.rdBoth.Location = new System.Drawing.Point(182, 4);
             this.rdBoth.Name = "rdBoth";
             this.rdBoth.Size = new System.Drawing.Size(67, 17);
@@ -413,7 +429,6 @@
             this.rdME.Name = "rdME";
             this.rdME.Size = new System.Drawing.Size(41, 17);
             this.rdME.TabIndex = 1;
-            this.rdME.TabStop = true;
             this.rdME.Text = "ME";
             this.rdME.UseVisualStyleBackColor = true;
             // 
@@ -424,7 +439,6 @@
             this.rdAE.Name = "rdAE";
             this.rdAE.Size = new System.Drawing.Size(39, 17);
             this.rdAE.TabIndex = 0;
-            this.rdAE.TabStop = true;
             this.rdAE.Text = "AE";
             this.rdAE.UseVisualStyleBackColor = true;
             // 
@@ -476,6 +490,7 @@
             this.txtSVServicePath.Name = "txtSVServicePath";
             this.txtSVServicePath.Size = new System.Drawing.Size(253, 20);
             this.txtSVServicePath.TabIndex = 6;
+            this.txtSVServicePath.Text = "C:\\";
             // 
             // btnSVServicePathBrowser
             // 
@@ -509,6 +524,7 @@
             this.txtSCUserName.Name = "txtSCUserName";
             this.txtSCUserName.Size = new System.Drawing.Size(253, 20);
             this.txtSCUserName.TabIndex = 2;
+            this.txtSCUserName.Text = "gmauser";
             // 
             // label8
             // 

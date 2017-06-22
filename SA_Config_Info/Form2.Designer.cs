@@ -40,7 +40,8 @@
             this.pictureHelp.Location = new System.Drawing.Point(0, 0);
             this.pictureHelp.Margin = new System.Windows.Forms.Padding(0);
             this.pictureHelp.Name = "pictureHelp";
-            this.pictureHelp.Size = new System.Drawing.Size(460, 346);
+            this.pictureHelp.Size = new System.Drawing.Size(799, 809);
+            this.pictureHelp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureHelp.TabIndex = 0;
             this.pictureHelp.TabStop = false;
             this.pictureHelp.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureHelp_MouseDown);
@@ -51,7 +52,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(458, 345);
+            this.ClientSize = new System.Drawing.Size(801, 801);
             this.Controls.Add(this.pictureHelp);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MaximizeBox = false;
@@ -60,6 +61,7 @@
             this.Text = "Help";
             ((System.ComponentModel.ISupportInitialize)(this.pictureHelp)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

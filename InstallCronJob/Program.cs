@@ -1,6 +1,7 @@
 ﻿using System;
 using SA_Config_Info;
 using System.IO;
+using System.Threading;
 
 namespace InstallCronJob
 {
@@ -17,7 +18,6 @@ namespace InstallCronJob
                 if (Configuration.Info != null)
                 {
                     string sourcePath = Path.Combine(Environment.CurrentDirectory, "WindowsService");
-                    string targetPath;
 
                     if (Directory.Exists(sourcePath))
                     {
@@ -89,6 +89,16 @@ namespace InstallCronJob
                     //
                     ShareFolder(sasf.Path, ServiceFolderName);
                 }
+                //
+                using (var progress = new ProgressBar())
+                {
+                    int bar = 300;
+                    for (int i = 0; i <= bar; i++)
+                    {
+                        progress.Report((double)i / bar);
+                        Thread.Sleep(20);
+                    }
+                }
             }
             else
             {
@@ -108,6 +118,16 @@ namespace InstallCronJob
                         ShareFolder(sasf.Path, ServiceFolderName);
                     }
 
+                }
+                //
+                using (var progress = new ProgressBar())
+                {
+                    int bar = 300;
+                    for (int i = 0; i <= bar; i++)
+                    {
+                        progress.Report((double)i / bar);
+                        Thread.Sleep(20);
+                    }
                 }
             }
                 

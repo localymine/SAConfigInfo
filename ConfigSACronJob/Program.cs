@@ -100,7 +100,7 @@ namespace ConfigSACronJob
                     cmd.CommandText = string.Format(@"INSERT INTO [dbo].[PrimaryEngines]([Name],[IPAddress],[FQDN]) output INSERTED.PEId VALUES(@name,@ip,@fqdn)");
                     cmd.Parameters.AddWithValue("@name", ipAddress);
                     cmd.Parameters.AddWithValue("@ip", ipAddress);
-                    cmd.Parameters.AddWithValue("@fqdn", "");
+                    cmd.Parameters.AddWithValue("@fqdn", Configuration.Info.StandAloneInfo.SAMachine.AEFQDN);
                     cmd.CommandType = CommandType.Text;
                     id = (int)cmd.ExecuteScalar();
                     if (conn.State == ConnectionState.Open)
@@ -135,7 +135,7 @@ namespace ConfigSACronJob
                                                       VALUES (@Name, @IPAddress, @FQDN, @WatchFolderPath, @TempFolderPath, @TempFolderLocalPath)");
                 cmd.Parameters.AddWithValue("@Name", ipAddress);
                 cmd.Parameters.AddWithValue("@IPAddress", ipAddress);
-                cmd.Parameters.AddWithValue("@FQDN", "");
+                cmd.Parameters.AddWithValue("@FQDN", Configuration.Info.StandAloneInfo.SAMachine.MEFQDN);
                 cmd.Parameters.AddWithValue("@WatchFolderPath", Configuration.Info.StandAloneInfo.SAWatchFolderPath);
                 cmd.Parameters.AddWithValue("@TempFolderPath", Configuration.Info.StandAloneInfo.SATempFolderPath);
                 cmd.Parameters.AddWithValue("@TempFolderLocalPath", Configuration.Info.StandAloneInfo.SATempFolderLocalPath);

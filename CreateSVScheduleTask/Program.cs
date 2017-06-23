@@ -17,6 +17,7 @@ namespace CreateSVScheduleTask
             {
                 CreateTask();
             }
+            Console.ReadKey();
         }
 
         static void CreateTask()

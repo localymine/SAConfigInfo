@@ -79,6 +79,10 @@ namespace SA_Config_Info
 
                 SARadioTypeReflect(ci.StandAloneInfo.SAMachine);
                 SACheckEncoderReflect(ci.StandAloneInfo.SAMachine);
+
+                txtAEfqdn.Text = ci.StandAloneInfo.SAMachine.AEFQDN;
+                txtMEfqdn.Text = ci.StandAloneInfo.SAMachine.MEFQDN;
+
                 SARadioAdobeVersionReflect(ci.StandAloneInfo.SAMachine);
             }
         }
@@ -187,6 +191,20 @@ namespace SA_Config_Info
                 }
                 sam.Encoders = grEncoders;
 
+                if (rdAE.Checked == true)
+                {
+                    sam.AEFQDN = txtAEfqdn.Text;
+                }
+                else if (rdME.Checked == true)
+                {
+                    sam.MEFQDN = txtMEfqdn.Text;
+                }
+                else
+                {
+                    sam.AEFQDN = txtAEfqdn.Text;
+                    sam.MEFQDN = txtMEfqdn.Text;
+                }
+
                 checkedRadio = new[] { panel3 }
                        .SelectMany(g => g.Controls.OfType<RadioButton>()
                                                 .Where(r => r.Checked));
@@ -213,6 +231,9 @@ namespace SA_Config_Info
                 {
                     sam.MEPath = tmpMEPath;
                 }
+
+                sam.AEExportProjectPath = txtSAServicePath.Text + "\\WindowsService\\\\GMA_SA_AfterEffectService\\\\ProjectPath.txt";
+                sam.AEProjectPath = txtSAServicePath.Text + "\\WindowsService\\\\GMA_SA_AfterEffectService\\\\ProjectPath.txt";
 
                 sa.SAMachine = sam;
 
@@ -377,6 +398,24 @@ namespace SA_Config_Info
             Form2 frm = new Form2();
             frm.ShowDialog();
             frm.Dispose();
+        }
+
+        private void rdAE_CheckedChanged(object sender, EventArgs e)
+        {
+            txtAEfqdn.Enabled = true;
+            txtMEfqdn.Enabled = false;
+        }
+
+        private void rdME_CheckedChanged(object sender, EventArgs e)
+        {
+            txtAEfqdn.Enabled = false;
+            txtMEfqdn.Enabled = true;
+        }
+
+        private void rdBoth_CheckedChanged(object sender, EventArgs e)
+        {
+            txtAEfqdn.Enabled = true;
+            txtMEfqdn.Enabled = true;
         }
     }
 }

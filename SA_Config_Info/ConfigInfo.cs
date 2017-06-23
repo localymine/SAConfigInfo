@@ -143,6 +143,9 @@ namespace SA_Config_Info
         [XmlArrayAttribute("Resolutions", IsNullable = false)]
         public Encoder[] Encoders;
 
+        public string AEFQDN;
+        public string MEFQDN;
+
         public string MachineName;
         public string Author;
         public string Type;
@@ -151,6 +154,41 @@ namespace SA_Config_Info
         public string AEPath;
         public string AEScriptPath;
         public string MEPath;
+
+        private string _AEExportProjectPath;
+        public string AEExportProjectPath
+        {
+            get
+            {
+                return _AEExportProjectPath;
+            }
+            set
+            {
+                string temp = value.Replace("\\\\\\\\", "\\\\");
+                temp = temp.Replace("\\\\", "|");
+                temp = temp.Replace("\\", "|");
+                temp = temp.Replace("|", "\\\\");
+                _AEExportProjectPath = temp;
+            }
+        }
+
+        private string _AEProjectPath;
+        public string AEProjectPath
+        {
+            get
+            {
+                return _AEProjectPath;
+            }
+            set
+            {
+                string temp = value.Replace("\\\\\\\\", "\\\\");
+                temp = temp.Replace("\\\\", "|");
+                temp = temp.Replace("\\", "|");
+                temp = temp.Replace("|", "\\\\");
+                _AEProjectPath = temp;
+            }
+        }
+
     }
 
     public class Encoder

@@ -78,6 +78,10 @@
             this.btnImport = new System.Windows.Forms.Button();
             this.btnExport = new System.Windows.Forms.Button();
             this.lbRegion = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.txtAEfqdn = new System.Windows.Forms.TextBox();
+            this.txtMEfqdn = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -190,7 +194,7 @@
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Location = new System.Drawing.Point(357, 13);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(339, 282);
+            this.groupBox2.Size = new System.Drawing.Size(339, 330);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "SA Information";
@@ -280,7 +284,7 @@
             this.panel2.Controls.Add(this.ckSD480pwide);
             this.panel2.Controls.Add(this.ckSD480p);
             this.panel2.Controls.Add(this.ckPreview);
-            this.panel2.Location = new System.Drawing.Point(80, 225);
+            this.panel2.Location = new System.Drawing.Point(80, 272);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(253, 47);
             this.panel2.TabIndex = 15;
@@ -360,7 +364,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(7, 229);
+            this.label12.Location = new System.Drawing.Point(7, 276);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(47, 13);
             this.label12.TabIndex = 8;
@@ -402,12 +406,16 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.txtMEfqdn);
+            this.panel1.Controls.Add(this.txtAEfqdn);
+            this.panel1.Controls.Add(this.label15);
+            this.panel1.Controls.Add(this.label14);
             this.panel1.Controls.Add(this.rdBoth);
             this.panel1.Controls.Add(this.rdME);
             this.panel1.Controls.Add(this.rdAE);
             this.panel1.Location = new System.Drawing.Point(80, 192);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(253, 26);
+            this.panel1.Size = new System.Drawing.Size(253, 74);
             this.panel1.TabIndex = 14;
             // 
             // rdBoth
@@ -421,6 +429,7 @@
             this.rdBoth.TabStop = true;
             this.rdBoth.Text = "AE + ME";
             this.rdBoth.UseVisualStyleBackColor = true;
+            this.rdBoth.CheckedChanged += new System.EventHandler(this.rdBoth_CheckedChanged);
             // 
             // rdME
             // 
@@ -431,6 +440,7 @@
             this.rdME.TabIndex = 1;
             this.rdME.Text = "ME";
             this.rdME.UseVisualStyleBackColor = true;
+            this.rdME.CheckedChanged += new System.EventHandler(this.rdME_CheckedChanged);
             // 
             // rdAE
             // 
@@ -441,15 +451,16 @@
             this.rdAE.TabIndex = 0;
             this.rdAE.Text = "AE";
             this.rdAE.UseVisualStyleBackColor = true;
+            this.rdAE.CheckedChanged += new System.EventHandler(this.rdAE_CheckedChanged);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(6, 198);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(48, 13);
+            this.label6.Size = new System.Drawing.Size(68, 26);
             this.label6.TabIndex = 2;
-            this.label6.Text = "SA Type";
+            this.label6.Text = "SA Machine \r\nType\r\n";
             // 
             // txtSAIPAddress
             // 
@@ -553,7 +564,7 @@
             // 
             // btnImport
             // 
-            this.btnImport.Location = new System.Drawing.Point(357, 302);
+            this.btnImport.Location = new System.Drawing.Point(357, 349);
             this.btnImport.Name = "btnImport";
             this.btnImport.Size = new System.Drawing.Size(168, 23);
             this.btnImport.TabIndex = 16;
@@ -563,7 +574,7 @@
             // 
             // btnExport
             // 
-            this.btnExport.Location = new System.Drawing.Point(528, 302);
+            this.btnExport.Location = new System.Drawing.Point(528, 349);
             this.btnExport.Name = "btnExport";
             this.btnExport.Size = new System.Drawing.Size(168, 23);
             this.btnExport.TabIndex = 17;
@@ -574,17 +585,51 @@
             // lbRegion
             // 
             this.lbRegion.AutoSize = true;
-            this.lbRegion.Location = new System.Drawing.Point(9, 312);
+            this.lbRegion.Location = new System.Drawing.Point(9, 298);
             this.lbRegion.Name = "lbRegion";
             this.lbRegion.Size = new System.Drawing.Size(41, 13);
             this.lbRegion.TabIndex = 18;
             this.lbRegion.Text = "Region";
             // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(4, 28);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(54, 13);
+            this.label14.TabIndex = 3;
+            this.label14.Text = "AE FQDN";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(4, 49);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(56, 13);
+            this.label15.TabIndex = 4;
+            this.label15.Text = "ME FQDN";
+            // 
+            // txtAEfqdn
+            // 
+            this.txtAEfqdn.Location = new System.Drawing.Point(64, 25);
+            this.txtAEfqdn.Name = "txtAEfqdn";
+            this.txtAEfqdn.Size = new System.Drawing.Size(177, 20);
+            this.txtAEfqdn.TabIndex = 5;
+            this.txtAEfqdn.Text = "AEserver*.gma.local";
+            // 
+            // txtMEfqdn
+            // 
+            this.txtMEfqdn.Location = new System.Drawing.Point(64, 46);
+            this.txtMEfqdn.Name = "txtMEfqdn";
+            this.txtMEfqdn.Size = new System.Drawing.Size(177, 20);
+            this.txtMEfqdn.TabIndex = 6;
+            this.txtMEfqdn.Text = "renderserver*.gma.local";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(709, 333);
+            this.ClientSize = new System.Drawing.Size(709, 383);
             this.Controls.Add(this.lbRegion);
             this.Controls.Add(this.btnExport);
             this.Controls.Add(this.btnImport);
@@ -669,6 +714,10 @@
         private System.Windows.Forms.CheckBox ckSD480pwide;
         private System.Windows.Forms.CheckBox ckSD480p;
         private System.Windows.Forms.CheckBox ckPreview;
+        private System.Windows.Forms.TextBox txtMEfqdn;
+        private System.Windows.Forms.TextBox txtAEfqdn;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label14;
     }
 }
 

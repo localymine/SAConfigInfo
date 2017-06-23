@@ -31,6 +31,7 @@ namespace CreateSAScheduleTask
                         break;
                 }
             }
+            Console.ReadKey();
         }
 
         static void CreateAETask()

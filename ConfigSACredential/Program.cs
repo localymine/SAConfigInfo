@@ -19,6 +19,7 @@ namespace ConfigSACredential
                 t.PersistanceType = PersistanceType.Enterprise;
                 t.Save();
                 Console.WriteLine("Success");
+                Console.ReadKey();
             }
         }
     }

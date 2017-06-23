@@ -71,6 +71,7 @@ namespace ConfigSACronJob
                 }
                 Console.ReadLine();
             }
+            Console.ReadKey();
         }
     }
 

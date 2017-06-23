@@ -98,6 +98,11 @@ namespace InstallationWizard
 
             }
 
+            // bring window form to front
+            this.WindowState = FormWindowState.Minimized;
+            this.Show();
+            this.WindowState = FormWindowState.Normal;
+
             Next();
         }
 

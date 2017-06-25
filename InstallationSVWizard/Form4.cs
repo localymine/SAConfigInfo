@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using CredentialManagement;
+using SA_Config_Info;
 
 namespace InstallationSVWizard
 {
@@ -11,6 +12,11 @@ namespace InstallationSVWizard
         public frmCredential()
         {
             InitializeComponent();
+
+            Configuration.GetConfigInfo("ConfigInfo.xml");
+            txtSAIP.Text = Configuration.Info.StandAloneInfo.IPAddress;
+            txtSAUserName.Text = Configuration.Info.StandAloneInfo.UserName;
+            txtSAPassword.Text = Configuration.Info.StandAloneInfo.Password;
         }
 
         private void btnAddAccount_Click(object sender, EventArgs e)

@@ -54,13 +54,20 @@ namespace InstallationSVWizard
 
         private void LoadCurrentServerNames(ComboBox cb)
         {
-            Dictionary<string, string> listServers = new Dictionary<string, string>();
-            listServers = db.LoadServerNames();
-            if (listServers != null)
+            try
             {
-                cb.DataSource = new BindingSource(listServers, null);
-                cb.DisplayMember = "Value";
-                cb.ValueMember = "Key";
+                Dictionary<string, string> listServers = new Dictionary<string, string>();
+                listServers = db.LoadServerNames();
+                if (listServers != null)
+                {
+                    cb.DataSource = new BindingSource(listServers, null);
+                    cb.DisplayMember = "Value";
+                    cb.ValueMember = "Key";
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
             }
         }
 

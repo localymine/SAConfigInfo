@@ -50,76 +50,104 @@ namespace InstallationSVWizard
 
         private void btnInstallWeb_Click(object sender, EventArgs e)
         {
-            string sourcePath = Path.Combine(Environment.CurrentDirectory, "SourceCode", "GMAWEB");
-            string targetPath = Path.Combine(txtGMAWeb.Text, "GMAWEB");
+            try
+            {
+                string sourcePath = Path.Combine(Environment.CurrentDirectory, "SourceCode", "GMAWEB");
+                string targetPath = Path.Combine(txtGMAWeb.Text, "GMAWEB");
 
-            // Configure Connection DB of WebConfig, with data from xml
-            UpdateWebConfig(sourcePath, targetPath);
+                // Configure Connection DB of WebConfig, with data from xml
+                UpdateWebConfig(sourcePath, targetPath);
 
-            // copy source code
-            Common.CopyAll(sourcePath, targetPath);
+                // copy source code
+                Common.CopyAll(sourcePath, targetPath);
 
-            // share content folder
-            Common.ShareFolder(Path.Combine(targetPath, "Content"));
+                // share content folder
+                Common.ShareFolder(Path.Combine(targetPath, "Content"));
 
-            MessageBox.Show("Successfully Intalled GMAWEB!");
+                MessageBox.Show("Successfully Intalled GMAWEB!");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         private void btnInstallRest_Click(object sender, EventArgs e)
         {
-            string sourcePath = Path.Combine(Environment.CurrentDirectory, "SourceCode", "GMAREST");
-            string targetPath = Path.Combine(txtGMAWeb.Text, "GMAREST");
+            try
+            {
+                string sourcePath = Path.Combine(Environment.CurrentDirectory, "SourceCode", "GMAREST");
+                string targetPath = Path.Combine(txtGMAWeb.Text, "GMAREST");
 
-            // Configure Connection DB of WebConfig, with data from xml
-            UpdateWebConfig(sourcePath, targetPath);
+                // Configure Connection DB of WebConfig, with data from xml
+                UpdateWebConfig(sourcePath, targetPath);
 
-            // copy source code
-            Common.CopyAll(sourcePath, targetPath);
+                // copy source code
+                Common.CopyAll(sourcePath, targetPath);
 
-            MessageBox.Show("Successfully Intalled GMA REST API!");
+                MessageBox.Show("Successfully Intalled GMA REST API!");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         private void btnInstallCdn_Click(object sender, EventArgs e)
         {
-            string sourcePath = Path.Combine(Environment.CurrentDirectory, "SourceCode", "GMACDN");
-            string targetPath = Path.Combine(txtGMAWeb.Text, "GMACDN");
+            try
+            {
+                string sourcePath = Path.Combine(Environment.CurrentDirectory, "SourceCode", "GMACDN");
+                string targetPath = Path.Combine(txtGMAWeb.Text, "GMACDN");
 
-            // copy source code
-            Common.CopyAll(sourcePath, targetPath);
+                // copy source code
+                Common.CopyAll(sourcePath, targetPath);
 
-            // share content folder
-            Common.ShareFolder(Path.Combine(targetPath));
+                // share content folder
+                Common.ShareFolder(Path.Combine(targetPath));
 
-            MessageBox.Show("Successfully Intalled Basic GMA CDN!");
+                MessageBox.Show("Successfully Intalled Basic GMA CDN!");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         private void UpdateWebConfig(string sourcePath, string targetPath)
         {
-            Configuration.GetConfigInfo(FileName);
-
-            string webConfigFile = Path.Combine(sourcePath, "Web.config");
-
-            XDocument xmlFile = XDocument.Load(webConfigFile);
-
-            foreach (XElement xe in xmlFile.Root.Element("connectionStrings").Elements("add"))
+            try
             {
-                xe.Attribute("connectionString").Value = Configuration.Info.ServerInfo.SQLServer.ConnectionString;
-            }
+                Configuration.GetConfigInfo(FileName);
 
-            foreach (XElement xe in xmlFile.Root.Element("appSettings").Elements("add"))
-            {
-                if (xe.Attribute("key").Value == "lblDataConnection")
+                string webConfigFile = Path.Combine(sourcePath, "Web.config");
+
+                XDocument xmlFile = XDocument.Load(webConfigFile);
+
+                foreach (XElement xe in xmlFile.Root.Element("connectionStrings").Elements("add"))
                 {
-                    xe.Attribute("value").Value = Configuration.Info.ServerInfo.SQLServer.AppSettingValue;
+                    xe.Attribute("connectionString").Value = Configuration.Info.ServerInfo.SQLServer.ConnectionString;
                 }
-            }
 
-            foreach (XElement xe in xmlFile.Root.Element("system.web").Elements("sessionState"))
+                foreach (XElement xe in xmlFile.Root.Element("appSettings").Elements("add"))
+                {
+                    if (xe.Attribute("key").Value == "lblDataConnection")
+                    {
+                        xe.Attribute("value").Value = Configuration.Info.ServerInfo.SQLServer.AppSettingValue;
+                    }
+                }
+
+                foreach (XElement xe in xmlFile.Root.Element("system.web").Elements("sessionState"))
+                {
+                    xe.Attribute("sqlConnectionString").Value = Configuration.Info.ServerInfo.SQLServer.SessionState;
+                }
+
+                xmlFile.Save(webConfigFile);
+            }
+            catch (Exception ex)
             {
-                xe.Attribute("sqlConnectionString").Value = Configuration.Info.ServerInfo.SQLServer.SessionState;
+                Console.WriteLine(ex.Message);
             }
-
-            xmlFile.Save(webConfigFile);
         }
     }
 }

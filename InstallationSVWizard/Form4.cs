@@ -13,10 +13,17 @@ namespace InstallationSVWizard
         {
             InitializeComponent();
 
-            Configuration.GetConfigInfo("ConfigInfo.xml");
-            txtSAIP.Text = Configuration.Info.StandAloneInfo.IPAddress;
-            txtSAUserName.Text = Configuration.Info.StandAloneInfo.UserName;
-            txtSAPassword.Text = Configuration.Info.StandAloneInfo.Password;
+            try
+            {
+                Configuration.GetConfigInfo("ConfigInfo.xml");
+                txtSAIP.Text = Configuration.Info.StandAloneInfo.IPAddress;
+                txtSAUserName.Text = Configuration.Info.StandAloneInfo.UserName;
+                txtSAPassword.Text = Configuration.Info.StandAloneInfo.Password;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         private void btnAddAccount_Click(object sender, EventArgs e)

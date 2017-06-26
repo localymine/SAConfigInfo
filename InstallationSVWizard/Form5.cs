@@ -4,8 +4,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.IO;
 using System.Windows.Forms;
-using Microsoft.SqlServer.Management.Smo;
-using Microsoft.SqlServer.Management.Common;
+using System.Data.Sql;
 
 namespace InstallationSVWizard
 {
@@ -26,6 +25,9 @@ namespace InstallationSVWizard
             db.UserID = SA_Config_Info.Configuration.Info.ServerInfo.SQLServer.UserID;
             db.Password = SA_Config_Info.Configuration.Info.ServerInfo.SQLServer.Password;
 
+            txtUserID.Text = db.UserID;
+            txtPassword.Text = db.Password;
+
             dbDirectory = Path.Combine(Environment.CurrentDirectory, "Database");
             LoadRestoreDatabase(lsbBackupFiles, dbDirectory, "*.bak");
             LoadCurrentServerNames(cbCurrentServer);
@@ -35,11 +37,18 @@ namespace InstallationSVWizard
 
         private void LoadRestoreDatabase(ListBox lsb, string Folder, string FileType)
         {
-            DirectoryInfo dinfo = new DirectoryInfo(Folder);
-            FileInfo[] Files = dinfo.GetFiles(FileType);
-            foreach (FileInfo file in Files)
+            try
             {
-                lsb.Items.Add(file.Name);
+                DirectoryInfo dinfo = new DirectoryInfo(Folder);
+                FileInfo[] Files = dinfo.GetFiles(FileType);
+                foreach (FileInfo file in Files)
+                {
+                    lsb.Items.Add(file.Name);
+                }
+            }
+            catch
+            {
+
             }
         }
 
@@ -71,8 +80,11 @@ namespace InstallationSVWizard
 
         private void cbCurrentServer_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string value = ((KeyValuePair<string, string>)cbCurrentServer.SelectedItem).Value;
-            LoadCurrentDatabaseNames(lsbCurrentDB, value);
+            if (cbCurrentServer.SelectedIndex != -1)
+            {
+                string value = cbCurrentServer.SelectedValue.ToString();
+                LoadCurrentDatabaseNames(lsbCurrentDB, value);
+            }
         }
 
         private void btnRestore_Click(object sender, EventArgs e)
@@ -85,7 +97,9 @@ namespace InstallationSVWizard
                 {
                     string backupFilePath = Path.Combine(dbDirectory, backupFile);
                     string databaseName = (!string.IsNullOrEmpty(txtDatabaseName.Text)?txtDatabaseName.Text : backupFile.ToLower().Replace(".bak", ""));
-                    db.RestoreDatabase(databaseName, backupFilePath, fromServer);
+                    // db.RestoreDatabase(databaseName, backupFilePath, fromServer);
+                    db.RestoreDatabase(databaseName, backupFilePath);
+                    MessageBox.Show("Successfully Restore Database!");
                 }
             }
             catch
@@ -94,7 +108,7 @@ namespace InstallationSVWizard
             }
             finally
             {
-                MessageBox.Show("Successfully Restore Database!");
+                
             }
         }
 
@@ -108,7 +122,6 @@ namespace InstallationSVWizard
     {
         private string sqlConnectionString = "";
         private SqlConnection conn;
-        private ServerConnection sv_conn;
         public string Server;
         public string DbName;
         public string UserID;
@@ -145,16 +158,6 @@ namespace InstallationSVWizard
                 conn.Close();
         }
 
-        private void OpenServerConnection(string fromServer = "")
-        {
-            sv_conn = new ServerConnection(fromServer, UserID, Password);
-        }
-
-        private void CloseServerConnection()
-        {
-            sv_conn.Disconnect();
-        }
-
         public List<string> LoadDatabaseNames(string fromServer = "")
         {
             try
@@ -163,7 +166,7 @@ namespace InstallationSVWizard
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = conn;
                 // select * from sys.databases getting all database name from sql server 
-                cmd.CommandText = @"select * from sys.databases where name not in ('master', 'tempdb', 'model', 'msdb')";
+                cmd.CommandText = @"select * from sys.databases where name not in ('master', 'tempdb', 'model', 'msdb') and name not like 'ReportServer$%'";
                 cmd.CommandType = CommandType.Text;
                 //
                 List<string> listData = new List<string>();
@@ -192,19 +195,17 @@ namespace InstallationSVWizard
         {
             try
             {
-                OpenConnectionGlobal();
-                SqlCommand cmd = new SqlCommand();
-                cmd.Connection = conn;
-                // select * from sys.databases getting all database name from sql server 
-                cmd.CommandText = @"select *  from sys.servers";
-                cmd.CommandType = CommandType.Text;
                 //
+                OpenConnectionGlobal();
                 Dictionary<string, string> listData = new Dictionary<string, string>();
-                using (SqlDataReader dReader = cmd.ExecuteReader())
+                //
+                SqlDataSourceEnumerator instance = SqlDataSourceEnumerator.Instance;
+                DataTable dTable = instance.GetDataSources();
+                foreach (DataRow row in dTable.Rows)
                 {
-                    while (dReader.Read())
+                    foreach (DataColumn col in dTable.Columns)
                     {
-                        listData.Add(dReader[0].ToString(), dReader[1].ToString());
+                        listData.Add(col.ColumnName.ToString(), row[col].ToString());
                     }
                 }
                 //
@@ -224,15 +225,16 @@ namespace InstallationSVWizard
         public void RestoreDatabase(string databaseName, string backupFilePath, string fromServer = "")
         {
             Cursor.Current = Cursors.WaitCursor;
-            OpenServerConnection(fromServer);
             SqlTransaction trans = conn.BeginTransaction();
             try
             {
-
-                Server sqlServer = new Server(sv_conn);
-                
+                OpenConnectionGlobal(fromServer);
                 //
-                
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conn;
+                cmd.CommandText = "Alter Database BOQ SET SINGLE_USER WITH ROLLBACK IMMEDIATE; "
+                    + "Restore Database " + databaseName + " FROM DISK = '" + backupFilePath + "' WITH REPLACE; ";
+                cmd.ExecuteNonQuery();
                 //
                 trans.Commit();
             }
@@ -244,7 +246,7 @@ namespace InstallationSVWizard
             finally
             {
                 Cursor.Current = Cursors.Default;
-                CloseServerConnection();
+                CloseConnection();
             }
         }
     }

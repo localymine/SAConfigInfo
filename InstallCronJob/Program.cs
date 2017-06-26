@@ -7,8 +7,8 @@ namespace InstallCronJob
 {
     class Program
     {
-        private static readonly string[] AEServiceNames = { "GMA_SA_AE_ExportTemplateService", "GMA_SA_AfterEffectService" };
-        private static readonly string[] MEServiceNames = { "GMA_SA_ME_CheckRenderedVideoService", "GMA_SA_ME_MediaEncoderService" };
+        private static readonly string[] AEServiceNames = { "GMA_SA_AE_ExportTemplateService", "GMA_SA_AfterEffectService", "GMA_SA_AEME_CheckNotRespondingService" };
+        private static readonly string[] MEServiceNames = { "GMA_SA_ME_CheckRenderedVideoService", "GMA_SA_ME_MediaEncoderService", "GMA_SA_AEME_CheckNotRespondingService" };
 
         static void Main(string[] args)
         {

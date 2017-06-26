@@ -40,6 +40,10 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.txtDatabaseName = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.txtUserID = new System.Windows.Forms.TextBox();
+            this.txtPassword = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -77,13 +81,13 @@
             this.lsbBackupFiles.FormattingEnabled = true;
             this.lsbBackupFiles.Location = new System.Drawing.Point(86, 68);
             this.lsbBackupFiles.Name = "lsbBackupFiles";
-            this.lsbBackupFiles.Size = new System.Drawing.Size(168, 69);
+            this.lsbBackupFiles.Size = new System.Drawing.Size(168, 108);
             this.lsbBackupFiles.TabIndex = 19;
             this.lsbBackupFiles.SelectedIndexChanged += new System.EventHandler(this.lsbBackupFiles_SelectedIndexChanged);
             // 
             // btnRestore
             // 
-            this.btnRestore.Location = new System.Drawing.Point(86, 182);
+            this.btnRestore.Location = new System.Drawing.Point(86, 226);
             this.btnRestore.Name = "btnRestore";
             this.btnRestore.Size = new System.Drawing.Size(150, 23);
             this.btnRestore.TabIndex = 20;
@@ -94,7 +98,7 @@
             // lsbCurrentDB
             // 
             this.lsbCurrentDB.FormattingEnabled = true;
-            this.lsbCurrentDB.Location = new System.Drawing.Point(286, 95);
+            this.lsbCurrentDB.Location = new System.Drawing.Point(281, 167);
             this.lsbCurrentDB.Name = "lsbCurrentDB";
             this.lsbCurrentDB.Size = new System.Drawing.Size(168, 82);
             this.lsbCurrentDB.TabIndex = 21;
@@ -102,17 +106,17 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(296, 52);
+            this.label3.Location = new System.Drawing.Point(278, 124);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(90, 13);
+            this.label3.Size = new System.Drawing.Size(75, 13);
             this.label3.TabIndex = 22;
-            this.label3.Text = "Current Database";
+            this.label3.Text = "Current Server";
             // 
             // cbCurrentServer
             // 
             this.cbCurrentServer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCurrentServer.FormattingEnabled = true;
-            this.cbCurrentServer.Location = new System.Drawing.Point(286, 68);
+            this.cbCurrentServer.Location = new System.Drawing.Point(281, 140);
             this.cbCurrentServer.Name = "cbCurrentServer";
             this.cbCurrentServer.Size = new System.Drawing.Size(168, 21);
             this.cbCurrentServer.TabIndex = 23;
@@ -121,7 +125,7 @@
             // pictureBox2
             // 
             this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
-            this.pictureBox2.Location = new System.Drawing.Point(258, 95);
+            this.pictureBox2.Location = new System.Drawing.Point(255, 198);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(24, 24);
             this.pictureBox2.TabIndex = 24;
@@ -129,7 +133,7 @@
             // 
             // txtDatabaseName
             // 
-            this.txtDatabaseName.Location = new System.Drawing.Point(86, 156);
+            this.txtDatabaseName.Location = new System.Drawing.Point(86, 200);
             this.txtDatabaseName.Name = "txtDatabaseName";
             this.txtDatabaseName.Size = new System.Drawing.Size(168, 20);
             this.txtDatabaseName.TabIndex = 25;
@@ -137,11 +141,43 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(83, 140);
+            this.label4.Location = new System.Drawing.Point(83, 184);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(84, 13);
             this.label4.TabIndex = 26;
             this.label4.Text = "Database Name";
+            // 
+            // txtUserID
+            // 
+            this.txtUserID.Location = new System.Drawing.Point(337, 68);
+            this.txtUserID.Name = "txtUserID";
+            this.txtUserID.Size = new System.Drawing.Size(112, 20);
+            this.txtUserID.TabIndex = 27;
+            // 
+            // txtPassword
+            // 
+            this.txtPassword.Location = new System.Drawing.Point(337, 95);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(112, 20);
+            this.txtPassword.TabIndex = 28;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(278, 71);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(43, 13);
+            this.label5.TabIndex = 29;
+            this.label5.Text = "User ID";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(278, 98);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(53, 13);
+            this.label6.TabIndex = 30;
+            this.label6.Text = "Password";
             // 
             // frmDatabase
             // 
@@ -149,6 +185,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(462, 372);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.txtPassword);
+            this.Controls.Add(this.txtUserID);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtDatabaseName);
             this.Controls.Add(this.pictureBox2);
@@ -184,5 +224,9 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.TextBox txtDatabaseName;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtUserID;
+        private System.Windows.Forms.TextBox txtPassword;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
     }
 }

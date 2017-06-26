@@ -8,7 +8,7 @@ namespace InstallationSVWizard
 {
     public partial class frmParent : Form
     {
-        Form[] frm = { new frmCredential(), new frmSVSource(), new frm1() };
+        Form[] frm = { new frmDatabase() , new frmSVSource(), new frm1(), new frmCredential() };
         int top = -1;
         int count;
 

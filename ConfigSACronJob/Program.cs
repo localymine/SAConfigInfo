@@ -14,7 +14,7 @@ namespace ConfigSACronJob
             Configuration.GetConfigInfo("ConfigInfo.xml");
             if (Configuration.Info != null)
             {
-                DBProcess db = new DBProcess(Configuration.Info.ServerInfo.IPAddress,
+                DBProcess db = new DBProcess(Configuration.Info.ServerInfo.SQLServer.DataSource,
                     Configuration.Info.ServerInfo.SQLServer.Catalog,
                     Configuration.Info.ServerInfo.SQLServer.UserID,
                     Configuration.Info.ServerInfo.SQLServer.Password);

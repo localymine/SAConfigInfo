@@ -152,8 +152,10 @@ namespace SA_Config_Info
         public string AdobeVersion;
 
         public string AEPath;
+        public string AEPathExe;
         public string AEScriptPath;
         public string MEPath;
+        public string MEPathExe;
 
         private string _AEExportProjectPath;
         public string AEExportProjectPath

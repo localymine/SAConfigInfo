@@ -224,15 +224,17 @@ namespace SA_Config_Info
                 if (!String.IsNullOrEmpty(tmpAEPath) && tmpAEPath.Contains(sam.AdobeVersion))
                 {
                     sam.AEPath = tmpAEPath;
+                    sam.AEPathExe = GetPathForExe("AfterFX.exe");
                     sam.AEScriptPath = Path.Combine(sam.AEPath, "Scripts");
                 }
                 string tmpMEPath = GetPathNoneExe("Adobe Media Encoder.exe");
                 if (!String.IsNullOrEmpty(tmpMEPath) && tmpMEPath.Contains(sam.AdobeVersion))
                 {
                     sam.MEPath = tmpMEPath;
+                    sam.MEPathExe = GetPathForExe("Adobe Media Encoder.exe");
                 }
 
-                sam.AEExportProjectPath = txtSAServicePath.Text + "\\WindowsService\\\\GMA_SA_AfterEffectService\\\\ProjectPath.txt";
+                sam.AEExportProjectPath = txtSAServicePath.Text + "\\WindowsService\\\\GMA_SA_AE_ExportTemplateService\\\\ExportProjectPath.txt";
                 sam.AEProjectPath = txtSAServicePath.Text + "\\WindowsService\\\\GMA_SA_AfterEffectService\\\\ProjectPath.txt";
 
                 sa.SAMachine = sam;

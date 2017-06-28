@@ -38,6 +38,7 @@ namespace SA_Config_Info
             "WindowsService\\GMA_SA_AfterEffectService",
             "WindowsService\\GMA_SA_ME_CheckRenderedVideoService",
             "WindowsService\\GMA_SA_ME_MediaEncoderService",
+            "WindowsService\\GMA_SA_AEME_CheckNotRespondingService",
         };
 
         public Form1()
@@ -152,7 +153,7 @@ namespace SA_Config_Info
                 }
                 sa.WatchFolderPaths = watchFolderPaths;
 
-                SAServiceFolder[] saServiceFolderPaths = new SAServiceFolder[4];
+                SAServiceFolder[] saServiceFolderPaths = new SAServiceFolder[5];
                 i = 0;
                 foreach (string path in SAServiceFolderPaths)
                 {
@@ -225,6 +226,7 @@ namespace SA_Config_Info
                 {
                     sam.AEPath = tmpAEPath;
                     sam.AEPathExe = GetPathForExe("AfterFX.exe");
+                    sam.AEProcessName = Path.GetFileName(sam.AEPathExe).Replace(".exe", "");
                     sam.AEScriptPath = Path.Combine(sam.AEPath, "Scripts");
                 }
                 string tmpMEPath = GetPathNoneExe("Adobe Media Encoder.exe");
@@ -232,6 +234,7 @@ namespace SA_Config_Info
                 {
                     sam.MEPath = tmpMEPath;
                     sam.MEPathExe = GetPathForExe("Adobe Media Encoder.exe");
+                    sam.MEProcessName = Path.GetFileName(sam.MEPathExe).Replace(".exe", "");
                 }
 
                 sam.AEExportProjectPath = txtSAServicePath.Text + "\\WindowsService\\\\GMA_SA_AE_ExportTemplateService\\\\ExportProjectPath.txt";

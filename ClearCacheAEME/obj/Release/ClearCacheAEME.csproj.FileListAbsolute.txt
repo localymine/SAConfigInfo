@@ -1,6 +1,0 @@
-C:\Users\Kantoh\Documents\Visual Studio 2017\Projects\SAConfigInfo\ClearCacheAEME\bin\Release\ClearCacheAEME.exe.config
-C:\Users\Kantoh\Documents\Visual Studio 2017\Projects\SAConfigInfo\ClearCacheAEME\bin\Release\ClearCacheAEME.exe
-C:\Users\Kantoh\Documents\Visual Studio 2017\Projects\SAConfigInfo\ClearCacheAEME\bin\Release\ClearCacheAEME.pdb
-C:\Users\Kantoh\Documents\Visual Studio 2017\Projects\SAConfigInfo\ClearCacheAEME\obj\Release\ClearCacheAEME.csprojResolveAssemblyReference.cache
-C:\Users\Kantoh\Documents\Visual Studio 2017\Projects\SAConfigInfo\ClearCacheAEME\obj\Release\ClearCacheAEME.exe
-C:\Users\Kantoh\Documents\Visual Studio 2017\Projects\SAConfigInfo\ClearCacheAEME\obj\Release\ClearCacheAEME.pdb

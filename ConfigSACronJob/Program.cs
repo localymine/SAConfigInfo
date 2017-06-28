@@ -419,5 +419,78 @@ namespace ConfigSACronJob
                 Console.WriteLine("");
             }
         }
+
+        public void SaveCheckNotRespondingService(int aeID, int meID)
+        {
+            string appName = "GMA_SA_AEME_CheckNotRespondingService";
+            Console.WriteLine("Update xml file in {0} service", appName);
+            string path = Path.Combine(Environment.CurrentDirectory, string.Format(@"WindowsService\{0}\Deploy\{1}.exe.config", appName, appName));
+            try
+            {
+                if (!File.Exists(path))
+                {
+                    Console.WriteLine("xml file not found");
+                    return;
+                }
+                XmlDocument doc = new XmlDocument();
+                doc.Load(path);
+                //Connectionstring
+                XmlNodeList nodeConnectionString = doc.SelectNodes("/configuration/connectionStrings/add");
+                foreach (XmlNode n in nodeConnectionString)
+                {
+                    var attr = n.Attributes[0];
+                    switch (attr.Value)
+                    {
+                        case "StandardDataLibraryEntities":
+                        case "TemplateEntities":
+                        case "UserEntities":
+                        case "EmailConfigEntities":
+                            n.Attributes[1].Value = Configuration.Info.ServerInfo.SQLServer.ConnectionString;
+                            break;
+                    }
+                }
+                //Appsetting
+                XmlNodeList nodeAppSetting = doc.SelectNodes("/configuration/appSettings/add");
+                foreach (XmlNode n in nodeAppSetting)
+                {
+                    var attr = n.Attributes[0];
+                    switch (attr.Value)
+                    {
+                        case "AEPath":
+                            n.Attributes[1].Value = Configuration.Info.StandAloneInfo.SAMachine.AEPathExe;
+                            break;
+                        case "AEInstanceId":
+                            n.Attributes[1].Value = aeID.ToString();
+                            break;
+                        case "AEProcessName":
+                            n.Attributes[1].Value = Configuration.Info.StandAloneInfo.SAMachine.AEProcessName;
+                            break;
+                        case "MEPath":
+                            n.Attributes[1].Value = Configuration.Info.StandAloneInfo.SAMachine.MEPathExe;
+                            break;
+                        case "MEInstanceId":
+                            n.Attributes[1].Value = meID.ToString();
+                            break;
+                        case "MEProcessName":
+                            n.Attributes[1].Value = Configuration.Info.StandAloneInfo.SAMachine.MEProcessName;
+                            break;
+                        case "lblDataConnection":
+                            n.Attributes[1].Value = Configuration.Info.ServerInfo.SQLServer.AppSettingValue;
+                            break;
+                    }
+                }
+                doc.Save(path);
+                Console.WriteLine("Update {0} xml file success", appName);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error when update {0} xml check not-responsding congif file", appName);
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                Console.WriteLine("");
+            }
+        }
     }
 }

@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConfigSVCronJob", "ConfigSV
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreateSVScheduleTask", "CreateSVScheduleTask\CreateSVScheduleTask.csproj", "{58E5DAB4-59C4-4102-8B79-B5A2B51F3109}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClearCacheAEME", "ClearCacheAEME\ClearCacheAEME.csproj", "{BEA3DCC4-5A53-4A90-B85F-AB1E742E6859}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -76,6 +78,10 @@ Global
 		{58E5DAB4-59C4-4102-8B79-B5A2B51F3109}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{58E5DAB4-59C4-4102-8B79-B5A2B51F3109}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{58E5DAB4-59C4-4102-8B79-B5A2B51F3109}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BEA3DCC4-5A53-4A90-B85F-AB1E742E6859}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEA3DCC4-5A53-4A90-B85F-AB1E742E6859}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEA3DCC4-5A53-4A90-B85F-AB1E742E6859}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEA3DCC4-5A53-4A90-B85F-AB1E742E6859}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

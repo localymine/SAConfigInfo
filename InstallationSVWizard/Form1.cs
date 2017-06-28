@@ -78,7 +78,7 @@ namespace InstallationSVWizard
         private void frmParent_Load(object sender, EventArgs e)
         {
             ProcessStartInfo startInfo = new ProcessStartInfo();
-            startInfo.FileName = Path.Combine(Environment.CurrentDirectory, "SACI.exe");
+            startInfo.FileName = Path.Combine(Directory.GetCurrentDirectory(), "SACI.exe");
 
             try
             {
@@ -113,6 +113,24 @@ namespace InstallationSVWizard
         private void btnCancel_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void btnConfigInfo_Click(object sender, EventArgs e)
+        {
+            ProcessStartInfo startInfo = new ProcessStartInfo();
+            startInfo.FileName = Path.Combine(Directory.GetCurrentDirectory(), "SACI.exe");
+
+            try
+            {
+                using (Process exeProcess = Process.Start(startInfo))
+                {
+                    exeProcess.WaitForExit();
+                }
+            }
+            catch
+            {
+
+            }
         }
     }
 }

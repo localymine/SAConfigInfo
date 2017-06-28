@@ -17,7 +17,7 @@ namespace InstallCronJob
                 Configuration.GetConfigInfo("ConfigInfo.xml");
                 if (Configuration.Info != null)
                 {
-                    string sourcePath = Path.Combine(Environment.CurrentDirectory, "WindowsService");
+                    string sourcePath = Path.Combine(Directory.GetCurrentDirectory(), "WindowsService");
 
                     if (Directory.Exists(sourcePath))
                     {

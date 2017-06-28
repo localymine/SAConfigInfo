@@ -52,7 +52,7 @@ namespace InstallationSVWizard
         {
             try
             {
-                string sourcePath = Path.Combine(Environment.CurrentDirectory, "SourceCode", "GMAWEB");
+                string sourcePath = Path.Combine(Directory.GetCurrentDirectory(), "SourceCode", "GMAWEB");
                 string targetPath = Path.Combine(txtGMAWeb.Text, "GMAWEB");
 
                 // Configure Connection DB of WebConfig, with data from xml
@@ -76,7 +76,7 @@ namespace InstallationSVWizard
         {
             try
             {
-                string sourcePath = Path.Combine(Environment.CurrentDirectory, "SourceCode", "GMAREST");
+                string sourcePath = Path.Combine(Directory.GetCurrentDirectory(), "SourceCode", "GMAREST");
                 string targetPath = Path.Combine(txtGMAWeb.Text, "GMAREST");
 
                 // Configure Connection DB of WebConfig, with data from xml
@@ -97,7 +97,7 @@ namespace InstallationSVWizard
         {
             try
             {
-                string sourcePath = Path.Combine(Environment.CurrentDirectory, "SourceCode", "GMACDN");
+                string sourcePath = Path.Combine(Directory.GetCurrentDirectory(), "SourceCode", "GMACDN");
                 string targetPath = Path.Combine(txtGMAWeb.Text, "GMACDN");
 
                 // copy source code

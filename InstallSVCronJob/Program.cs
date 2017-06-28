@@ -13,7 +13,7 @@ namespace InstallSVCronJob
                 Configuration.GetConfigInfo("ConfigInfo.xml");
                 if (Configuration.Info != null)
                 {
-                    string sourcePath = Path.Combine(Environment.CurrentDirectory, "WindowsService");
+                    string sourcePath = Path.Combine(Directory.GetCurrentDirectory(), "WindowsService");
                     string targetPath = Path.Combine(Configuration.Info.ServerInfo.ServicePath, "WindowsService");
 
                     if (Directory.Exists(sourcePath))

@@ -12,7 +12,7 @@ namespace InstallAEJSX
             Configuration.GetConfigInfo("ConfigInfo.xml");
             if (Configuration.Info != null)
             {
-                string sourcePath = Path.Combine(Environment.CurrentDirectory, "AEScripts");
+                string sourcePath = Path.Combine(Directory.GetCurrentDirectory(), "AEScripts");
                 string targetPath = Configuration.Info.StandAloneInfo.SAMachine.AEScriptPath;
                 //
                 if (Directory.Exists(sourcePath))

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Security.AccessControl;
 using System.Security.Principal;
+using Microsoft.Win32;
 
 namespace SA_Config_Info
 {
@@ -364,7 +365,7 @@ namespace SA_Config_Info
                 serializer.UnknownNode += new XmlNodeEventHandler(serializer_UnknownNode);
                 serializer.UnknownAttribute += new XmlAttributeEventHandler(serializer_UnknownAttribute);
 
-                if (File.Exists(Path.Combine(Environment.CurrentDirectory, fileName)))
+                if (File.Exists(Path.Combine(Directory.GetCurrentDirectory(), fileName)))
                 {
                     FileStream fs = new FileStream(fileName, FileMode.Open);
 
@@ -434,6 +435,42 @@ namespace SA_Config_Info
         public static string GetLastFolderName(string path)
         {
             return Path.GetFileName(path).TrimEnd(Path.DirectorySeparatorChar).TrimEnd(Path.AltDirectorySeparatorChar);
+        }
+
+        public static List<string> GetMediaCachePath()
+        {
+            List<string> lstPaths = new List<string>();
+            //
+            string keyBase = @"Software\Adobe";
+            RegistryKey hKeyCurrentUser = Registry.CurrentUser;
+            RegistryKey adobePaths = hKeyCurrentUser.OpenSubKey(keyBase);
+            foreach (string item in adobePaths.GetSubKeyNames())
+            {
+                if (item.Contains("Common"))
+                {
+                    using (RegistryKey tempKey = adobePaths.OpenSubKey(item))
+                    {
+                        foreach (string media in tempKey.GetSubKeyNames())
+                        {
+                            if (media.Contains("Media Cache"))
+                            {
+                                using (RegistryKey mediaKey = tempKey.OpenSubKey(media))
+                                {
+                                    foreach (string valueName in mediaKey.GetValueNames())
+                                    {
+                                        string tempStr = mediaKey.GetValue(valueName).ToString();
+                                        if (tempStr != "0")
+                                        {
+                                            lstPaths.Add(mediaKey.GetValue(valueName).ToString());
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            return lstPaths;
         }
     }
 }

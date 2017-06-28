@@ -15,7 +15,7 @@ namespace InstallationSVWizard
         private void btnConfigureCronJob_Click(object sender, EventArgs e)
         {
             ProcessStartInfo startInfo = new ProcessStartInfo();
-            startInfo.FileName = Path.Combine(Environment.CurrentDirectory, "ConfigSVCronJob.exe");
+            startInfo.FileName = Path.Combine(Directory.GetCurrentDirectory(), "ConfigSVCronJob.exe");
             startInfo.WorkingDirectory = Path.GetDirectoryName(startInfo.FileName);
 
             try
@@ -34,7 +34,7 @@ namespace InstallationSVWizard
         private void btnInstallCronJob_Click(object sender, EventArgs e)
         {
             ProcessStartInfo startInfo = new ProcessStartInfo();
-            startInfo.FileName = Path.Combine(Environment.CurrentDirectory, "InstallSVCronJob.exe");
+            startInfo.FileName = Path.Combine(Directory.GetCurrentDirectory(), "InstallSVCronJob.exe");
             startInfo.WorkingDirectory = Path.GetDirectoryName(startInfo.FileName);
 
             try
@@ -54,7 +54,7 @@ namespace InstallationSVWizard
         {
             
             ProcessStartInfo startInfo = new ProcessStartInfo();
-            startInfo.FileName = Path.Combine(Environment.CurrentDirectory, "CreateSVScheduleTask.exe");
+            startInfo.FileName = Path.Combine(Directory.GetCurrentDirectory(), "CreateSVScheduleTask.exe");
             startInfo.WorkingDirectory = Path.GetDirectoryName(startInfo.FileName);
 
             try

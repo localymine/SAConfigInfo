@@ -1,0 +1,9 @@
+C:\Users\Kantoh\Documents\Visual Studio 2017\Projects\SAConfigInfo\ClearCacheAEME\bin\Debug\ClearCacheAEME.exe.config
+C:\Users\Kantoh\Documents\Visual Studio 2017\Projects\SAConfigInfo\ClearCacheAEME\bin\Debug\ClearCacheAEME.exe
+C:\Users\Kantoh\Documents\Visual Studio 2017\Projects\SAConfigInfo\ClearCacheAEME\bin\Debug\ClearCacheAEME.pdb
+C:\Users\Kantoh\Documents\Visual Studio 2017\Projects\SAConfigInfo\ClearCacheAEME\obj\Debug\ClearCacheAEME.exe
+C:\Users\Kantoh\Documents\Visual Studio 2017\Projects\SAConfigInfo\ClearCacheAEME\obj\Debug\ClearCacheAEME.pdb
+C:\Users\Kantoh\Documents\Visual Studio 2017\Projects\SAConfigInfo\ClearCacheAEME\obj\Debug\ClearCacheAEME.csprojResolveAssemblyReference.cache
+C:\Users\Kantoh\Documents\Visual Studio 2017\Projects\SAConfigInfo\ClearCacheAEME\bin\Debug\SACI.exe
+C:\Users\Kantoh\Documents\Visual Studio 2017\Projects\SAConfigInfo\ClearCacheAEME\bin\Debug\SACI.pdb
+C:\Users\Kantoh\Documents\Visual Studio 2017\Projects\SAConfigInfo\ClearCacheAEME\bin\Debug\SACI.exe.config

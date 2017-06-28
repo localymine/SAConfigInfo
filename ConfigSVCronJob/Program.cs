@@ -32,7 +32,7 @@ namespace ConfigSVCronJob
         {
             string appName = "GMA_SV_AssignAfterEffectService";
             Console.WriteLine("Update xml file in {0} service", appName);
-            string path = Path.Combine(Environment.CurrentDirectory, string.Format(@"WindowsService\{0}\Deploy\{1}.exe.config", appName, appName));
+            string path = Path.Combine(Directory.GetCurrentDirectory(), string.Format(@"WindowsService\{0}\Deploy\{1}.exe.config", appName, appName));
             try
             {
                 if (!File.Exists(path))
@@ -86,7 +86,7 @@ namespace ConfigSVCronJob
         {
             string appName = "GMA_SV_CheckTimeOutService";
             Console.WriteLine("Update xml file in {0} service", appName);
-            string path = Path.Combine(Environment.CurrentDirectory, string.Format(@"WindowsService\{0}\Deploy\{1}.exe.config", appName, appName));
+            string path = Path.Combine(Directory.GetCurrentDirectory(), string.Format(@"WindowsService\{0}\Deploy\{1}.exe.config", appName, appName));
             try
             {
                 if (!File.Exists(path))
@@ -141,7 +141,7 @@ namespace ConfigSVCronJob
         {
             string appName = "GMA_SV_NotificationService";
             Console.WriteLine("Update xml file in {0} service", appName);
-            string path = Path.Combine(Environment.CurrentDirectory, string.Format(@"WindowsService\{0}\Deploy\{1}.exe.config", appName, appName));
+            string path = Path.Combine(Directory.GetCurrentDirectory(), string.Format(@"WindowsService\{0}\Deploy\{1}.exe.config", appName, appName));
             try
             {
                 if (!File.Exists(path))

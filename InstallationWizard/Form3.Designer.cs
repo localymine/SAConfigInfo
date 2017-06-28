@@ -67,8 +67,9 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(365, 64);
             this.label2.TabIndex = 2;
-            this.label2.Text = "1. Configure the Connection of the Cron Job\r\n2. Install the Cron Job\r\n3. Share \"T" +
-    "EMP_FOLDER_EXPORT\" Folder\r\n4. Create the Schedule Tasks";
+            this.label2.Text = "1. Configure the Connection && Machine ID for the Cron Job\r\n2. Install the Cron J" +
+    "ob\r\n3. Share \"TEMP_FOLDER_EXPORT\" && \r\n    \"TEMP_FOLDER_IMPORT\" Folder\r\n4. Creat" +
+    "e the Schedule Tasks";
             // 
             // label3
             // 
@@ -80,7 +81,7 @@
             // 
             // btnConfigureCredentials
             // 
-            this.btnConfigureCredentials.Location = new System.Drawing.Point(87, 125);
+            this.btnConfigureCredentials.Location = new System.Drawing.Point(87, 117);
             this.btnConfigureCredentials.Name = "btnConfigureCredentials";
             this.btnConfigureCredentials.Size = new System.Drawing.Size(150, 23);
             this.btnConfigureCredentials.TabIndex = 6;

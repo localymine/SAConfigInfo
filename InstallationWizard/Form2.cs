@@ -15,7 +15,7 @@ namespace InstallationWizard
         private void btnConfigure_Click(object sender, EventArgs e)
         {
             ProcessStartInfo startInfo = new ProcessStartInfo();
-            startInfo.FileName = Path.Combine(Environment.CurrentDirectory, "InstallAEJSX.exe");
+            startInfo.FileName = Path.Combine(Directory.GetCurrentDirectory(), "InstallAEJSX.exe");
 
             try
             {

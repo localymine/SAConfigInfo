@@ -40,6 +40,7 @@
             this.btnNext = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.btnConfigInfo = new System.Windows.Forms.Button();
             this.pnlLeft.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlNavigation.SuspendLayout();
@@ -49,6 +50,7 @@
             // pnlLeft
             // 
             this.pnlLeft.BackColor = System.Drawing.Color.White;
+            this.pnlLeft.Controls.Add(this.btnConfigInfo);
             this.pnlLeft.Controls.Add(this.label3);
             this.pnlLeft.Controls.Add(this.label2);
             this.pnlLeft.Controls.Add(this.label1);
@@ -63,7 +65,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label3.Location = new System.Drawing.Point(29, 209);
+            this.label3.Location = new System.Drawing.Point(30, 209);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(97, 17);
             this.label3.TabIndex = 7;
@@ -73,7 +75,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label2.Location = new System.Drawing.Point(17, 192);
+            this.label2.Location = new System.Drawing.Point(18, 192);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(120, 13);
             this.label2.TabIndex = 6;
@@ -84,7 +86,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.label1.Location = new System.Drawing.Point(13, 167);
+            this.label1.Location = new System.Drawing.Point(14, 167);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(129, 25);
             this.label1.TabIndex = 5;
@@ -93,7 +95,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(27, 60);
+            this.pictureBox1.Location = new System.Drawing.Point(28, 60);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(100, 100);
             this.pictureBox1.TabIndex = 4;
@@ -163,6 +165,18 @@
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
+            // btnConfigInfo
+            // 
+            this.btnConfigInfo.FlatAppearance.BorderSize = 0;
+            this.btnConfigInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConfigInfo.Location = new System.Drawing.Point(41, 371);
+            this.btnConfigInfo.Name = "btnConfigInfo";
+            this.btnConfigInfo.Size = new System.Drawing.Size(75, 23);
+            this.btnConfigInfo.TabIndex = 0;
+            this.btnConfigInfo.Text = "Config Info";
+            this.btnConfigInfo.UseVisualStyleBackColor = true;
+            this.btnConfigInfo.Click += new System.EventHandler(this.btnConfigInfo_Click);
+            // 
             // frmParent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -201,6 +215,7 @@
         private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Button btnConfigInfo;
     }
 }
 

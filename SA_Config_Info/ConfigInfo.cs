@@ -154,9 +154,11 @@ namespace SA_Config_Info
 
         public string AEPath;
         public string AEPathExe;
+        public string AEProcessName;
         public string AEScriptPath;
         public string MEPath;
         public string MEPathExe;
+        public string MEProcessName;
 
         private string _AEExportProjectPath;
         public string AEExportProjectPath

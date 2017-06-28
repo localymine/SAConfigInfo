@@ -30,6 +30,7 @@ namespace CreateSAScheduleTask
                         CreateMETask();
                         break;
                 }
+                CreateNotRespondingTask();
             }
             Console.ReadKey();
         }
@@ -223,5 +224,57 @@ namespace CreateSAScheduleTask
 
         }
         
+
+        static void CreateNotRespondingTask()
+        {
+            try
+            {
+                using (TaskService ts = new TaskService())
+                {
+                    string appName = "GMA_SA_AEME_CheckNotRespondingService";
+                    SAServiceFolder[] folders;
+                    SAServiceFolder location = new SAServiceFolder();
+                    
+                    TaskDefinition tdNotResponding = ts.NewTask();
+                    tdNotResponding.RegistrationInfo.Description = "";
+                    tdNotResponding.RegistrationInfo.Date = DateTime.Now;
+
+                    Trigger tr1 = Trigger.CreateTrigger(TaskTriggerType.Time);
+                    tr1.StartBoundary = DateTime.Now;
+                    tr1.Repetition = new RepetitionPattern(new TimeSpan(0, 1, 0), TimeSpan.Zero, false);
+                    tdNotResponding.Triggers.Add(tr1);
+                    Trigger tr2 = Trigger.CreateTrigger(TaskTriggerType.Time);
+                    tr2.StartBoundary = DateTime.Now;
+                    tr2.Repetition = new RepetitionPattern(new TimeSpan(0, 1, 0), TimeSpan.Zero, false);
+                    tdNotResponding.Triggers.Add(tr2);
+                    Trigger tr3 = Trigger.CreateTrigger(TaskTriggerType.Time);
+                    tr3.StartBoundary = DateTime.Now;
+                    tr3.Repetition = new RepetitionPattern(new TimeSpan(0, 1, 0), TimeSpan.Zero, false);
+                    tdNotResponding.Triggers.Add(tr3);
+                    //
+                    folders = Configuration.Info.StandAloneInfo.SAServicePaths;
+                    location = folders.FirstOrDefault(m => m.Path.Contains(appName));
+                    if (location != null)
+                    {
+                        // Create an action that will launch Notepad whenever the trigger fires
+                        tdNotResponding.Actions.Add(new ExecAction(string.Format(@"{0}\Deploy\{1}.exe", location.Path, appName),
+                        string.Format(@"{0}\Logs\{1}.txt", location.Path, appName), null));
+                        // Register the task in the root folder
+                        ts.RootFolder.RegisterTaskDefinition(appName, tdNotResponding);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Service: " + appName);
+                        Console.WriteLine("URL setup file not found");
+                    }
+                    
+                }
+                Console.WriteLine("Create Not-Responding check jobs done");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
     }
 }

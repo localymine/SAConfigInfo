@@ -170,6 +170,7 @@ namespace SA_Config_Info
             set
             {
                 string temp = value.Replace("\\\\\\\\", "\\\\");
+                temp = temp.Replace("\\\\", "\\");
                 temp = temp.Replace("\\\\", "|");
                 temp = temp.Replace("\\", "|");
                 temp = temp.Replace("|", "\\\\");
@@ -187,6 +188,7 @@ namespace SA_Config_Info
             set
             {
                 string temp = value.Replace("\\\\\\\\", "\\\\");
+                temp = temp.Replace("\\\\", "\\");
                 temp = temp.Replace("\\\\", "|");
                 temp = temp.Replace("\\", "|");
                 temp = temp.Replace("|", "\\\\");

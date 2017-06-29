@@ -6,10 +6,10 @@ using System.IO;
 using System.Linq;
 using System.Net.NetworkInformation;
 using System.Net.Sockets;
-using System.Threading;
 using System.Windows.Forms;
 using System.Xml.Serialization;
-using static System.Windows.Forms.AxHost;
+using System.Data.SqlClient;
+using System.Collections.Generic;
 
 namespace SA_Config_Info
 {
@@ -237,8 +237,15 @@ namespace SA_Config_Info
                     sam.MEProcessName = Path.GetFileName(sam.MEPathExe).Replace(".exe", "");
                 }
 
-                sam.AEExportProjectPath = txtSAServicePath.Text + "\\WindowsService\\\\GMA_SA_AE_ExportTemplateService\\\\ExportProjectPath.txt";
-                sam.AEProjectPath = txtSAServicePath.Text + "\\WindowsService\\\\GMA_SA_AfterEffectService\\\\ProjectPath.txt";
+                List<string> listTemp;
+                DBProcess db = new DBProcess(txtDataSource.Text, txtCatalog.Text, txtUserID.Text, txtPassword.Text);
+                List<KeyValuePair<string, string>> listTempKeyValue =  db.GetTempPath();
+
+                listTemp = listTempKeyValue.Where(x => x.Key == "TempFilePathExport").Select(x => x.Value).ToList();
+                sam.AEExportProjectPath = txtSAServicePath.Text + @"\\WindowsService\\GMA_SA_AE_ExportTemplateService\\" + listTemp[0].ToString();
+
+                listTemp = listTempKeyValue.Where(x => x.Key == "TempFilePathImport").Select(x => x.Value).ToList();
+                sam.AEProjectPath = txtSAServicePath.Text + @"\\WindowsService\\GMA_SA_AfterEffectService\\" + listTemp[0].ToString();
 
                 sa.SAMachine = sam;
 
@@ -421,6 +428,61 @@ namespace SA_Config_Info
         {
             txtAEfqdn.Enabled = true;
             txtMEfqdn.Enabled = true;
+        }
+    }
+
+    public class DBProcess
+    {
+
+        private string sqlConnectionString = string.Empty;
+        private SqlConnection conn;
+
+
+        public DBProcess(string server, string databaseName, string userName, string password)
+        {
+            sqlConnectionString = string.Format(@"data source={0};initial catalog={1};persist security info=True;User ID={2};Password={3};",
+                                                server, databaseName, userName, password);
+        }
+
+        private void OpenConnection()
+        {
+            conn = new SqlConnection(sqlConnectionString);
+            conn.Open();
+        }
+
+        private void CloseConnection()
+        {
+            if (conn.State == ConnectionState.Open)
+                conn.Close();
+        }
+
+        public List<KeyValuePair<string, string>> GetTempPath()
+        {
+            try
+            {
+                List<KeyValuePair<string, string>> list = new List<KeyValuePair<string, string>>();
+                //
+                OpenConnection();
+                SqlCommand sqlCmd = new SqlCommand();
+                sqlCmd.Connection = conn;
+                sqlCmd.CommandText = "select ConfigKeyName, ConfigKeyValue from ConfigMaster where ConfigKeyName LIKE 'TempFilePathExport' OR ConfigKeyName LIKE 'TempFilePathImport'";
+                using (SqlDataReader dr = sqlCmd.ExecuteReader())
+                {
+                    while (dr.Read())
+                    {
+                        list.Add(new KeyValuePair<string,string>(dr["ConfigKeyName"].ToString(), dr["ConfigKeyValue"].ToString()));
+                    }
+                }
+                return list;
+            }
+            catch
+            {
+                return null;
+            }
+            finally
+            {
+                CloseConnection();
+            }
         }
     }
 }

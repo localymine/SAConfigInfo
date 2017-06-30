@@ -32,6 +32,7 @@ namespace ConfigSACronJob
                         }
                         xml.SaveAEExportService(aeID);
                         xml.SaveAEService(aeID);
+                        xml.SaveCheckNotRespondingService(aeID, 0);
                         break;
                     case "1":
                         db.SaveME(Configuration.Info.StandAloneInfo.IPAddress, ref meID);
@@ -42,6 +43,7 @@ namespace ConfigSACronJob
                         }
                         xml.SaveMEService(meID);
                         xml.SaveMECheckRender(meID);
+                        xml.SaveCheckNotRespondingService(0, meID);
                         break;
                     case "2":
                         db.SaveAE(Configuration.Info.StandAloneInfo.IPAddress, ref aeID);
@@ -53,6 +55,7 @@ namespace ConfigSACronJob
                         {
                             xml.SaveAEExportService(aeID);
                             xml.SaveAEService(aeID);
+                            xml.SaveCheckNotRespondingService(aeID, 0);
                         }
                         db.SaveME(Configuration.Info.StandAloneInfo.IPAddress, ref meID);
                         if(meID <= 0)
@@ -63,6 +66,11 @@ namespace ConfigSACronJob
                         {
                             xml.SaveMEService(meID);
                             xml.SaveMECheckRender(meID);
+                            xml.SaveCheckNotRespondingService(0, meID);
+                        }
+                        if (aeID > 0 && meID > 0)
+                        {
+                            xml.SaveCheckNotRespondingService(aeID, meID);
                         }
                         break;
                 }
@@ -228,8 +236,8 @@ namespace ConfigSACronJob
                             n.Attributes[1].Value = Configuration.Info.ServerInfo.SQLServer.AppSettingValue;
                             break;
                         case "ServicePath":
-                            SVServiceFolder[] folders = Configuration.Info.ServerInfo.SVServicePaths;
-                            SVServiceFolder f = folders.FirstOrDefault(m => m.Path.Contains(appName));
+                            SAServiceFolder[] folders = Configuration.Info.StandAloneInfo.SAServicePaths;
+                            SAServiceFolder f = folders.FirstOrDefault(m => m.Path.Contains(appName));
                             n.Attributes[1].Value = (f != null ? f.Path : "");
                             break;
                     }
@@ -293,8 +301,8 @@ namespace ConfigSACronJob
                             n.Attributes[1].Value = Configuration.Info.ServerInfo.SQLServer.AppSettingValue;
                             break;
                         case "ServicePath":
-                            SVServiceFolder[] folders = Configuration.Info.ServerInfo.SVServicePaths;
-                            SVServiceFolder f = folders.FirstOrDefault(m => m.Path.Contains(appName));
+                            SAServiceFolder[] folders = Configuration.Info.StandAloneInfo.SAServicePaths;
+                            SAServiceFolder f = folders.FirstOrDefault(m => m.Path.Contains(appName));
                             n.Attributes[1].Value = (f != null ? f.Path : "");
                             break;
                     }
@@ -358,8 +366,8 @@ namespace ConfigSACronJob
                             n.Attributes[1].Value = Configuration.Info.ServerInfo.SQLServer.AppSettingValue;
                             break;
                         case "ServicePath":
-                            SVServiceFolder[] folders = Configuration.Info.ServerInfo.SVServicePaths;
-                            SVServiceFolder f = folders.FirstOrDefault(m => m.Path.Contains(appName));
+                            SAServiceFolder[] folders = Configuration.Info.StandAloneInfo.SAServicePaths;
+                            SAServiceFolder f = folders.FirstOrDefault(m => m.Path.Contains(appName));
                             n.Attributes[1].Value = (f != null ? f.Path : "");
                             break;
                     }
@@ -421,8 +429,8 @@ namespace ConfigSACronJob
                             n.Attributes[1].Value = Configuration.Info.ServerInfo.SQLServer.AppSettingValue;
                             break;
                         case "ServicePath":
-                            SVServiceFolder[] folders = Configuration.Info.ServerInfo.SVServicePaths;
-                            SVServiceFolder f = folders.FirstOrDefault(m => m.Path.Contains(appName));
+                            SAServiceFolder[] folders = Configuration.Info.StandAloneInfo.SAServicePaths;
+                            SAServiceFolder f = folders.FirstOrDefault(m => m.Path.Contains(appName));
                             n.Attributes[1].Value = (f != null ? f.Path : "");
                             break;
                     }
@@ -499,8 +507,8 @@ namespace ConfigSACronJob
                             n.Attributes[1].Value = Configuration.Info.ServerInfo.SQLServer.AppSettingValue;
                             break;
                         case "ServicePath":
-                            SVServiceFolder[] folders = Configuration.Info.ServerInfo.SVServicePaths;
-                            SVServiceFolder f = folders.FirstOrDefault(m => m.Path.Contains(appName));
+                            SAServiceFolder[] folders = Configuration.Info.StandAloneInfo.SAServicePaths;
+                            SAServiceFolder f = folders.FirstOrDefault(m => m.Path.Contains(appName));
                             n.Attributes[1].Value = (f != null ? f.Path : "");
                             break;
                     }

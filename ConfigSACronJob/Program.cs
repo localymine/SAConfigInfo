@@ -4,6 +4,7 @@ using System.IO;
 using System.Data;
 using System.Data.SqlClient;
 using System.Xml;
+using System.Linq;
 
 namespace ConfigSACronJob
 {
@@ -226,6 +227,11 @@ namespace ConfigSACronJob
                         case "lblDataConnection":
                             n.Attributes[1].Value = Configuration.Info.ServerInfo.SQLServer.AppSettingValue;
                             break;
+                        case "ServicePath":
+                            SVServiceFolder[] folders = Configuration.Info.ServerInfo.SVServicePaths;
+                            SVServiceFolder f = folders.FirstOrDefault(m => m.Path.Contains(appName));
+                            n.Attributes[1].Value = (f != null ? f.Path : "");
+                            break;
                     }
                 }
                 doc.Save(path);
@@ -285,6 +291,11 @@ namespace ConfigSACronJob
                             break;
                         case "lblDataConnection":
                             n.Attributes[1].Value = Configuration.Info.ServerInfo.SQLServer.AppSettingValue;
+                            break;
+                        case "ServicePath":
+                            SVServiceFolder[] folders = Configuration.Info.ServerInfo.SVServicePaths;
+                            SVServiceFolder f = folders.FirstOrDefault(m => m.Path.Contains(appName));
+                            n.Attributes[1].Value = (f != null ? f.Path : "");
                             break;
                     }
                 }
@@ -346,6 +357,11 @@ namespace ConfigSACronJob
                         case "lblDataConnection":
                             n.Attributes[1].Value = Configuration.Info.ServerInfo.SQLServer.AppSettingValue;
                             break;
+                        case "ServicePath":
+                            SVServiceFolder[] folders = Configuration.Info.ServerInfo.SVServicePaths;
+                            SVServiceFolder f = folders.FirstOrDefault(m => m.Path.Contains(appName));
+                            n.Attributes[1].Value = (f != null ? f.Path : "");
+                            break;
                     }
                 }
                 doc.Save(path);
@@ -403,6 +419,11 @@ namespace ConfigSACronJob
                             break;
                         case "lblDataConnection":
                             n.Attributes[1].Value = Configuration.Info.ServerInfo.SQLServer.AppSettingValue;
+                            break;
+                        case "ServicePath":
+                            SVServiceFolder[] folders = Configuration.Info.ServerInfo.SVServicePaths;
+                            SVServiceFolder f = folders.FirstOrDefault(m => m.Path.Contains(appName));
+                            n.Attributes[1].Value = (f != null ? f.Path : "");
                             break;
                     }
                 }
@@ -476,6 +497,11 @@ namespace ConfigSACronJob
                             break;
                         case "lblDataConnection":
                             n.Attributes[1].Value = Configuration.Info.ServerInfo.SQLServer.AppSettingValue;
+                            break;
+                        case "ServicePath":
+                            SVServiceFolder[] folders = Configuration.Info.ServerInfo.SVServicePaths;
+                            SVServiceFolder f = folders.FirstOrDefault(m => m.Path.Contains(appName));
+                            n.Attributes[1].Value = (f != null ? f.Path : "");
                             break;
                     }
                 }

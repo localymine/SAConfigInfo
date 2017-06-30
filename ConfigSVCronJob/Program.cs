@@ -1,6 +1,7 @@
 ﻿using System;
 using SA_Config_Info;
 using System.IO;
+using System.Linq;
 using System.Xml;
 
 namespace ConfigSVCronJob
@@ -66,6 +67,11 @@ namespace ConfigSVCronJob
                         case "lblDataConnection":
                             n.Attributes[1].Value = Configuration.Info.ServerInfo.SQLServer.AppSettingValue;
                             break;
+                        case "ServicePath":
+                            SVServiceFolder[] folders = Configuration.Info.ServerInfo.SVServicePaths;
+                            SVServiceFolder f = folders.FirstOrDefault(m => m.Path.Contains(appName));
+                            n.Attributes[1].Value = (f != null ? f.Path : "");
+                            break;
                     }
                 }
                 doc.Save(path);
@@ -121,6 +127,11 @@ namespace ConfigSVCronJob
                         case "lblDataConnection":
                             n.Attributes[1].Value = Configuration.Info.ServerInfo.SQLServer.AppSettingValue;
                             break;
+                        case "ServicePath":
+                            SVServiceFolder[] folders = Configuration.Info.ServerInfo.SVServicePaths;
+                            SVServiceFolder f = folders.FirstOrDefault(m => m.Path.Contains(appName));
+                            n.Attributes[1].Value = (f != null ? f.Path : "");
+                            break;
                     }
                 }
                 doc.Save(path);
@@ -175,6 +186,11 @@ namespace ConfigSVCronJob
                     {
                         case "lblDataConnection":
                             n.Attributes[1].Value = Configuration.Info.ServerInfo.SQLServer.AppSettingValue;
+                            break;
+                        case "ServicePath":
+                            SVServiceFolder[] folders = Configuration.Info.ServerInfo.SVServicePaths;
+                            SVServiceFolder f = folders.FirstOrDefault(m => m.Path.Contains(appName));
+                            n.Attributes[1].Value = (f != null ? f.Path : "");
                             break;
                     }
                 }

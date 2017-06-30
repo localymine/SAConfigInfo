@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Security.AccessControl;
 using System.Security.Principal;
 using Microsoft.Win32;
+using System.Management;
 
 namespace SA_Config_Info
 {
@@ -434,6 +435,34 @@ namespace SA_Config_Info
             SecurityIdentifier everyone = new SecurityIdentifier(WellKnownSidType.WorldSid, null);
             direcSec.AddAccessRule(new FileSystemAccessRule(everyone, FileSystemRights.FullControl, InheritanceFlags.ContainerInherit | InheritanceFlags.ObjectInherit, PropagationFlags.None, AccessControlType.Allow));
             Directory.SetAccessControl(path, direcSec);
+        }
+
+        public static int ShareFolderPermission(string FolderPath, string ShareName, string Description)
+        {
+            try
+            {
+                // Calling Win32_Share class to create a shared folder
+                ManagementClass managementClass = new ManagementClass("Win32_Share");
+                // Get the parameter for the Create Method for the folder
+                ManagementBaseObject inParams = managementClass.GetMethodParameters("Create");
+                ManagementBaseObject outParams;
+                // Assigning the values to the parameters
+                inParams["Description"] = Description;
+                inParams["Name"] = ShareName;
+                inParams["Path"] = FolderPath;
+                inParams["Type"] = 0x0;
+                // Finally Invoke the Create Method to do the process
+                outParams = managementClass.InvokeMethod("Create", inParams, null);
+                // Validation done here to check sharing is done or not
+                if ((uint)(outParams.Properties["ReturnValue"].Value) != 0)
+                    // Folder might be already in share or unable to share the directory
+                    return 0;
+                return 1;
+            }
+            catch (Exception ex)
+            {
+                return 0;
+            }
         }
 
         public static string GetLastFolderName(string path)

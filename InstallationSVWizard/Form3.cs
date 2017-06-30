@@ -62,7 +62,9 @@ namespace InstallationSVWizard
                 Common.CopyAll(sourcePath, targetPath);
 
                 // share content folder
-                Common.ShareFolder(Path.Combine(targetPath, "Content"));
+                string contentPath = Path.Combine(targetPath, "Content");
+                Common.ShareFolder(contentPath);
+                Common.ShareFolderPermission(contentPath, "Content", "Content");
 
                 MessageBox.Show("Successfully Intalled GMAWEB!");
             }
@@ -105,6 +107,7 @@ namespace InstallationSVWizard
 
                 // share content folder
                 Common.ShareFolder(Path.Combine(targetPath));
+                Common.ShareFolderPermission(Path.Combine(targetPath), "GMACDN", "GMACDN");
 
                 MessageBox.Show("Successfully Intalled Basic GMA CDN!");
             }

@@ -90,10 +90,10 @@ namespace SA_Config_Info
 
         private void btnExport_Click(object sender, EventArgs e)
         {
+            TextWriter writer = new StreamWriter(FileName);
             try
             {
                 XmlSerializer serializer = new XmlSerializer(typeof(ConfigInfo));
-                TextWriter writer = new StreamWriter(FileName);
                 ConfigInfo ci = new ConfigInfo();
 
                 // create window server credential
@@ -254,13 +254,16 @@ namespace SA_Config_Info
 
                 // Serialize the Configuration Information
                 serializer.Serialize(writer, ci);
-                writer.Close();
 
                 MessageBox.Show("Export XML Done!");
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                writer.Close();
             }
         }
 

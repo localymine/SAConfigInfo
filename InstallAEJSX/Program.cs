@@ -57,9 +57,10 @@ namespace InstallAEJSX
                         Directory.CreateDirectory(wf.Path);
                     }
                     // share AE_PROCESSING folder
-                    if ((wf.Path).Contains("AE_PROCESSING"))
+                    if (Common.GetLastFolderName(wf.Path).Contains("AE_PROCESSING"))
                     {
                         Common.ShareFolder(wf.Path);
+                        Common.ShareFolderPermission(wf.Path, "AE_PROCESSING", "AE_PROCESSING");
                     }
                 }
                 Console.WriteLine("Succesfully Configurate ME Watch Folder!");

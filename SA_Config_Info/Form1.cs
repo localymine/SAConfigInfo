@@ -124,6 +124,9 @@ namespace SA_Config_Info
                 ss.UserID = txtUserID.Text;
                 ss.Password = txtPassword.Text;
                 ss.ConnectionString = "";
+                ss.ConnectionStringStandardDataLibraryEntities = "";
+                ss.ConnectionStringTemplateEntities = "";
+                ss.ConnectionStringEmailConfigEntities = "";
                 ss.AppSettingValue = "";
                 ss.SessionState = "";
 

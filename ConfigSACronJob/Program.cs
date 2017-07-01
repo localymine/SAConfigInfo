@@ -214,8 +214,10 @@ namespace ConfigSACronJob
                     switch (attr.Value)
                     {
                         case "TemplateEntities":
+                            n.Attributes[1].Value = Configuration.Info.ServerInfo.SQLServer.ConnectionStringTemplateEntities;
+                            break;
                         case "StandardDataLibraryEntities":
-                            n.Attributes[1].Value = Configuration.Info.ServerInfo.SQLServer.ConnectionString;
+                            n.Attributes[1].Value = Configuration.Info.ServerInfo.SQLServer.ConnectionStringStandardDataLibraryEntities;
                             break;
                     }
                 }
@@ -278,7 +280,11 @@ namespace ConfigSACronJob
                     switch (attr.Value)
                     {
                         case "StandardDataLibraryEntities":
+                            n.Attributes[1].Value = Configuration.Info.ServerInfo.SQLServer.ConnectionStringStandardDataLibraryEntities;
+                            break;
                         case "TemplateEntities":
+                            n.Attributes[1].Value = Configuration.Info.ServerInfo.SQLServer.ConnectionStringTemplateEntities;
+                            break;
                         case "UserEntities":
                             n.Attributes[1].Value = Configuration.Info.ServerInfo.SQLServer.ConnectionString;
                             break;
@@ -343,7 +349,11 @@ namespace ConfigSACronJob
                     switch (attr.Value)
                     {
                         case "StandardDataLibraryEntities":
+                            n.Attributes[1].Value = Configuration.Info.ServerInfo.SQLServer.ConnectionStringStandardDataLibraryEntities;
+                            break;
                         case "TemplateEntities":
+                            n.Attributes[1].Value = Configuration.Info.ServerInfo.SQLServer.ConnectionStringTemplateEntities;
+                            break;
                         case "UserEntities":
                             n.Attributes[1].Value = Configuration.Info.ServerInfo.SQLServer.ConnectionString;
                             break;
@@ -408,10 +418,16 @@ namespace ConfigSACronJob
                     switch (attr.Value)
                     {
                         case "StandardDataLibraryEntities":
+                            n.Attributes[1].Value = Configuration.Info.ServerInfo.SQLServer.ConnectionStringStandardDataLibraryEntities;
+                            break;
                         case "TemplateEntities":
+                            n.Attributes[1].Value = Configuration.Info.ServerInfo.SQLServer.ConnectionStringTemplateEntities;
+                            break;
                         case "UserEntities":
-                        case "EmailConfigEntities":
                             n.Attributes[1].Value = Configuration.Info.ServerInfo.SQLServer.ConnectionString;
+                            break;
+                        case "EmailConfigEntities":
+                            n.Attributes[1].Value = Configuration.Info.ServerInfo.SQLServer.ConnectionStringEmailConfigEntities;
                             break;
                     }
                 }
@@ -471,10 +487,16 @@ namespace ConfigSACronJob
                     switch (attr.Value)
                     {
                         case "StandardDataLibraryEntities":
+                            n.Attributes[1].Value = Configuration.Info.ServerInfo.SQLServer.ConnectionStringStandardDataLibraryEntities;
+                            break;
                         case "TemplateEntities":
+                            n.Attributes[1].Value = Configuration.Info.ServerInfo.SQLServer.ConnectionStringTemplateEntities;
+                            break;
                         case "UserEntities":
-                        case "EmailConfigEntities":
                             n.Attributes[1].Value = Configuration.Info.ServerInfo.SQLServer.ConnectionString;
+                            break;
+                        case "EmailConfigEntities":
+                            n.Attributes[1].Value = Configuration.Info.ServerInfo.SQLServer.ConnectionStringEmailConfigEntities;
                             break;
                     }
                 }

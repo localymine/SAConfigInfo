@@ -66,6 +66,63 @@ namespace SA_Config_Info
             }
         }
 
+        private string _connectionStringTemplateEntities;
+        public string ConnectionStringTemplateEntities
+        {
+            get
+            {
+                return (_connectionStringTemplateEntities != null ? _connectionStringTemplateEntities : "");
+            }
+            set
+            {
+                string connection = "metadata=res://*/Template.csdl|res://*/Template.ssdl|res://*/Template.msl;provider=System.Data.SqlClient;provider connection string=&quot;"
+                    + "data source =" + DataSource
+                    + ";initial catalog=" + Catalog
+                    + ";persist security info=True;user id=" + UserID
+                    + ";password=" + Password
+                    + ";MultipleActiveResultSets=True;App=EntityFramework&quot;";
+                _connectionStringTemplateEntities = connection;
+            }
+        }
+
+        private string _connectionStringStandardDataLibraryEntities;
+        public string ConnectionStringStandardDataLibraryEntities
+        {
+            get
+            {
+                return (_connectionStringStandardDataLibraryEntities != null ? _connectionStringStandardDataLibraryEntities : "");
+            }
+            set
+            {
+                string connection = "metadata=res://*/StandardDataLibrary.csdl|res://*/StandardDataLibrary.ssdl|res://*/StandardDataLibrary.msl;provider=System.Data.SqlClient;provider connection string=&quot;"
+                    + "data source =" + DataSource
+                    + ";initial catalog=" + Catalog
+                    + ";persist security info=True;user id=" + UserID
+                    + ";password=" + Password
+                    + ";MultipleActiveResultSets=True;App=EntityFramework&quot;";
+                _connectionStringStandardDataLibraryEntities = connection;
+            }
+        }
+
+        private string _connectionStringEmailConfigEntities;
+        public string ConnectionStringEmailConfigEntities
+        {
+            get
+            {
+                return (_connectionStringEmailConfigEntities != null ? _connectionStringEmailConfigEntities : "");
+            }
+            set
+            {
+                string connection = "metadata=res://*/EmailConfig.csdl|res://*/EmailConfig.ssdl|res://*/EmailConfig.msl;provider=System.Data.SqlClient;provider connection string=&quot;"
+                    + "data source =" + DataSource
+                    + ";initial catalog=" + Catalog
+                    + ";persist security info=True;user id=" + UserID
+                    + ";password=" + Password
+                    + ";MultipleActiveResultSets=True;App=EntityFramework&quot;";
+                _connectionStringEmailConfigEntities = connection;
+            }
+        }
+
         private string _appSettingValue;
         public string AppSettingValue
         {

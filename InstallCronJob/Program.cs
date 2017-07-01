@@ -60,13 +60,23 @@ namespace InstallCronJob
             // share TEMP_FOLDER_EXPORT
             if (AEServiceNames[0] == serviceFolderName)
             {
-                Common.ShareFolder(Path.Combine(path, "TEMP_FOLDER_EXPORT"));
-                Common.ShareFolderPermission(path, "TEMP_FOLDER_EXPORT", "TEMP_FOLDER_EXPORT");
+                string exportPath = Path.Combine(path, "TEMP_FOLDER_EXPORT");
+                if (!Directory.Exists(exportPath))
+                {
+                    Directory.CreateDirectory(exportPath);
+                }
+                Common.ShareFolder(exportPath);
+                Common.ShareFolderPermission(exportPath, "TEMP_FOLDER_EXPORT", "TEMP_FOLDER_EXPORT");
             }
             else if (AEServiceNames[1] == serviceFolderName)
             {
-                Common.ShareFolder(Path.Combine(path, "TEMP_FOLDER_IMPORT"));
-                Common.ShareFolderPermission(path, "TEMP_FOLDER_IMPORT", "TEMP_FOLDER_IMPORT");
+                string importPath = Path.Combine(path, "TEMP_FOLDER_IMPORT");
+                if (!Directory.Exists(importPath))
+                {
+                    Directory.CreateDirectory(importPath);
+                }
+                Common.ShareFolder(importPath);
+                Common.ShareFolderPermission(importPath, "TEMP_FOLDER_IMPORT", "TEMP_FOLDER_IMPORT");
             }
         }
 
@@ -132,9 +142,6 @@ namespace InstallCronJob
                     }
                 }
             }
-                
-
-            
         }
     }
 }

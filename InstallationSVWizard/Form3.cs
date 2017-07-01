@@ -1,6 +1,7 @@
 ﻿using SA_Config_Info;
 using System;
 using System.IO;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
 
@@ -48,72 +49,117 @@ namespace InstallationSVWizard
             }
         }
 
-        private void btnInstallWeb_Click(object sender, EventArgs e)
+        private void InstallWeb(IProgress<int> progress)
+        {
+            string sourcePath = Path.Combine(Directory.GetCurrentDirectory(), "SourceCode", "GMAWEB");
+            string targetPath = Path.Combine(txtGMAWeb.Text, "GMAWEB");
+
+            // Configure Connection DB of WebConfig, with data from xml
+            UpdateWebConfig(sourcePath, targetPath);
+
+            // copy source code
+            Common.CopyAll(sourcePath, targetPath, progress);
+
+            // share content folder
+            string contentPath = Path.Combine(targetPath, "Content");
+            Common.ShareFolder(contentPath);
+            Common.ShareFolderPermission(contentPath, "Content", "Content");
+        }
+
+        private async void btnInstallWeb_Click(object sender, EventArgs e)
         {
             try
             {
-                string sourcePath = Path.Combine(Directory.GetCurrentDirectory(), "SourceCode", "GMAWEB");
-                string targetPath = Path.Combine(txtGMAWeb.Text, "GMAWEB");
+                progressBarWEB.Maximum = 100;
+                progressBarWEB.Step = 1;
 
-                // Configure Connection DB of WebConfig, with data from xml
-                UpdateWebConfig(sourcePath, targetPath);
+                var progress = new Progress<int>(v =>
+                {
+                    progressBarWEB.Value = v;
+                });
 
-                // copy source code
-                Common.CopyAll(sourcePath, targetPath);
-
-                // share content folder
-                string contentPath = Path.Combine(targetPath, "Content");
-                Common.ShareFolder(contentPath);
-                Common.ShareFolderPermission(contentPath, "Content", "Content");
-
+                await Task.Run(() => InstallWeb(progress));
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
                 MessageBox.Show("Successfully Intalled GMAWEB!");
             }
+        }
+
+        private void InstallREST(IProgress<int> progress)
+        {
+            string sourcePath = Path.Combine(Directory.GetCurrentDirectory(), "SourceCode", "GMAREST");
+            string targetPath = Path.Combine(txtGMAWeb.Text, "GMAREST");
+
+            // Configure Connection DB of WebConfig, with data from xml
+            UpdateWebConfig(sourcePath, targetPath);
+
+            // copy source code
+            Common.CopyAll(sourcePath, targetPath, progress);
+        }
+
+        private async void btnInstallRest_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                progressBarREST.Maximum = 100;
+                progressBarREST.Step = 1;
+
+                var progress = new Progress<int>(v =>
+                {
+                    progressBarREST.Value = v;
+                });
+
+                await Task.Run(() => InstallREST(progress));
+            }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
-        }
-
-        private void btnInstallRest_Click(object sender, EventArgs e)
-        {
-            try
+            finally
             {
-                string sourcePath = Path.Combine(Directory.GetCurrentDirectory(), "SourceCode", "GMAREST");
-                string targetPath = Path.Combine(txtGMAWeb.Text, "GMAREST");
-
-                // Configure Connection DB of WebConfig, with data from xml
-                UpdateWebConfig(sourcePath, targetPath);
-
-                // copy source code
-                Common.CopyAll(sourcePath, targetPath);
-
                 MessageBox.Show("Successfully Intalled GMA REST API!");
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
         }
 
-        private void btnInstallCdn_Click(object sender, EventArgs e)
+        private void InstallCDN(IProgress<int> progress)
+        {
+            string sourcePath = Path.Combine(Directory.GetCurrentDirectory(), "SourceCode", "GMACDN");
+            string targetPath = Path.Combine(txtGMAWeb.Text, "GMACDN");
+
+            // copy source code
+            Common.CopyAll(sourcePath, targetPath, progress);
+
+            // share content folder
+            Common.ShareFolder(Path.Combine(targetPath));
+            Common.ShareFolderPermission(Path.Combine(targetPath), "GMACDN", "GMACDN");
+        }
+
+        private async void btnInstallCdn_Click(object sender, EventArgs e)
         {
             try
             {
-                string sourcePath = Path.Combine(Directory.GetCurrentDirectory(), "SourceCode", "GMACDN");
-                string targetPath = Path.Combine(txtGMAWeb.Text, "GMACDN");
+                progressBarCDN.Maximum = 100;
+                progressBarCDN.Step = 1;
 
-                // copy source code
-                Common.CopyAll(sourcePath, targetPath);
+                var progress = new Progress<int>(v =>
+                {
+                    progressBarCDN.Value = v;
+                });
 
-                // share content folder
-                Common.ShareFolder(Path.Combine(targetPath));
-                Common.ShareFolderPermission(Path.Combine(targetPath), "GMACDN", "GMACDN");
-
-                MessageBox.Show("Successfully Intalled Basic GMA CDN!");
+                await Task.Run(() => InstallCDN(progress));
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                MessageBox.Show("Successfully Intalled Basic GMA CDN!");
             }
         }
 

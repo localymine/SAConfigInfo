@@ -9,6 +9,7 @@ using System.Security.AccessControl;
 using System.Security.Principal;
 using Microsoft.Win32;
 using System.Management;
+using System.Threading;
 
 namespace SA_Config_Info
 {
@@ -521,9 +522,9 @@ namespace SA_Config_Info
 
     public class Common
     {
-        public static void CopyAll(string SourcePath, string DestinationPath)
+        public static void CopyAll(string SourcePath, string DestinationPath, IProgress<int> progress = null)
         {
-
+            Object countLock = new Object();
             string[] directories = System.IO.Directory.GetDirectories(SourcePath, "*.*", SearchOption.AllDirectories);
 
             if (!Directory.Exists(DestinationPath))
@@ -532,6 +533,10 @@ namespace SA_Config_Info
             Parallel.ForEach(directories, dirPath =>
             {
                 Directory.CreateDirectory(dirPath.Replace(SourcePath, DestinationPath));
+                if (progress != null)
+                {
+                    lock (countLock) { UpdateProgressBar(progress, directories.Count()); }
+                }
             });
 
             string[] files = System.IO.Directory.GetFiles(SourcePath, "*.*", SearchOption.AllDirectories);
@@ -539,7 +544,23 @@ namespace SA_Config_Info
             Parallel.ForEach(files, newPath =>
             {
                 File.Copy(newPath, newPath.Replace(SourcePath, DestinationPath), true);
+                if (progress != null)
+                {
+                    lock (countLock) { UpdateProgressBar(progress, files.Count()); }
+                }
             });
+        }
+
+        private static void UpdateProgressBar(IProgress<int> progress, int count)
+        {
+            for(int j = 0; j < count; j++)
+            {
+                if (progress != null)
+                {
+                    progress.Report((j + 1) * 100 / count);
+                }
+            }
+            
         }
 
         public static void ShareFolder(string path)

@@ -48,6 +48,9 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.progressBarWEB = new System.Windows.Forms.ProgressBar();
+            this.progressBarREST = new System.Windows.Forms.ProgressBar();
+            this.progressBarCDN = new System.Windows.Forms.ProgressBar();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -228,12 +231,36 @@
             this.label7.TabIndex = 12;
             this.label7.Text = "Please add more configuration from IIS";
             // 
+            // progressBarWEB
+            // 
+            this.progressBarWEB.Location = new System.Drawing.Point(167, 99);
+            this.progressBarWEB.Name = "progressBarWEB";
+            this.progressBarWEB.Size = new System.Drawing.Size(277, 11);
+            this.progressBarWEB.TabIndex = 13;
+            // 
+            // progressBarREST
+            // 
+            this.progressBarREST.Location = new System.Drawing.Point(167, 202);
+            this.progressBarREST.Name = "progressBarREST";
+            this.progressBarREST.Size = new System.Drawing.Size(277, 11);
+            this.progressBarREST.TabIndex = 14;
+            // 
+            // progressBarCDN
+            // 
+            this.progressBarCDN.Location = new System.Drawing.Point(167, 310);
+            this.progressBarCDN.Name = "progressBarCDN";
+            this.progressBarCDN.Size = new System.Drawing.Size(277, 11);
+            this.progressBarCDN.TabIndex = 15;
+            // 
             // frmSVSource
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(462, 372);
+            this.Controls.Add(this.progressBarCDN);
+            this.Controls.Add(this.progressBarREST);
+            this.Controls.Add(this.progressBarWEB);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -286,5 +313,8 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ProgressBar progressBarWEB;
+        private System.Windows.Forms.ProgressBar progressBarREST;
+        private System.Windows.Forms.ProgressBar progressBarCDN;
     }
 }

@@ -127,6 +127,9 @@ namespace SA_Config_Info
                 ss.ConnectionStringStandardDataLibraryEntities = "";
                 ss.ConnectionStringTemplateEntities = "";
                 ss.ConnectionStringEmailConfigEntities = "";
+                ss.ConnectionStringResolution = "";
+                ss.ConnectionStringGMA_CategoryEntities = "";
+                ss.ConnectionStringEmailTemplateEntities = "";
                 ss.AppSettingValue = "";
                 ss.SessionState = "";
 

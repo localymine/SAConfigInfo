@@ -129,7 +129,30 @@ namespace InstallationSVWizard
 
                 foreach (XElement xe in xmlFile.Root.Element("connectionStrings").Elements("add"))
                 {
-                    xe.Attribute("connectionString").Value = Configuration.Info.ServerInfo.SQLServer.ConnectionString;
+                    switch (xe.Attribute("name").Value)
+                    {
+                        case "StandardDataLibraryEntities":
+                            xe.Attribute("connectionString").Value = Configuration.Info.ServerInfo.SQLServer.ConnectionStringStandardDataLibraryEntities;
+                            break;
+                        case "TemplateEntities":
+                            xe.Attribute("connectionString").Value = Configuration.Info.ServerInfo.SQLServer.ConnectionStringTemplateEntities;
+                            break;
+                        case "UserEntities":
+                            xe.Attribute("connectionString").Value = Configuration.Info.ServerInfo.SQLServer.ConnectionString;
+                            break;
+                        case "EmailConfigEntities":
+                            xe.Attribute("connectionString").Value = Configuration.Info.ServerInfo.SQLServer.ConnectionStringEmailConfigEntities;
+                            break;
+                        case "Resolution":
+                            xe.Attribute("connectionString").Value = Configuration.Info.ServerInfo.SQLServer.ConnectionStringResolution;
+                            break;
+                        case "GMA_CategoryEntities":
+                            xe.Attribute("connectionString").Value = Configuration.Info.ServerInfo.SQLServer.ConnectionStringGMA_CategoryEntities;
+                            break;
+                        case "EmailTemplateEntities":
+                            xe.Attribute("connectionString").Value = Configuration.Info.ServerInfo.SQLServer.ConnectionStringEmailTemplateEntities;
+                            break;
+                    }
                 }
 
                 foreach (XElement xe in xmlFile.Root.Element("appSettings").Elements("add"))

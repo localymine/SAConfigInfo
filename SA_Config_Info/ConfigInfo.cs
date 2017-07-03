@@ -9,7 +9,8 @@ using System.Security.AccessControl;
 using System.Security.Principal;
 using Microsoft.Win32;
 using System.Management;
-using System.Threading;
+using System.Net;
+using System.Text;
 
 namespace SA_Config_Info
 {
@@ -63,7 +64,7 @@ namespace SA_Config_Info
                     + ";persist security info=True;user id=" + UserID
                     + ";password=" + Password
                     + ";MultipleActiveResultSets=True;App=EntityFramework&quot;";
-                _connectionString = connection;
+                _connectionString = connection.Replace("\"", "&quot;");
             }
         }
 
@@ -639,6 +640,24 @@ namespace SA_Config_Info
                 }
             }
             return lstPaths;
+        }
+    }
+
+    public class XmlRawTextWriter : System.Xml.XmlTextWriter
+    {
+        public XmlRawTextWriter(Stream w, Encoding encoding)
+            : base(w, encoding)
+        {
+        }
+
+        public XmlRawTextWriter(String filename, Encoding encoding)
+            : base(filename, encoding)
+        {
+        }
+
+        public override void WriteString(string text)
+        {
+            base.WriteRaw(text);
         }
     }
 }

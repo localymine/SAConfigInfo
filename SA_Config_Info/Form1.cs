@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using System.Xml.Serialization;
 using System.Data.SqlClient;
 using System.Collections.Generic;
+using System.Text;
+using System.Xml;
 
 namespace SA_Config_Info
 {
@@ -90,7 +92,7 @@ namespace SA_Config_Info
 
         private void btnExport_Click(object sender, EventArgs e)
         {
-            TextWriter writer = new StreamWriter(FileName);
+            XmlRawTextWriter writer = new XmlRawTextWriter(FileName, Encoding.UTF8);
             try
             {
                 XmlSerializer serializer = new XmlSerializer(typeof(ConfigInfo));
@@ -258,6 +260,9 @@ namespace SA_Config_Info
                 // set StandAloneInfo and sa to the same values
                 ci.StandAloneInfo = sa;
 
+                writer.Formatting = Formatting.Indented;
+                writer.Indentation = 1;
+                writer.IndentChar = '\t';
                 // Serialize the Configuration Information
                 serializer.Serialize(writer, ci);
 

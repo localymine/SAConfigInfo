@@ -1,8 +1,10 @@
 ﻿using SA_Config_Info;
 using System;
 using System.IO;
+using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 using System.Xml.Linq;
 
 namespace InstallationSVWizard
@@ -164,13 +166,11 @@ namespace InstallationSVWizard
         }
 
         private void UpdateWebConfig(string sourcePath, string targetPath)
-        {
+        {   
             try
             {
-                Configuration.GetConfigInfo(FileName);
-
                 string webConfigFile = Path.Combine(sourcePath, "Web.config");
-
+                Configuration.GetConfigInfo(FileName);
                 XDocument xmlFile = XDocument.Load(webConfigFile);
 
                 foreach (XElement xe in xmlFile.Root.Element("connectionStrings").Elements("add"))
@@ -215,6 +215,9 @@ namespace InstallationSVWizard
                 }
 
                 xmlFile.Save(webConfigFile);
+
+                //
+                Common.HotFixSaveRawXml(xmlFile, webConfigFile);
             }
             catch (Exception ex)
             {

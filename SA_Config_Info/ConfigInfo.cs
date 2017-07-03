@@ -11,6 +11,7 @@ using Microsoft.Win32;
 using System.Management;
 using System.Net;
 using System.Text;
+using System.Xml.Linq;
 
 namespace SA_Config_Info
 {
@@ -641,9 +642,39 @@ namespace SA_Config_Info
             }
             return lstPaths;
         }
+
+        public static void HotFixSaveRawXml(XmlDocument XmlDoc, string XmlFilePath)
+        {
+            try
+            {
+                XmlRawTextWriter xmlWriter = new XmlRawTextWriter(XmlFilePath, Encoding.UTF8);
+                xmlWriter.Formatting = Formatting.Indented;
+                xmlWriter.Indentation = 1;
+                XmlDoc.Save(xmlWriter);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
+        public static void HotFixSaveRawXml(XDocument XmlDoc, string XmlFilePath)
+        {
+            try
+            {
+                XmlRawTextWriter xmlWriter = new XmlRawTextWriter(XmlFilePath, Encoding.UTF8);
+                xmlWriter.Formatting = Formatting.Indented;
+                xmlWriter.Indentation = 1;
+                XmlDoc.Save(xmlWriter);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
     }
 
-    public class XmlRawTextWriter : System.Xml.XmlTextWriter
+    public class XmlRawTextWriter : XmlTextWriter
     {
         public XmlRawTextWriter(Stream w, Encoding encoding)
             : base(w, encoding)

@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Xml;
 using System.Linq;
+using System.Text;
 
 namespace ConfigSACronJob
 {
@@ -55,7 +56,6 @@ namespace ConfigSACronJob
                         {
                             xml.SaveAEExportService(aeID);
                             xml.SaveAEService(aeID);
-                            xml.SaveCheckNotRespondingService(aeID, 0);
                         }
                         db.SaveME(Configuration.Info.StandAloneInfo.IPAddress, ref meID);
                         if(meID <= 0)
@@ -66,7 +66,6 @@ namespace ConfigSACronJob
                         {
                             xml.SaveMEService(meID);
                             xml.SaveMECheckRender(meID);
-                            xml.SaveCheckNotRespondingService(0, meID);
                         }
                         if (aeID > 0 && meID > 0)
                         {
@@ -245,6 +244,9 @@ namespace ConfigSACronJob
                     }
                 }
                 doc.Save(path);
+                //
+                Common.HotFixSaveRawXml(doc, path);
+                //
                 Console.WriteLine("Update {0} xml file success", appName);
             }
             catch(Exception ex)
@@ -314,6 +316,9 @@ namespace ConfigSACronJob
                     }
                 }
                 doc.Save(path);
+                //
+                Common.HotFixSaveRawXml(doc, path);
+                //
                 Console.WriteLine("Update {0} xml file success", appName);
             }
             catch (Exception ex)
@@ -383,6 +388,9 @@ namespace ConfigSACronJob
                     }
                 }
                 doc.Save(path);
+                //
+                Common.HotFixSaveRawXml(doc, path);
+                //
                 Console.WriteLine("Update {0} xml file success", appName);
             }
             catch (Exception ex)
@@ -452,6 +460,9 @@ namespace ConfigSACronJob
                     }
                 }
                 doc.Save(path);
+                //
+                Common.HotFixSaveRawXml(doc, path);
+                //
                 Console.WriteLine("Update {0} xml file success", appName);
             }
             catch (Exception ex)
@@ -536,6 +547,9 @@ namespace ConfigSACronJob
                     }
                 }
                 doc.Save(path);
+                //
+                Common.HotFixSaveRawXml(doc, path);
+                //
                 Console.WriteLine("Update {0} xml file success", appName);
             }
             catch (Exception ex)

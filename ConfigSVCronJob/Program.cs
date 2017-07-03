@@ -79,6 +79,9 @@ namespace ConfigSVCronJob
                     }
                 }
                 doc.Save(path);
+                //
+                Common.HotFixSaveRawXml(doc, path);
+                //
                 Console.WriteLine("Update {0} xml file success", appName);
             }
             catch (Exception ex)
@@ -145,6 +148,9 @@ namespace ConfigSVCronJob
                     }
                 }
                 doc.Save(path);
+                //
+                Common.HotFixSaveRawXml(doc, path);
+                //
                 Console.WriteLine("Update {0} xml file success", appName);
             }
             catch (Exception ex)
@@ -211,6 +217,9 @@ namespace ConfigSVCronJob
                     }
                 }
                 doc.Save(path);
+                //
+                Common.HotFixSaveRawXml(doc, path);
+                //
                 Console.WriteLine("Update {0} xml file success", appName);
             }
             catch (Exception ex)

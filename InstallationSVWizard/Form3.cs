@@ -214,8 +214,7 @@ namespace InstallationSVWizard
                     xe.Attribute("sqlConnectionString").Value = Configuration.Info.ServerInfo.SQLServer.SessionState;
                 }
 
-                xmlFile.Save(webConfigFile);
-
+                // xmlFile.Save(webConfigFile,SaveOptions.DisableFormatting);
                 //
                 Common.HotFixSaveRawXml(xmlFile, webConfigFile);
             }

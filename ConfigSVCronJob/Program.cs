@@ -78,7 +78,7 @@ namespace ConfigSVCronJob
                             break;
                     }
                 }
-                doc.Save(path);
+                //doc.Save(path);
                 //
                 Common.HotFixSaveRawXml(doc, path);
                 //
@@ -147,7 +147,7 @@ namespace ConfigSVCronJob
                             break;
                     }
                 }
-                doc.Save(path);
+                //doc.Save(path);
                 //
                 Common.HotFixSaveRawXml(doc, path);
                 //
@@ -216,7 +216,7 @@ namespace ConfigSVCronJob
                             break;
                     }
                 }
-                doc.Save(path);
+                //doc.Save(path);
                 //
                 Common.HotFixSaveRawXml(doc, path);
                 //

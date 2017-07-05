@@ -95,7 +95,7 @@ namespace InstallationSVWizard
         private void InstallREST(IProgress<int> progress)
         {
             string sourcePath = Path.Combine(Directory.GetCurrentDirectory(), "SourceCode", "GMAREST");
-            string targetPath = Path.Combine(txtGMAWeb.Text, "GMAREST");
+            string targetPath = Path.Combine(txtGMARest.Text, "GMAREST");
 
             // Configure Connection DB of WebConfig, with data from xml
             UpdateWebConfig(sourcePath, targetPath);
@@ -131,7 +131,7 @@ namespace InstallationSVWizard
         private void InstallCDN(IProgress<int> progress)
         {
             string sourcePath = Path.Combine(Directory.GetCurrentDirectory(), "SourceCode", "GMACDN");
-            string targetPath = Path.Combine(txtGMAWeb.Text, "GMACDN");
+            string targetPath = Path.Combine(txtGMACdn.Text, "GMACDN");
 
             // copy source code
             Common.CopyAll(sourcePath, targetPath, progress);

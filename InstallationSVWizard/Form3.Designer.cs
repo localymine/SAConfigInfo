@@ -173,7 +173,7 @@
             this.txtGMACdn.Name = "txtGMACdn";
             this.txtGMACdn.Size = new System.Drawing.Size(284, 20);
             this.txtGMACdn.TabIndex = 7;
-            this.txtGMACdn.Text = "C:\\inetpub\\wwwroot";
+            this.txtGMACdn.Text = "D:\\";
             // 
             // btnCdn
             // 

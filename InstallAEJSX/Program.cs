@@ -28,15 +28,13 @@ namespace InstallAEJSX
                         string result = "";
                         string pattern = @"var.*\btxt\b";
                         string path = "";
-                        Regex rgxMatch1 = new Regex(@"GMA_SA_AE_ExportTemplateService");
-                        Regex rgxMatch2 = new Regex(@"GMA_SA_AfterEffectService");
                         Regex rgx = new Regex(pattern);
-                        if (rgxMatch1.IsMatch(text))
+                        if (srcPath.Contains("1_AE_ProjectExport"))
                         {
                             path = "var textFilePath = \"" + Configuration.Info.StandAloneInfo.SAMachine.AEExportProjectPath;
                             result = rgx.Replace(text, path);
                         }
-                        else if(rgxMatch2.IsMatch(text))
+                        else
                         {
                             path = "var textFilePath = \"" + Configuration.Info.StandAloneInfo.SAMachine.AEProjectPath;
                             result = rgx.Replace(text, path);

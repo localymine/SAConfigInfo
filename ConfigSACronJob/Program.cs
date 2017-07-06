@@ -366,6 +366,8 @@ namespace ConfigSACronJob
                 }
                 //Appsetting
                 XmlNodeList nodeAppSetting = doc.SelectNodes("/configuration/appSettings/add");
+                SAServiceFolder[] folders = Configuration.Info.StandAloneInfo.SAServicePaths;
+                SAServiceFolder f;
                 foreach (XmlNode n in nodeAppSetting)
                 {
                     var attr = n.Attributes[0];
@@ -381,8 +383,11 @@ namespace ConfigSACronJob
                             n.Attributes[1].Value = Configuration.Info.ServerInfo.SQLServer.AppSettingValue;
                             break;
                         case "ServicePath":
-                            SAServiceFolder[] folders = Configuration.Info.StandAloneInfo.SAServicePaths;
-                            SAServiceFolder f = folders.FirstOrDefault(m => m.Path.Contains(appName));
+                            f = folders.FirstOrDefault(m => m.Path.Contains(appName));
+                            n.Attributes[1].Value = (f != null ? f.Path : "");
+                            break;
+                        case "ServicePath_Import":
+                            f = folders.FirstOrDefault(m => m.Path.Contains("GMA_SA_AfterEffectService"));
                             n.Attributes[1].Value = (f != null ? f.Path : "");
                             break;
                     }

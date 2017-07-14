@@ -546,6 +546,7 @@ namespace SA_Config_Info
             Parallel.ForEach(files, newPath =>
             {
                 File.Copy(newPath, newPath.Replace(SourcePath, DestinationPath), true);
+                //
                 if (progress != null)
                 {
                     lock (countLock) { UpdateProgressBar(progress, files.Count()); }

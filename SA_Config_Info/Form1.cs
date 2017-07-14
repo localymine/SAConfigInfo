@@ -62,31 +62,39 @@ namespace SA_Config_Info
 
         private void btnImport_Click(object sender, EventArgs e)
         {
-            Configuration.GetConfigInfo(FileName);
-            if (Configuration.Info != null)
+            try
             {
-                ConfigInfo ci = Configuration.Info;
-                txtSCIPAddress.Text = ci.ServerInfo.IPAddress;
-                txtSCUserName.Text = ci.ServerInfo.UserName;
-                txtSCPassword.Text = ci.ServerInfo.Password;
-                txtSVServicePath.Text = ci.ServerInfo.ServicePath;
-                txtDataSource.Text = ci.ServerInfo.SQLServer.DataSource;
-                txtCatalog.Text = ci.ServerInfo.SQLServer.Catalog;
-                txtUserID.Text = ci.ServerInfo.SQLServer.UserID;
-                txtPassword.Text = ci.ServerInfo.SQLServer.Password;
-                txtSAIPAddress.Text = ci.StandAloneInfo.IPAddress;
-                txtSAUserName.Text = ci.StandAloneInfo.UserName;
-                txtSAPassword.Text = ci.StandAloneInfo.Password;
-                txtSAServicePath.Text = ci.StandAloneInfo.ServicePath;
-                txtWatchFolderRoot.Text = ci.StandAloneInfo.WatchFolderRoot;
+                Configuration.GetConfigInfo(FileName);
+                if (Configuration.Info != null)
+                {
+                    ConfigInfo ci = Configuration.Info;
+                    txtSCIPAddress.Text = ci.ServerInfo.IPAddress;
+                    txtSCUserName.Text = ci.ServerInfo.UserName;
+                    txtSCPassword.Text = ci.ServerInfo.Password;
+                    txtSVServicePath.Text = ci.ServerInfo.ServicePath;
+                    txtDataSource.Text = ci.ServerInfo.SQLServer.DataSource;
+                    txtCatalog.Text = ci.ServerInfo.SQLServer.Catalog;
+                    txtUserID.Text = ci.ServerInfo.SQLServer.UserID;
+                    txtPassword.Text = ci.ServerInfo.SQLServer.Password;
+                    txtSAIPAddress.Text = ci.StandAloneInfo.IPAddress;
+                    txtSAUserName.Text = ci.StandAloneInfo.UserName;
+                    txtSAPassword.Text = ci.StandAloneInfo.Password;
+                    txtSAServicePath.Text = ci.StandAloneInfo.ServicePath;
+                    txtWatchFolderRoot.Text = ci.StandAloneInfo.WatchFolderRoot;
 
-                SARadioTypeReflect(ci.StandAloneInfo.SAMachine);
-                SACheckEncoderReflect(ci.StandAloneInfo.SAMachine);
+                    SARadioTypeReflect(ci.StandAloneInfo.SAMachine);
+                    SACheckEncoderReflect(ci.StandAloneInfo.SAMachine);
 
-                txtAEfqdn.Text = ci.StandAloneInfo.SAMachine.AEFQDN;
-                txtMEfqdn.Text = ci.StandAloneInfo.SAMachine.MEFQDN;
+                    txtAEfqdn.Text = ci.StandAloneInfo.SAMachine.AEFQDN;
+                    txtMEfqdn.Text = ci.StandAloneInfo.SAMachine.MEFQDN;
 
-                SARadioAdobeVersionReflect(ci.StandAloneInfo.SAMachine);
+                    SARadioAdobeVersionReflect(ci.StandAloneInfo.SAMachine);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Import Fail!\nSomething Wrong with your XML file.");
+                Console.WriteLine(ex.Message);
             }
         }
 
@@ -270,6 +278,7 @@ namespace SA_Config_Info
             }
             catch (Exception ex)
             {
+                MessageBox.Show("Export Fail!");
                 Console.WriteLine(ex.Message);
             }
             finally

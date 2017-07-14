@@ -51,8 +51,6 @@
             this.progressBarWEB = new System.Windows.Forms.ProgressBar();
             this.progressBarREST = new System.Windows.Forms.ProgressBar();
             this.progressBarCDN = new System.Windows.Forms.ProgressBar();
-            this.checkConfigWeb = new System.Windows.Forms.CheckBox();
-            this.checkConfigRest = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -235,48 +233,24 @@
             // 
             // progressBarWEB
             // 
-            this.progressBarWEB.Location = new System.Drawing.Point(275, 99);
+            this.progressBarWEB.Location = new System.Drawing.Point(85, 87);
             this.progressBarWEB.Name = "progressBarWEB";
-            this.progressBarWEB.Size = new System.Drawing.Size(169, 11);
+            this.progressBarWEB.Size = new System.Drawing.Size(284, 3);
             this.progressBarWEB.TabIndex = 13;
             // 
             // progressBarREST
             // 
-            this.progressBarREST.Location = new System.Drawing.Point(275, 202);
+            this.progressBarREST.Location = new System.Drawing.Point(85, 190);
             this.progressBarREST.Name = "progressBarREST";
-            this.progressBarREST.Size = new System.Drawing.Size(169, 11);
+            this.progressBarREST.Size = new System.Drawing.Size(284, 3);
             this.progressBarREST.TabIndex = 14;
             // 
             // progressBarCDN
             // 
-            this.progressBarCDN.Location = new System.Drawing.Point(275, 310);
+            this.progressBarCDN.Location = new System.Drawing.Point(85, 298);
             this.progressBarCDN.Name = "progressBarCDN";
-            this.progressBarCDN.Size = new System.Drawing.Size(169, 11);
+            this.progressBarCDN.Size = new System.Drawing.Size(284, 3);
             this.progressBarCDN.TabIndex = 15;
-            // 
-            // checkConfigWeb
-            // 
-            this.checkConfigWeb.AutoSize = true;
-            this.checkConfigWeb.Checked = true;
-            this.checkConfigWeb.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkConfigWeb.Location = new System.Drawing.Point(167, 96);
-            this.checkConfigWeb.Name = "checkConfigWeb";
-            this.checkConfigWeb.Size = new System.Drawing.Size(97, 17);
-            this.checkConfigWeb.TabIndex = 16;
-            this.checkConfigWeb.Text = "Exclude Config";
-            this.checkConfigWeb.UseVisualStyleBackColor = true;
-            // 
-            // checkConfigRest
-            // 
-            this.checkConfigRest.AutoSize = true;
-            this.checkConfigRest.Checked = true;
-            this.checkConfigRest.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkConfigRest.Location = new System.Drawing.Point(167, 201);
-            this.checkConfigRest.Name = "checkConfigRest";
-            this.checkConfigRest.Size = new System.Drawing.Size(97, 17);
-            this.checkConfigRest.TabIndex = 17;
-            this.checkConfigRest.Text = "Exclude Config";
-            this.checkConfigRest.UseVisualStyleBackColor = true;
             // 
             // frmSVSource
             // 
@@ -284,8 +258,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(462, 372);
-            this.Controls.Add(this.checkConfigRest);
-            this.Controls.Add(this.checkConfigWeb);
             this.Controls.Add(this.progressBarCDN);
             this.Controls.Add(this.progressBarREST);
             this.Controls.Add(this.progressBarWEB);
@@ -344,7 +316,5 @@
         private System.Windows.Forms.ProgressBar progressBarWEB;
         private System.Windows.Forms.ProgressBar progressBarREST;
         private System.Windows.Forms.ProgressBar progressBarCDN;
-        private System.Windows.Forms.CheckBox checkConfigWeb;
-        private System.Windows.Forms.CheckBox checkConfigRest;
     }
 }

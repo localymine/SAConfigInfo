@@ -68,6 +68,7 @@ namespace InstallCronJob
                 Common.ShareFolder(exportPath);
                 Common.ShareFolderPermission(exportPath, "TEMP_FOLDER_EXPORT", "TEMP_FOLDER_EXPORT");
             }
+            // share TEMP_FOLDER_IMPORT
             else if (AEServiceNames[1] == serviceFolderName)
             {
                 string importPath = Path.Combine(path, "TEMP_FOLDER_IMPORT");

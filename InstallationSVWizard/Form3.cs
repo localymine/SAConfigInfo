@@ -57,10 +57,18 @@ namespace InstallationSVWizard
             string targetPath = Path.Combine(txtGMAWeb.Text, "GMAWEB");
 
             // Configure Connection DB of WebConfig, with data from xml
-            UpdateWebConfig(sourcePath, targetPath);
-
-            // copy source code
-            Common.CopyAll(sourcePath, targetPath, progress);
+            if (checkConfigWeb.Checked)
+            {
+                UpdateWebConfig(sourcePath, targetPath);
+                // copy source code
+                string[] excludeFiles = new string[] { "Web.config" };
+                Common.CopyAll(sourcePath, targetPath, progress, excludeFiles);
+            }
+            else
+            {
+                // copy source code
+                Common.CopyAll(sourcePath, targetPath, progress);
+            }
 
             // share content folder
             string contentPath = Path.Combine(targetPath, "Content");
@@ -98,10 +106,18 @@ namespace InstallationSVWizard
             string targetPath = Path.Combine(txtGMARest.Text, "GMAREST");
 
             // Configure Connection DB of WebConfig, with data from xml
-            UpdateWebConfig(sourcePath, targetPath);
-
-            // copy source code
-            Common.CopyAll(sourcePath, targetPath, progress);
+            if (checkConfigRest.Checked)
+            {
+                UpdateWebConfig(sourcePath, targetPath);
+                // copy source code
+                string[] excludeFiles = new string[] { "Web.config" };
+                Common.CopyAll(sourcePath, targetPath, progress, excludeFiles);
+            }
+            else
+            {
+                // copy source code
+                Common.CopyAll(sourcePath, targetPath, progress);
+            }
         }
 
         private async void btnInstallRest_Click(object sender, EventArgs e)

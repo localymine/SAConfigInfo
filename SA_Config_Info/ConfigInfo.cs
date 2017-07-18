@@ -12,6 +12,7 @@ using System.Management;
 using System.Net;
 using System.Text;
 using System.Xml.Linq;
+using System.Diagnostics;
 
 namespace SA_Config_Info
 {
@@ -690,6 +691,22 @@ namespace SA_Config_Info
         public override void WriteString(string text)
         {
             base.WriteRaw(text);
+        }
+    }
+
+    public class AppEventLog
+    {
+        public static void SALog(string message = "")
+        {
+            string sSource = System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName;
+            string sLog = System.Diagnostics.Process.GetCurrentProcess().ProcessName;
+            string sEvent = message;
+
+            if (!EventLog.SourceExists(sSource))
+                EventLog.CreateEventSource(sSource, sLog);
+
+            EventLog.WriteEntry(sSource, sEvent);
+            EventLog.WriteEntry(sSource, sEvent, EventLogEntryType.Warning, 234);
         }
     }
 }

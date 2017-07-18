@@ -94,6 +94,7 @@ namespace SA_Config_Info
             catch (Exception ex)
             {
                 MessageBox.Show("Import Fail!\nSomething Wrong with your XML file.");
+                AppEventLog.SALog(ex.Message);
                 Console.WriteLine(ex.Message);
             }
         }
@@ -279,6 +280,7 @@ namespace SA_Config_Info
             catch (Exception ex)
             {
                 MessageBox.Show("Export Fail!");
+                AppEventLog.SALog(ex.Message);
                 Console.WriteLine(ex.Message);
             }
             finally
